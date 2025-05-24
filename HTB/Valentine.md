@@ -56,7 +56,8 @@ http://10.10.10.79/dev
 http://10.10.10.79/dev/hype_key
 - Encontramos `hype_key`:
   ```bash
-  xxd -r -p key.txt > id_rsa && chmod 600 id_rsa
+xxd -r -p key.txt > id_rsa
+chmod 600 id_rsa # y le di este permiso para poder ejecutarlo con el ssh
   ```
   ![[Valentine8.png]]
   ![[Valentine9.png]]
