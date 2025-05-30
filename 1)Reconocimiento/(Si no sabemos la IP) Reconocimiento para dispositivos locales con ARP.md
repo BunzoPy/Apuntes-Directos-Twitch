@@ -28,4 +28,4 @@ Ejemplo: --localnet -I enp0s3 --ignoredups
 Normalmente si estas levantando la vm en el programa Vmware te va a aparecer de nombre algun dispositivo con el nombre de Vmware que va a ser muy distintivo para que lo puedas ubicar, encambio si estas usando Virtualbox, va a aparecer de nombre PCS Systemtechnik GmbH. Esta empresa es propiertaria de Virtualbox y por eso usan su nombre
 
 ------
-##### Una vez tengamos la ip de nuestra maquina victima. Ya podemos pasar a hacer [[1 - Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
+##### Una vez tengamos la ip de nuestra maquina victima. Ya podemos pasar a hacer [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]

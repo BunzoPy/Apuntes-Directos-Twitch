@@ -19,7 +19,7 @@ nmap -sCV -p80 10.10.11.130 -oN target
 
 ---
 
-## 🧪 [[SQLI TERMINAR]]
+## 🧪 [[SQLI apuntes provisorios]]
 
 1. Nos creamos una cuenta y nos deslogeamos.
 2. Interceptamos la petición de login con *Caido*. Poniendo cualqueir mail valido con "@", por que si no no vamos a llegar a mandar la peticion y no la va a poder interceptar caido, ya que se hace una verificacion a nivel de navegador del @
@@ -164,12 +164,12 @@ Tenemos que tener en cuenta el home de augustus, que puede ser relevante en un f
 
 ----
 
-# [[Salir del contenedor docker TERMINAR]]
+# [[Salir del contenedor docker]]
 Tenemos la sospecha de que estamos en un contenedor, por el nombre despues de root@3a453ab39d3d
-Confirmamos que estamos en un contenedor usando `hostname -I` somos la ip 172.19.0.2
+Confirmamos que estamos en un contenedor usando `hostname -I` somos la ip 172.19.0.2     [[hostname -I]]
 ![[Goodgames16.png]]
 
-Usamos el comando `mount | grep augustus` y nos dice que la particion del disco duro esta montada en /dev/sda1, lo cual no es de relevancia, en el /etc/group no figura el grupo 1000, por lo tanto pensamos que es un grupo de la maquina host. y en el comando `route -n` nos muestra que a la direccion ip 172.19.0.1 es donde va todo nuestro trafico. Asi que asumimos que es la ip de la maquina host
+Usamos el comando `mount | grep augustus` y nos dice que la particion del disco duro esta montada en /dev/sda1, lo cual no es de relevancia, en el /etc/group no figura el grupo 1000, por lo tanto pensamos que es un grupo de la maquina host. y en el comando `route -n` nos muestra que a la direccion ip 172.19.0.1 es donde va todo nuestro trafico. Asi que asumimos que es la ip de la maquina host          [[mount]] [[route -n]]
 ![[Goodgames17.png]]
 Mandamos un ping a 172.19.0.1, y nos responde
 ![[Goodgames18.png]]

@@ -1,5 +1,5 @@
 # Enumeracion 
-Al existir el directorio /cgi-bin/ vamos a enumerar con [[2 - FFUF]] archivos con extensiones ``.sh .pl .cgi`` 
+Al existir el directorio /cgi-bin/ vamos a enumerar con [[FFUF]] archivos con extensiones ``.sh .pl .cgi`` 
 
 ```shell
 ffuf -u http://PaginaWeb/cgi-bin/FUZZ -w Diccionario -e .sh,.pl,.cgi

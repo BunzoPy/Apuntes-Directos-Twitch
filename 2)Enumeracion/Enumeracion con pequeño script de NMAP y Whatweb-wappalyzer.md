@@ -25,7 +25,7 @@ Ejemplo: nmap --script http-enum -p80,22 10.10.10.130 -oN webScan
 
 ![[Valentine6.png]]
 En este ejemplo practico, nos muestra como están disponibles los directorios /dev/ y /index/
-##### En el caso de que no encontremos nada, podemos pasar a enumerar con [[2 - FFUF]] que vamos a usar diccionarios mas extensos
+##### En el caso de que no encontremos nada, podemos pasar a enumerar con [[FFUF]] que vamos a usar diccionarios mas extensos
 
 ------
 
