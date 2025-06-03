@@ -312,7 +312,7 @@ ssh jkr@10.10.10.138
 
 # 🔼 Escalada de privilegios
 
-Con `pspy32` vemos ejecución automática de `run-parts` al iniciar sesión.
+Con `pspy32` vemos ejecución automática de `run-parts` al iniciar sesión. [[PSPY]]
 
 ![[Writeup9.png]]
 
