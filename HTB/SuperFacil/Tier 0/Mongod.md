@@ -1,5 +1,7 @@
 Vamos a ver [[mongodb]] en esta maquina
 
+----
+
 1)¿Cuántos puertos TCP están abiertos en la máquina?
 	2
 

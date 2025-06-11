@@ -1,3 +1,7 @@
+Trabajamos con [[telnet]]
+
+---
+
 1)¿Qué significan las siglas VM?
 	Virtual Machine o en español maquina virtual
 

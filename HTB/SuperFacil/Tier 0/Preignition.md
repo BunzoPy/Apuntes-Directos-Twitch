@@ -1,3 +1,7 @@
+Aca trabajamos enumeracion con [[FFUF]] y gobuster
+
+---
+
 1)El forzamiento de directorios es una técnica utilizada para comprobar muchas rutas en un servidor web con el fin de encontrar páginas ocultas. ¿Cuál es otro nombre para esto? (i) Inclusión de Archivos Locales, (ii) dir busting, (iii) hash cracking.
 	dir busting
 
@@ -43,7 +47,7 @@ nmap -sCV -p80 10.129.166.210 -oN target
 Por el ttl sabemos que es una maquina linux, y que el puerto 80 esta abierto corriendo un servicio http
 
 -------
-# Enumeracion
+# Enumeracion con [[FFUF]]
 
 #### Con gobuster como indica la maquina
 ![[Preignition4.png]]

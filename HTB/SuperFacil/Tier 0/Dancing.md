@@ -1,3 +1,9 @@
+---
+
+---
+En esta maquina trabajamos [[smbclient]]
+
+----
 
 1)¿Qué significa la sigla de 3 letras SMB? 
 	Server Message Block (bloque de mensajes del servidor). Es un **protocolo de red** que permite el intercambio de archivos, impresoras, puertos serie y otros recursos entre computadoras en una red

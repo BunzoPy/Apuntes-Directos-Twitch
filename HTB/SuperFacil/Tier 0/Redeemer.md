@@ -1,3 +1,8 @@
+Aca trabajamos [[redis]]
+
+---
+
+
 **¿Qué es Redis?**  
 Redis es una base de datos NoSQL en memoria, tipo clave-valor, muy rápida y de código abierto.
 

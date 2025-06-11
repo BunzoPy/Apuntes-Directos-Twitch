@@ -1,3 +1,7 @@
+Aca trabajamos con [[xfreerdp]] y con todo lo que es RDP
+
+----
+
 1)¿Qué significa la sigla de 3 letras RDP? 
 	 **Remote Desktop Protocol** (Protocolo de Escritorio Remoto).
 	Es un protocolo desarrollado por Microsoft que permite **conectarse y controlar remotamente otro equipo** con una interfaz gráfica, como si estuvieras sentado frente a él.
