@@ -46,10 +46,11 @@ Ejemplo si usamos el direccionario mas grande: ffuf -u http://10.10.11.130/FUZZ/
 	`-t` Sirve para poner la cantidad de hilos, por default usa 40, en lo personal yo no modifico la cantidad de hilos
 ##### 3)Subdominios
 ```shell
-ffuf -u FUZZ.Web -w RutaDiccionario
-ffuf -u http://FUZZ.10.10.11.130 -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt 
+ffuf -u FUZZ.Web -w RutaDiccionario -H "Host: FUZZ.Web"
+ffuf -u http://thetoppers.htb/ -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt -H "Host: FUZZ.thetoppers.htb"
 Ejemplo si usamos el dicionario mas grande: ffuf -u http://FUZZ.10.10.11.130 -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-110000.txt 
 ```
+*Parametros*
 	`FUZZ` La palabra FUZZ  va donde el diccionario va a ir cambiando de palabras, para hacer su trabajo de enumeración
 	`-u` Es para poner la url que vamos a enumerar
 	`-w` La ruta del diccionario a usar
