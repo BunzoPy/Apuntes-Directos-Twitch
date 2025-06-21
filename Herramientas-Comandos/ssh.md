@@ -1,3 +1,37 @@
+
+# SSH 
+
+```shell
+ssh Usuario@Ip -p Puerto
+Ejemplo:ssh christine@10.129.243.9 -p 22
+```
+*Parametros:*
+`-p` Especifica el puerto
+
+![[Funnel7.png]]
+
+---------
+
+# Tunneling
+
+El tunneling es una técnica que permite redirigir el tráfico de red de una máquina víctima hacia nuestra máquina, creando un canal seguro y cifrado. Así, todo el tráfico que pasa por el túnel va directo a nuestra computadora, permitiendo controlar o inspeccionar la comunicación.
+
+- **Si solo querés conectar un puerto específico** (como PostgreSQL en el puerto 5432 remoto) —> Usás **reenvío local (-L)**.
+- **Si querés enrutar tráfico de múltiples puertos o aplicaciones** a través de un proxy, sin configurar puertos específicos —> Usás **túnel dinámico (-D)**.
+
+```
+Ejemplo: ssh -L NuestroPuertoAUsar:DestinoEnNuestraMaquina:PuertoVictimaQueQueremos Usuario@IpMaquinaVictima
+Ejemplo: ssh -L 1234:localhost:5432 christine@10.129.243.9
+```
+*Parametros*
+`-L` Es para redireccionar un puerto local
+	`NuestroPuertoAUsar` Es el puerto de nuestra maquina al que queremos desviar el trafico de la maquina victima
+	`DestinoEnNuestraMaquina` Normalmente se pone localhost, por que queremos desviar el trafico hacia nuestra maquina/ip
+	`PuertoVictimaQueQueremos` Es el puerto al que queremos robarle el trafico de la maquina victima
+
+
+
+------------------
 # SSH con encriptación antigua
 
 ```bash

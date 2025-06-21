@@ -9,7 +9,7 @@ stty raw echo;fg
 reset xterm
 export SHELL=bash
 export TERM=xterm
-stty rows 37 columns 174 
+stty rows 40 columns 184
 ```
 #### Explicacion de cada comando
 - `script /dev/null -c bash` → Crea un pseudo-TTY lanzando Bash.
@@ -24,6 +24,6 @@ stty rows 37 columns 174
     
 - `export TERM=xterm` → Indica a las aplicaciones que el terminal es xterm (colores y control de cursor).
     
-- `stty rows 37 columns 174` → Ajusta filas y columnas del TTY al tamaño de tu ventana.
+- `stty rows 40 columns 184` → Ajusta filas y columnas del TTY al tamaño de tu ventana.
 		-  Para saber las dimensiones de tu maquina, en tu consola usa stty size
 		![[stty.png]]
