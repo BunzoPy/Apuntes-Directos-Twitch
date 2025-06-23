@@ -42,7 +42,7 @@ nmap -p- --open -sS -n -pN --min-rate 5000 -vvv IP -oG allports
 	-sS es stealth scan, es un escaneo mas rapido y silencioso, solo envia paquetes syn para verificar la conexion
 		manda conexion SYN, recibe un SYN-ACK por lo tanto sabe que el puerto abierto, pero no contesta con un ACK, sino que no responde o manda un RST(es una flag que cierra la conexion o la rechaza) para cerrar la conexion
 	-n no hace resolucion DNS, no intenta convertir la ip en dominios
-	-PN no hace ping antes de escanear, asume que todos los hosts estan activos
+	-Pn no hace ping antes de escanear, asume que todos los hosts estan activos. Cuando los paquetes ICMP (ping) están bloqueados por el cortafuegos de Windows, Nmap no puede determinar si el host está activo usando el método de ping tradicional. Para evitar esto y aun así intentar escanear el host se usa este parametro
 	--min-rate 5000 manda al menos 5000 paquetes por segundo para acelerar el escaneo
 	-vvv es para ir mostrando los puertos que estan abiertos a medida que se produce el escaneo
 	-oG es para exportar en un archivo en formato grepeable, que seria facil de buscar con el comando grep

