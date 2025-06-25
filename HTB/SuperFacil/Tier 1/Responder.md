@@ -1,4 +1,4 @@
-Vamos a ver las herramientas [[john]], [[Herramientas-Comandos/Responder|Responder]], [[evil-winrm]]
+Vamos a ver las herramientas [[john]], [[Herramientas-Comandos/NTLM/Responder|Responder]], [[evil-winrm]]
 
 ------
 
@@ -75,7 +75,7 @@ Y ya podemos entrar a la pagina web sin ningun tipo de problema
 # Intrusion a la maquina en escucha con [[Apuntes Directo/Herramientas-Comandos/Responder|Responder]] por servicio [[NTLM]] y despues nos conectamos con [[evil-winrm]]
 
 
-#### Escucha con [[Herramientas-Comandos/Responder|Responder]]
+#### Escucha con [[Herramientas-Comandos/NTLM/Responder|Responder]]
 ```shell
 responder -I tun0
 ```

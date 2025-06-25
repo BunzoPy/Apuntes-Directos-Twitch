@@ -1,7 +1,7 @@
 ---
 
 ---
-En esta maquina trabajamos [[smbclient]]
+En esta maquina trabajamos [[smb]]
 
 ----
 
@@ -48,7 +48,7 @@ En esta maquina trabajamos [[smbclient]]
 Por el ttl vemos que es una maquina windows y que tiene muchos puertos abiertos, a nosotros el que nos interesa es el 445.  El servicio `microsoft-ds` en el puerto 445 indica que está activo SMB, usado para compartir archivos e impresoras en red.
 
 ----------
-## Intrusion con [[smbclient]]
+## Intrusion con [[smb]]
 
 ![[Dancing5.png]]
 

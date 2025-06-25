@@ -24,6 +24,9 @@ ping -c 1 IP
 // Ejemplo: ping -c 1 10.10.10.130
 ```
 
+*Parametros*
+`-c 1` Esto hace que envie solo un paquete, si quisieramos enviar mas, cambiamos le 1 por la cantidad que querramos
+
 ![[Shocker3.png]]
 Esto nos va a indicar el ttl, que en este caso es 63, asi que es linux, si fuera 127 seria windows
 

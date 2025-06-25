@@ -1,4 +1,4 @@
-Vamos a ver [[smbclient]] y [[impacket-psexec]]
+Vamos a ver [[smb]] y [[impacket-psexec]]
 
 -------
 1)¿Qué switch de Nmap podemos utilizar para enumerar máquinas cuando nuestros paquetes ICMP de ping son bloqueados por el cortafuegos de Windows?
@@ -39,7 +39,7 @@ Vamos a ver [[smbclient]] y [[impacket-psexec]]
 
 Por el ttl sabemos que es una maquina windows
 *Puertos relevantes*
-`445` Corre con el servicio de [[smbclient]]
+`445` Corre con el servicio de [[smb]]
 
 --------
 # Intrusion a la maquina con [[impacket-psexec]]
