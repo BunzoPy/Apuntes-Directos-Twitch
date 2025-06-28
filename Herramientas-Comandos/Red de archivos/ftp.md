@@ -16,11 +16,18 @@ ftp -h
 ftp       | y una vez estamos en la consola interactiva ponemos help
 ```
 
-#### Comando:
+#### Comando para conectarse:
 ```shell
 ftp Ip
 Ejemplo: ftp 10.129.250.6
 ```
+*Parametros*
+`-p` Es para poner el puerto
+
+### Comandos:
+`get` Se usa para descargar archivos                |  get NombreDelArchivo | Ejemplo get backup.zip
+`ls` Lista el contenido del directorio
+`cd` Sirve para movernos por los directorios
 
 -----
 

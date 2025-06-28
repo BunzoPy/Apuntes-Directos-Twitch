@@ -19,11 +19,3 @@ cat ~/.john/.john.pot
 ![[john1.png]]
 Por ejemplo en este caso la contraseña se muestra al final y es badminton
 
-
-#### Comando para ver contraseñas crackeadas de un archivo en especifico
-
-```shell
-john --show ArchivoConHash
-Ejemplo: john --show hash
-```
-Mostraria la contraseña ya crackeada

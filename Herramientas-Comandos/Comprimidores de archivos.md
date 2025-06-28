@@ -17,4 +17,8 @@ Comando para descomprimir
 tar xf NombreDelArchivo.tar
 tar xd Password.tar
 ```
-
+## Zip
+Comando para descomprimir
+```shell
+unzip NombreDelArchivo.zip
+unzip Password.zip
