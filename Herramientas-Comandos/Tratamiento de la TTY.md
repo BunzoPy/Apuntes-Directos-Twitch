@@ -5,7 +5,7 @@
 ```shell
 script /dev/null -c bash
 CTRL + Z
-stty raw echo;fg
+stty raw -echo;fg
 reset xterm
 export SHELL=bash
 export TERM=xterm
@@ -16,7 +16,7 @@ stty rows 40 columns 184
     
 - `CTRL+Z` → Suspende la shell remota para poder reconfigurar tu terminal local.
     
-- `stty raw echo; fg` → Pone el terminal en modo raw (sin buffering) con eco activado y reanuda la shell.
+- `stty raw -echo; fg` → Pone el terminal en modo raw (sin buffering) con eco activado y reanuda la shell.
     
 - `reset xterm` → Limpia y reinicia la terminal para el tipo xterm.
     
