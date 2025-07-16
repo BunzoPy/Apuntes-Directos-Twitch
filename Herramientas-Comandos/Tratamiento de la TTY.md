@@ -27,3 +27,14 @@ stty rows 40 columns 184
 - `stty rows 40 columns 184` → Ajusta filas y columnas del TTY al tamaño de tu ventana.
 		-  Para saber las dimensiones de tu maquina, en tu consola usa stty size
 		![[stty.png]]
+
+
+# Conexion por [[ssh]]
+
+Solamente hay que usar
+
+```
+export SHELL=bash
+export TERM=xterm
+stty rows 40 columns 184
+```

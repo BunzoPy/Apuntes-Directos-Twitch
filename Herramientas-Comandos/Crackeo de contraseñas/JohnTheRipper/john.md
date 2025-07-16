@@ -6,6 +6,10 @@ Ejemplo: john -w=/usr/share/wordlists/rockyou.txt hash.txt
 ```
 
 ![[Responder6.png]]
+*Parametros:*
+`-w=` Es para poner el direccionario que vamos a usar
+`--format=raw-md5 md5` Es para especificar el formato del hash, que este caso es raw-md5 y si no lo poniamos no podia crackear
+
 
 ---
 # Ver contraseñas crackeadas previamente

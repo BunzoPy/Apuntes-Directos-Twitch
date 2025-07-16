@@ -49,6 +49,18 @@ nmap -p- --open -sS -n -pN --min-rate 5000 -vvv IP -oG allports
 	--min-rate 5000 manda al menos 5000 paquetes por segundo para acelerar el escaneo
 	-vvv es para ir mostrando los puertos que estan abiertos a medida que se produce el escaneo
 	-oG es para exportar en un archivo en formato grepeable, que seria facil de buscar con el comando grep
+	
+
+### Escaneo por UDP
+```
+nmap -sU -Pn -n -vvv --top-ports 200 10.129.207.145 -oN udp-scan
+```
+*Parametros:*
+	`-sU` Indica que va a ser udp
+	`-Pn`Asume que el host esta activo
+	`-n` No hace resolucion DNS
+	`--top-ports 200`Escanea los 200 puertos mas usados, este numero se puede cambiar
+	`-oN` Es para exportar el resultado en un archivo con extension nmap
 
 -----------
 
