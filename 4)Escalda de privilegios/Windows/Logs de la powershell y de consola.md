@@ -4,3 +4,11 @@ Los logs estan en esta ruta ``C:\Users\sql_svc\appdata\roaming\microsoft\windows
 
 Y al visualizar el log, vemos una contraseña
 ![[Archetype16.png]]
+
+
+-------
+### Visualizar logs de la consola
+
+Estan en la ruta ``C:\Log-Management``
+En este caso esta el archivo job.bat
+![[Markup19.png]]

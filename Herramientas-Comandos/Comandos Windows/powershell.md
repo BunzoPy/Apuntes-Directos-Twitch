@@ -1,0 +1,1 @@
+Al poner powershell en la consola, se ejecuta la powershell

@@ -32,6 +32,19 @@ Ejemplo: ssh -L 1234:localhost:5432 christine@10.129.243.9
 
 
 ------------------
+
+# SSH archivo con id_rsa
+
+```
+ssh -i Archivo Usuario@Ip -p Puerto
+ssh -i id_rsa daniel@10.129.127.52 -p 22
+```
+*Parametros*
+`-i` Hay que poner el archivo de identificación con el cual nos vamos a conectar
+#### Si esta activo el servicio ssh, podemos buscar las credenciales en su directorio c:/users/daniel/.ssh/id_rsa
+Para las id_rsa dar el permiso 400 `chmod 400 id_rsa`, si tiene mas permisos de lo indicado va a tirar error de *are too open*
+
+------
 # SSH con encriptación antigua
 
 ```bash
