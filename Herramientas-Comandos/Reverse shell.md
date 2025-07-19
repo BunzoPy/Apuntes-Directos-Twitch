@@ -21,16 +21,7 @@ Mientras tenemos que estar en escucha con [[nc -nlvp 443]]
 
 
 
-
-
-
-
-
-
-
-
-
-
+------
 # Desde un archivo .php
 Creamos el archivo shell.php
 ```php

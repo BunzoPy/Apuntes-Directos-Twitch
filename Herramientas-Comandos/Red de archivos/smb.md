@@ -9,8 +9,17 @@ Si un recurso en `smbclient` **no tiene `$`**, es **visible públicamente** en l
 `get` Sirve para descargar archivos
 `ls` Para listar los contenidos de cada carpeta
 
+--------
+## Enumerar vulnerabilidad con [[NMAP Scripts]]
+
+```
+nmap --script="smb-vuln*"  -pPuerto Ip -oN NombreDelArchivo
+Ejemplo:nmap --script="smb-vuln*"  -p445 10.10.10.4 -oN smbScan
+```
+Va a ejecutar los scripts que tiene nmap para buscar vulnerabilidades en [[smb]]
+
 ------
-## Posible vulnerabilidades
+# Posible vulnerabilidades
 
 ##### Usuario Administrator
  Por default, podemos conectarnos con el usuario Administrator sin proporcionar ninguna contraseña
@@ -23,7 +32,9 @@ smbclient -L Ip -p Puerto -N
 Ejemplo: smbclient -L 10.129.96.14 -p 445 -N
 ```
 
-
+---
+# Vulnerabilidades de CVE
+[[CVE-2008-4250]]
 
 
 ----
