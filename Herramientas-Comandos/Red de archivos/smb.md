@@ -1,5 +1,6 @@
 Server Message Block (bloque de mensajes del servidor). Es un **protocolo de red** que permite el intercambio de archivos, impresoras, puertos serie y otros recursos entre computadoras en una red
 Funciona por el puerto 445 normalmente, y aparece como microsoft-ds que esto indicaria que esta activo el SMB
+El puerto 139 corriendo el servicio netbios-ssn tambien esta vinculado a smb
 
 Si un recurso en `smbclient` **no tiene `$`**, es **visible públicamente** en la red.  
 	Si **tiene `$`**, es un **recurso oculto o administrativo**.
