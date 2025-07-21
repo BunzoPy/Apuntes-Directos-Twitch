@@ -5,6 +5,9 @@ ffuf -u http://10.10.11.130/FUZZ/ -w /usr/share/SecLists/Discovery/Web-Content/d
 ffuf -u http://FUZZ.10.10.11.130 -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt 
 ```
 
+*Aclaracion sobre diccionarios*
+En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y en este apunte esta la ubicacion de cada diccionario que usamos[[Diccionarios para fuzzing]]
+
 ----
 
 En el caso de que el script http-enum de nmap no de ningun resultado relevante vamos a usar FFUF

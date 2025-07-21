@@ -1,6 +1,6 @@
 Es parecido al [[FFUF]], sirve para enumerar directorios y subdominios
 *Aclaracion sobre diccionarios*
-En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y siempre uso primero para la parte de directorios el `directory-list-2.3-small.txt` y si no encuentro nada paso a un diccionario mas grande `directory-list-2.3-big.txt` y en el caso de que estemos enumerando subdominios `subdomains-top1million-5000.txt` y si no encontramos nada pasamos al mas grande `subdomains-top1million-110000.txt`
+En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y en este apunte esta la ubicacion de cada diccionario que usamos[[Diccionarios para fuzzing]]
 
 -------
 # Enumeracion de subdominios
