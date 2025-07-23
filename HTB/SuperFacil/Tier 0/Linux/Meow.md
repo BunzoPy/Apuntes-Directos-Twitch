@@ -1,6 +1,7 @@
-Trabajamos con [[telnet]]
+#linux #Veryeasy #startingpoint #telnet #nmap #ping #cat #ls
 
----
+-----------
+# Guided mode
 
 1)¿Qué significan las siglas VM?
 	Virtual Machine o en español maquina virtual
@@ -18,14 +19,10 @@ Trabajamos con [[telnet]]
 	nmap
 
 6)¿Qué servicio identificamos en el puerto 23/tcp durante nuestras exploraciones?
-	telnet
-	**Telnet** es un **protocolo de red** que permite a un usuario conectarse a otro dispositivo a través de una red (como Internet o una red local) usando una **línea de comandos remota**.
-	Hoy en día ha sido reemplazado en la mayoría de los casos por **SSH**, que es mucho más seguro.
+	[[telnet]]
 
 7)¿Qué nombre de usuario es capaz de iniciar sesión en el objetivo a través de telnet con una contraseña en blanco?
 	root
-
-
 
 ---
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -35,13 +32,20 @@ nmap -p- --open -n -Pn -vvv -sS --min-rate 5000 10.129.167.25
 nmap -sCV -p23 10.129.167.25   
 ```
 ![[Meow1.png]]
+*TTL:* Maquina Linux
+*Puertos*
+	`23`[[telnet]]
 
+----------
+# Intrusión por [[telnet]]
 
-![[Imagenes Directo/Meow2.png]]
-Nos muestra que el puerto 23 esta abierto y corriendo el servicio telnet
-
-Usamos el servicio de [[Apuntes Directo/Herramientas-Comandos/telnet|telnet]] para conectarnos a la maquina y ver la flag
+Usamos el servicio de [[Apuntes Directo/Herramientas-Comandos/telnet|telnet]] para conectarnos a la maquina
 ```shell
 telnet 10.129.167.25 23 
 ```
-![[Imagenes Directo/Meow3.png]]
+Cuando nos pide que pongamos el usuario con el que nos queremos conectar, colocamos *root*
+![[Meow2.png]]
+Una vez dentro como root con el comando [[ls]] listamos los archivos que hay en el directorio. Visualizamos un archivo *flag.txt* y lo cateamos con [[cat]] con el comando `cat flag.txt`
+
+![[Meow3.png]]
+Y listo ya tenemos la flag de la maquina

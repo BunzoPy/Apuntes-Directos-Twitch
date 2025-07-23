@@ -1,3 +1,5 @@
+#ftp
+
 **FTP (File Transfer Protocol)** es un protocolo de red que sirve para **transferir archivos entre un cliente y un servidor** en una red, como Internet.
 Normalmente corre por el puerto 21
 Esta el servicio de SFTP(Secure File Transfer Protocol) la informacion va cifrada
@@ -32,5 +34,11 @@ Ejemplo: ftp 10.129.250.6
 -----
 
 # Vulnerabilidad con usuario anonymous
+
+### Enumeracion
+![[ftp2.png]]
+En el escaneo que hacemos con [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]] nos aparece la vulnerabilidad
+
+### Explotacion
 Poniendo de usuario anonymous podemos logearnos al servicio ftp sin proporcionar ninguna contraseña
 ![[ftp1.png]]

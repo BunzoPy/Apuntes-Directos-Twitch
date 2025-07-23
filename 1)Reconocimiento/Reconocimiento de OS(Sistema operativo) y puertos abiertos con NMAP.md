@@ -1,7 +1,7 @@
 ---
 
 ---
-
+#ping #nmap 
 
 # Resumen de comandos en orden para hacer reconocimiento
 ```shell
@@ -10,9 +10,6 @@ nmap -p- --open -sS -n -pN --min-rate 5000 -vvv IP -oG allports
 extractPorts allports
 nmap -sCV -pPuertos IP -oN extractPorts
 ```
-
-
-
 
 
 
