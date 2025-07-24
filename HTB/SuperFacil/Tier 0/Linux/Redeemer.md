@@ -1,4 +1,4 @@
-#veryeasy #startingpoint #linux #redis
+#veryeasy #startingpoint #linux #redis #nmap #ping 
 
 --------
 # Guided Mode
@@ -60,7 +60,7 @@ redis-cli -h 10.129.48.19 -p 6379
 
 Con el comando `info keyspace` vimos que base de datos estaban
 	![[Redeemer3.png]]
-Seleccionamos la base de datos 0 con el comando ``select 0``, despues visualizamos todas las keys con `keys *` y con `get flag` sacamos la flag de la maquina
+Seleccionamos la base de datos 0 con el comando ``select 0``, despues visualizamos todas las keys con `keys *` y con `get flag` visualizamos el codigo de la flag
 
 ![[Redeemer4.png]]
 

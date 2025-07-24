@@ -1,7 +1,7 @@
 ---
 
 ---
-#veryeasy #windows #startingpoint #smb #nmap #ping #ls 
+#veryeasy #windows #startingpoint #smb #nmap #ping #ls #cat
 
 ----
 # Guided Mode
@@ -52,8 +52,7 @@ smbclient -L 10.129.96.14 -p 445 -N
 
 Nos conectamos a la carpeta WorkShares
 ```shell
-smbclient //10.129.96.14/WorkShares -N
+smbclient //10.129.142.29/WorkShares -p 445 -N
 ```
-En la carpeta de *James.P* esta la flag
+Vemos la carpeta de *James.P* con el comando `cd james.p`, entramos y con el comando `get flag.txt` descargamos el archivo a nuestra maquina. Luego con [[cat]] vamos a usar `cat flag.txt` para ver la flag
 ![[Dancing6.png]]
-CAMBIAR ULTIMA IMAGEN DE DANCING
