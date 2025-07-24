@@ -56,7 +56,7 @@ Por el ttl cercano a 64 sabemos que es una maquina linux y que el puerto 80 esta
 
 ----
 
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.129.178.83/

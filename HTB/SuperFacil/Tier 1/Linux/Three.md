@@ -44,7 +44,7 @@ nmap -sCV -p22,80 10.129.227.248 -oN target
 Sabemos que es una maquina linux por el ttl cercano a 64, y que el puerto 22 esta abierto con un servicio ssh y el 80 con un apache
 
 ------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 ![[Three3.png]]
 El script de nmap no conectaba y el whatweb nos da el mail con dominio thetoppers.htb que lo vamos a agregar a etc/hosts para probar
 

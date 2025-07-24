@@ -13,7 +13,7 @@ Es una maquina linux por el ttl
 Puertos 22 ssh y 80 apache abiertos
 
 --------------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ![[Curling3.png]]
 El whatweb no nos da ninguna información relevante, y tenemos para probar muchos directorios.

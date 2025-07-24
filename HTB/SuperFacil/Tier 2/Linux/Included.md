@@ -56,7 +56,7 @@ nmap -sU -Pn -n -vvv --top-ports 200 10.129.207.145 -oN udp-scan
 `69` tftp
 
 ------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ![[Included3.png]]
 ![[Included4.png]]

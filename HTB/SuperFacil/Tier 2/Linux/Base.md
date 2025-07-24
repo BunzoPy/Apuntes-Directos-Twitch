@@ -49,7 +49,7 @@ nmap -sCV -p22,80 10.129.95.184 -oN target
 `80`HTTP
 
 --------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.129.95.184/

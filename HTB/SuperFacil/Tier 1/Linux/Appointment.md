@@ -50,7 +50,7 @@ nmap -sCV -p80 10.129.187.162 -oN target
 Por el ttl sabemos que es una maquina linux y el puerto 80 esta abierto corriendo un apache
 
 ---
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ## No nos dio ningun dato relevante la enumeracion
 ```shell

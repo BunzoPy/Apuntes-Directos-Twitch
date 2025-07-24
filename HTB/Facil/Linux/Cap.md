@@ -44,7 +44,7 @@ nmap -sCV -p21,22,80 10.10.10.245 -oN target
 	`80`HTPP
 
 -----
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.10.10.245/

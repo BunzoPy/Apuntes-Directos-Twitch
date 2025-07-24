@@ -37,3 +37,4 @@ Ejemplo: gobuster dir -u http://ignition.htb -w /usr/share/SecLists/Discovery/We
 `--add-slash` Al final de cada directorio tambien prueba agregar un `/` esto hace que busque tanto directorios como archivos
 `-t` Especifica la cantidad de hilos que que queremos usar, por defecto usa 10
 `-b` Excluye codigos de respuesta que no querramos por ejemplo 302
+`-x` Busca archivos con la extension que pongamos              Ejemplo: -x .php,.txt,.bak.,html

@@ -58,14 +58,14 @@ Por el ttl cercano a 64 es una maquina linux
 
 
 ----
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ![[Oopsie3.png]]
 
 No nos da ningun dato relevante
 
 ------
-# Vamos a interceptar con [[Caido (falta terminar)]]
+# Vamos a interceptar con [[Caido]]
 
 Aceptamos la primera peticion de la pagina, para que pase todo el trafico asi se genera un sitemap
 

@@ -46,7 +46,7 @@ Al intentar entrar nos envia a ignition.htb asi que lo vamos a añadir al /etc/h
 
 ------
 
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```
 whatweb http://ignition.htb

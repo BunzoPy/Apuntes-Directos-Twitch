@@ -12,7 +12,7 @@ nmap -sVC -p22,80,3000 10.10.10.121 -oN target
 Nos muestra que esta el puerto 22 ssh abierto, el 80 de apache y el 3000 del servicio node.js
 
 ------------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 nmap --script http-enum -p22,80,3000 10.10.10.121 -oN webScan    

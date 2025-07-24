@@ -55,7 +55,7 @@ nmap -sCV -p80,5985 10.129.7.210 -oN target
 Por el ttl sabemos que es una maquina windows, y que el puerto 80 esta corriendo con un apache, y el 5985 tambien esta abierto con un servicio http
 
 ---------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ![[Imagenes/Responder5.png]]
 

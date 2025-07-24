@@ -54,7 +54,7 @@ En el servicio de [[ftp]] nos podemos conectar como el usuario anonymous. Y en [
 
 
 ----
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.10.10.152

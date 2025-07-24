@@ -1,16 +1,7 @@
-Aca trabajamos [[redis]]
+#veryeasy #startingpoint #linux #redis
 
----
-
-
-**¿Qué es Redis?**  
-Redis es una base de datos NoSQL en memoria, tipo clave-valor, muy rápida y de código abierto.
-
-**¿Para qué sirve?**  
-Se usa como caché, almacenamiento temporal, colas de tareas, contador de datos, y sistema de mensajería en tiempo real (pub/sub).
-
-#### Importante instalar con apt install redis
 --------
+# Guided Mode
 
 1)¿Qué puerto TCP está abierto en la máquina? 
 	6379
@@ -39,13 +30,11 @@ Se usa como caché, almacenamiento temporal, colas de tareas, contador de datos,
 
 9)¿Cuántas claves hay en la base de datos con índice 0? 
 	4
-	Use el comando info keyspace
-	El comando `INFO keyspace` en Redis muestra cuántas claves hay por base de datos, cuántas expiran y el tiempo de vida promedio (`avg_ttl`).
-	![[Redeemer3.png]]
+	
 10)¿Qué comando se utiliza para obtener todas las claves de una base de datos? 
 	keys *
 
-
+-------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
 
 ```shell
@@ -57,15 +46,21 @@ nmap -sCV -p6379 10.129.48.19 -oN target
 ![[Redeemer1.png]]
 
 ![[Redeemer2.png]]
-
-Nos da ttl cercano al 64, asi que es una maquina linux. Y que el puerto 6379 esta abierto con el servicio redis corriendo
+*TTL:* Maquina Linux
+*Puertos:*
+	`6379`[[redis]]
 
 -----
+# Intrusion con [[redis]]
 
-# Intrusion en la maquina
+Nos conectamos a la base de datos
+```
 redis-cli -h 10.129.48.19 -p 6379
+```
+
 Con el comando `info keyspace` vimos que base de datos estaban
 	![[Redeemer3.png]]
 Seleccionamos la base de datos 0 con el comando ``select 0``, despues visualizamos todas las keys con `keys *` y con `get flag` sacamos la flag de la maquina
 
 ![[Redeemer4.png]]
+

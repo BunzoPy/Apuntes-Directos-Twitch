@@ -56,7 +56,7 @@ Por el ttl sabemos que es una maquina linux
 
 -------
 
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.129.255.235:8080

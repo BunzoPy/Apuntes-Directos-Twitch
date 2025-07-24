@@ -42,7 +42,7 @@ Por el ttl sabemos que es una maquina linux, y que estan corriendo los servicios
 ftp por el puerto 80 con vulnerabilidad de logeo con usuario anonymous. Y en el puerto 80 un apache
 
 -----------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 Cuando intento ejecutar el whatweb se me traba la pc, me paso dos veces, no se por que y tampoco me deja usar el script de nmap http-enum
 
 ---------

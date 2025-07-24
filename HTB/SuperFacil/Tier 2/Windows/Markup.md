@@ -54,7 +54,7 @@ nmap -sCV -p22,80,443 10.129.127.52 -oN target
 `443`HTTPS
 
 -----------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.129.127.52/

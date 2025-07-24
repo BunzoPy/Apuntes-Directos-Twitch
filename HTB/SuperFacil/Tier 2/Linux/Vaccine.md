@@ -43,7 +43,7 @@ nmap -sCV -p21,22,80 10.129.163.23 -oN target
 `80`Apache/HTTP
 
 --------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ![[Vaccine5.png]]
 No da ninguna informacion relevante

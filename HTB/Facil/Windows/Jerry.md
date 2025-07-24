@@ -30,7 +30,7 @@ nmap -sCV -p8080 10.10.10.95 -oN target
 	``8080 `` HTTP 
 
 --------
-# [[Enumeracion con pequeño script de NMAP y Whatweb-wappalyzer]]
+# [[Whatweb-wappalyzer]]
 
 ```shell
 whatweb http://10.10.10.95:8080/
