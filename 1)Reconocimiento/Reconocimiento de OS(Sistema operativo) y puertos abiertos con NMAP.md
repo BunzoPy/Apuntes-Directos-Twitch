@@ -62,7 +62,7 @@ nmap -sU -Pn -n -vvv --top-ports 200 10.129.207.145 -oN udp-scan
 -----------
 
 # 3)NMAP: Lanzamiento de scrips basicos de reconocimiento y analizar el programa y version que corren
-#### Previo al escaneo usar el a funcion de extractPorts de s4vitar para extraer los puertos abiertos
+#### Previo al escaneo usar el a funcion de [[extractports]] de s4vitar para extraer los puertos abiertos
 ```shell
 extractPorts allports
 ```

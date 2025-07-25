@@ -1,3 +1,7 @@
+#reisub
+
+-------
+
 Es una secuencia de teclas que se utiliza en sistemas Linux para reiniciar de forma segura cuando el sistema se congela, responde o se traba la maquina. Al presionar Alt + Print Screen (o SysRq) y luego escribir REISUB, se envía una serie de señales al kernel para intentar un reinicio controlado, minimizando el riesgo de corrupción de datos.
 
 Aquí está el desglose de cada letra en la secuencia:

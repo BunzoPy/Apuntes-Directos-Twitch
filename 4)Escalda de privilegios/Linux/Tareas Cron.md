@@ -24,3 +24,5 @@ Ahora cuando se ejecute la tarea cron, va a hacer que la bash tenga permisos SUI
 Una vez que vemos la s, ya sabemos que podemos ejecutar `bash -p` para ganar permisos en la bash
 ![[Curling20.png]]
 Ya estamos logeados como root, asi que podemos visualizar la flag
+
+

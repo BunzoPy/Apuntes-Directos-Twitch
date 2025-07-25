@@ -1,3 +1,7 @@
+#winpeas
+
+----------
+
 Enumera posibles escaladas de privilegio para maquinas windows de manera automatica
 
 -------

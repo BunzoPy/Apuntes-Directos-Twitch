@@ -1,13 +1,8 @@
+#searchsploit
+
+------
+
 **Searchsploit** es una herramienta de línea de comandos que permite **buscar vulnerabilidades y exploits conocidos** en la base de datos de Exploit Database (exploit-db.com), **sin conexión a internet**.
-
-
-📦 Sirve para:
-
-- Buscar exploits para software, servicios, CMS, etc.
-    
-- Consultar rápidamente qué vulnerabilidades públicas existen.
-    
-- Extraer o ver ejemplos de exploits listos para usar.
 
 -------
 

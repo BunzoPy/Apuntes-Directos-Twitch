@@ -1,8 +1,10 @@
+#suid
+
+------
+
 El **SUID (Set User ID)** es un permiso especial que permite ejecutar un archivo con los privilegios del propietario, no del usuario que lo lanza.  
 Se usa, por ejemplo, para que usuarios comunes puedan ejecutar programas como si fueran root.  
 Si un binario con SUID está mal configurado, puede permitir escalada de privilegios.
-
-
 
 ------
 # Como buscar achivos con permiso SUID con [[find]]

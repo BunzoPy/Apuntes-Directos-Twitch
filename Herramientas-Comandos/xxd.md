@@ -1,3 +1,7 @@
+#xxd
+
+----
+
 Convierte datos binarios a hexadecimal y para facilitar nuestra lectura también nos da una representación en ASCII
 
 ```shell

@@ -1,3 +1,7 @@
+#revershell 
+
+---------
+
 Una **reverse shell** sirve para que un atacante obtenga acceso remoto a una máquina víctima.  
 La víctima inicia la conexión hacia el atacante, lo que **evade firewalls o NAT**, y le da al atacante una shell para ejecutar comandos remotamente.
 

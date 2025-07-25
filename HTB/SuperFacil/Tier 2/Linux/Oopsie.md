@@ -1,25 +1,25 @@
+#easy #linux #nmap #ping
+
+------
+# Guided Mode
+
 1)¿Con qué tipo de herramienta se puede interceptar el tráfico web?
 	proxy
 
 2)¿Cuál es la ruta al directorio en el servidor web que devuelve una página de inicio de sesión?
 	/cdn-cgi/login
-	Esto se respondio con el sitemap de caido y enumeracion de directorios con [[Gobuster]]
 
 3)¿Qué se puede modificar en Firefox para acceder a la página de carga?
 	cookie
-	Esto por que en la pagina de uploads dice que tenemos que ser administrador, y eso se define en nuestro navegador por las cookies
 
 4)¿Cuál es el ID de acceso del usuario admin?
 	34322
-	Esta respondido antes del cookie hijacking
 
 5)Al cargar un archivo, ¿en qué directorio aparece ese archivo en el servidor?
 	/uploads
-	![[Oopsie11.png]]
 
 6)¿Cuál es el archivo que contiene la contraseña que se comparte con el usuario robert?
 	db.php
-	Esto esta en la parte de escalada al usuario robert
 
 7)¿Qué ejecutable se ejecuta con la opción «-group bugtracker» para identificar todos los archivos propiedad del grupo bugtracker?
 	find
@@ -32,10 +32,6 @@
 
 10)¿Cuál es el nombre del ejecutable al que se llama de forma insegura?
 	cat
-	![[Oopsie21.png]]
-Lo del cat lo pense de aca, que tira el error al no encontrar el archivo
-
-
 
 
 -----
@@ -95,7 +91,7 @@ Cambiamos el link a `http://10.129.207.226/cdn-cgi/login/admin.php?content=accou
 Y vemos el id del usuario admin, ahora vamos a cambiar los valores de la cookie para robarnos las credenciales
 
 ------
-# Cookie Hijacking
+# [[Cookie Hijacking]]
 
 Con el user id 34322 y el name de admin, que sacamos antes, vamos a apretar en el navegador CTRL + SHIFT + I
 Se nos va a abrir esto y vamos a cambiar el valor role `guest` a `admin` y el valor de user `2233` a `34322`
@@ -104,7 +100,7 @@ Se nos va a abrir esto y vamos a cambiar el valor role `guest` a `admin` y el va
 Reiniciamos y la pagina, y ya estamos como el usuario admin
 
 ---------
-# Arbitrary file upload
+# [[Arbitrary file upload]]
 
 ![[Oopsie12.png]]
 

@@ -1,4 +1,4 @@
-#linux #easy #nmap #ping #whatweb #php810dev #burpsuite #revershell #sudo-l
+#linux #easy #nmap #ping #whatweb #php810-dev dev #burpsuite #revershell #sudo-l
 
 -------
 # Guided Mode

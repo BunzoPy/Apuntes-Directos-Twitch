@@ -1,3 +1,7 @@
+#wget
+
+------
+
 Es una herramienta de línea de comandos que permite **descargar archivos desde la web** usando HTTP, HTTPS o FTP.
 
 ```

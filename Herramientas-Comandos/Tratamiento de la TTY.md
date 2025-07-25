@@ -1,3 +1,5 @@
+#tratamientotty
+
 - Nos permite hacer CTRL + C, para poder copiar y pegar
 - CTRL + L para limpiar la pantalla. 
 - Redimensiona bien las ventanas de por ejemplo las aplicaciones de nano o vim

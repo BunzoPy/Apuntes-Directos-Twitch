@@ -1,5 +1,11 @@
-**`xfreerdp`** es una herramienta de línea de comandos para conectarse a escritorios remotos usando el protocolo **RDP (Remote Desktop Protocol)**, el cual es usado comúnmente en sistemas Windows.
+#xfreerdp
+
+------
+
+Es una herramienta de línea de comandos para conectarse a escritorios remotos usando el protocolo **RDP (Remote Desktop Protocol)**, el cual es usado comúnmente en sistemas Windows. Tiene **GUI**, que significa **Graphical User Interface**.
 Normalmente se usa en el puerto 3389
+
+------------
 #### Instalacion
 apt install freerdp2-x11 
 

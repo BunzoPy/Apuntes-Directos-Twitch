@@ -1,3 +1,7 @@
+#psfaux #ps-eo
+
+----
+
 ```shell
 ps -faux
 ```
@@ -10,7 +14,7 @@ ps -faux
 
 
 
-
+------
 ## ps -eo user,command
 Este se suele usar para cuando creamos la utilidad del procmon.sh
 
