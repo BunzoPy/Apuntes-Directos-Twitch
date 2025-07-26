@@ -23,10 +23,9 @@
 
 7)¿Cuál es la versión del servidor Redis que se utiliza en el equipo de destino? 
 	5.0.7
-	Respuesta sacada del escaneo de nmap
 
 8)¿Qué comando se utiliza para seleccionar la base de datos deseada en Redis? 
-	select NumeroDeLaBaseDeDatos
+	select
 
 9)¿Cuántas claves hay en la base de datos con índice 0? 
 	4

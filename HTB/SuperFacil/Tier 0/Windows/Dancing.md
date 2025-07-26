@@ -45,7 +45,7 @@
 # Intrusion con [[smb]]
 
 ```shell
-smbclient -L 10.129.96.14 -p 445 -N
+smbclient -L //10.129.96.14 -p 445 -N
 ```
 
 ![[Dancing5.png]]

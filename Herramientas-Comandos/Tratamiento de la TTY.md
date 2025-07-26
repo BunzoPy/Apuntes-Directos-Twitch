@@ -30,7 +30,7 @@ stty rows 40 columns 184
 		-  Para saber las dimensiones de tu maquina, en tu consola usa stty size
 		![[stty.png]]
 
-
+-------
 # Conexion por [[ssh]]
 
 Solamente hay que usar
