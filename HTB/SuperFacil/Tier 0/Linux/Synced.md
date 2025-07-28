@@ -1,6 +1,9 @@
-En esta maquina vemos [[rsync]]
+
+#easy #linux #nmap #ping #rsync
 
 -----
+# Guided Mode
+
 1)¿Cuál es el puerto por defecto de rsync?
 	873
 
@@ -15,11 +18,9 @@ En esta maquina vemos [[rsync]]
 
 5)¿Qué credenciales debe pasar a rsync para utilizar la autenticación anónima? anonymous:anonymous, anonymous, None, rsync:rsync
 	none
-	Viene de no pasar ninguna credencial para el logeo, no es que se pone none
 
 6)¿Cuál es la opción para listar sólo recursos compartidos y archivos en rsync? (No es necesario incluir los caracteres -- iniciales)
 	list-only
-	Cuando usás `--list-only` (o solo `list-only` en este caso), `rsync` muestra los archivos y carpetas disponibles **sin descargarlos**, útil para explorar lo que hay en un recurso remoto.
 
 ---
 
@@ -39,11 +40,11 @@ nmap -sCV -p873 10.129.187.112 -oN target
 ![[Synced4.png]]
 
 ![[Synced2.png]]
+*TTL:* Maquina linux
+*Puertos:*
+	`873` [[rsync]]
 
-Por el ttl sabemos que es una maquina linux, y que esta el puerto 873 abierto corriendo el servicio rsync
-
-
-
+------------
 # Instrusion a la maquina por [[rsync]]
 ```shell
 rsync rsync://10.129.187.112:873

@@ -1,8 +1,12 @@
+#mogodb
+
+--------
+
 MongoDB es una base de datos NoSQL orientada a documentos que guarda la información en formato similar a JSON (BSON).  
 Es flexible, escalable y muy usada para aplicaciones web modernas y datos no estructurados.
 Normalmente corre por el puerto 27017
 
-# Como instalarlo
+# Como instalar el ejecutable en caso de que no este en la maquina victima
 Esto nos va a dejar en la carpeta bin, un binario ejecutable que se llama .mongosh
 ```shell
 curl -O https://downloads.mongodb.com/compass/mongosh-2.3.2-linux-x64.tgz
@@ -11,7 +15,7 @@ cd mongosh-2.3.2-linux-x64/bin
 ```
 
 ------
-# Como conectarse a la base de datos
+# Como conectarse a la base de datos con el ejectuable
 
 ```shell
 ./mongosh mongodb://Ip:Puerto
@@ -22,7 +26,8 @@ Ejemplo: ./mongosh mongodb://10.129.228.30:27017
 `Ip` Ip de la victima
 `Puerto` Puerto de la victima
 
-## Otra forma de conectarse si la maquina victima ya tiene instalado mongodb es 
+--------
+# Si la maquina ya tiene mongodb solamente hay que usar
 
 ```
 mongo --port 27117
@@ -54,9 +59,7 @@ db.flag.find().pretty()
 
 ![[Mongod4.png]]
 
-
-
-
+-------
 # Notas
 
 Mongodb se llama la base de datos pero mongod es el demonio corriendo el proceso

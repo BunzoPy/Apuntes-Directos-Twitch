@@ -1,6 +1,7 @@
-Aca trabajamos enumeracion con [[FFUF]] y gobuster
+#easy #linux #ffuf #gobuster
 
 ---
+# Guided Mode
 
 1)El forzamiento de directorios es una técnica utilizada para comprobar muchas rutas en un servidor web con el fin de encontrar páginas ocultas. ¿Cuál es otro nombre para esto? (i) Inclusión de Archivos Locales, (ii) dir busting, (iii) hash cracking.
 	dir busting
@@ -13,7 +14,6 @@ Aca trabajamos enumeracion con [[FFUF]] y gobuster
 
 4)¿Qué nombre de servidor y versión de servicio se ejecuta en el puerto 80/tcp?
 	nginx 1.14.2
-	Esto lo sacamos del escaneo de nmap
 
 5)¿Qué interruptor usamos para especificar a Gobuster que queremos realizar dir busting específicamente?
 	dir
@@ -23,8 +23,6 @@ Aca trabajamos enumeracion con [[FFUF]] y gobuster
 
 7)¿Qué página se encuentra durante nuestras actividades de búsqueda?
 	admin.php
-	Resultado de este escaneo `gobuster dir -u http://10.129.166.210 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -x php -t 20`
-	Con `ffuf -u http://10.129.166.210/FUZZ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -e .php -t 20` da el mismo resultado
 	
 8) ¿Cuál es el código de estado HTTP reportado por Gobuster para la página descubierta?
 	200
@@ -43,19 +41,21 @@ nmap -sCV -p80 10.129.166.210 -oN target
 ![[Preignition2.png]]
 
 ![[Preignition3.png]]
-
-Por el ttl sabemos que es una maquina linux, y que el puerto 80 esta abierto corriendo un servicio http
+*TTL:* Maquina linux
+*Puertos:*
+	`80` HTTP
 
 -------
-# Enumeracion con [[FFUF]]
+# Enumeracion con [[Gobuster]]
 
-#### Con gobuster como indica la maquina
+```
+gobuster dir -u http://10.129.166.210 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -x php -t 20  
+```
 ![[Preignition4.png]]
 
-#### Fffuf como usamos nosotros
-![[Preignition5.png]]
-
 Nos da un directorio http://10.129.166.210/admin.php
-Es un panel de login, que probando el usuario admin y contraseña admin   entramos y tenemos la flag
+
+Es un panel de login, que probando contraseñas y usuarios normales. Podemos entrar con las credenciales admin:admin
 
 ![[Preignition6.png]]
+Y ya conseguimos la flag

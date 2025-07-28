@@ -1,4 +1,4 @@
-#easy #linux #nmap #ping #keepass #kpcli #cd #ls #tratamientssy #unzip #ssh #CVE-2023-32784 #nc #puttygen 
+#easy #linux #nmap #ping #keepass #kpcli #cd #ls #tratamientotty  #unzip #ssh #CVE-2023-32784 #nc #puttygen 
 
 -------
 # Guided Mode

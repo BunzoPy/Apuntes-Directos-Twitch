@@ -1,10 +1,14 @@
-`rsync` es una herramienta de línea de comandos en Linux usada para **copiar, sincronizar o respaldar archivos y directorios** entre computadoras, ya sea localmente o por red.
+#rsync 
+
+------
+Es una herramienta de línea de comandos en Linux usada para **copiar, sincronizar o respaldar archivos y directorios** entre computadoras, ya sea localmente o por red.
 Normalmente corre por el puerto 873
 
+----------
 # Posible vulnerabilidad en credenciales
 NONE: No pasamos ningun tipo de credencial para el logeo y puede ser que nos este permitiendo entrar para listar archivos
 
-
+------
 # Como conectarse y descargar archivos
 ```shell
 rsync rsync://Ip:Puerto
@@ -18,3 +22,9 @@ Primero nos conectamos a la maquina, luego entramos a la carpeta que nos parezca
 
 
 ![[Synced5.png]]
+
+-----------
+
+# Notas
+
+Cuando usás `--list-only` (o solo `list-only` en este caso), `rsync` muestra los archivos y carpetas disponibles **sin descargarlos**, útil para explorar lo que hay en un recurso remoto.

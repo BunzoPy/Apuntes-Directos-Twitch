@@ -1,3 +1,7 @@
+#gobuster
+
+--------
+
 Es parecido al [[FFUF]], sirve para enumerar directorios y subdominios
 *Aclaracion sobre diccionarios*
 En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y en este apunte esta la ubicacion de cada diccionario que usamos[[Diccionarios para fuzzing]]

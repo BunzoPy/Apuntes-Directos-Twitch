@@ -1,3 +1,6 @@
+#ffuf
+
+------
 # Resumen de comandos a usar
 ```shell
 ffuf -u http://10.10.11.130/FUZZ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -e .php,.txt,.html
@@ -5,17 +8,8 @@ ffuf -u http://10.10.11.130/FUZZ/ -w /usr/share/SecLists/Discovery/Web-Content/d
 ffuf -u http://FUZZ.10.10.11.130 -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt 
 ```
 
-*Aclaracion sobre diccionarios*
-En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y en este apunte esta la ubicacion de cada diccionario que usamos[[Diccionarios para fuzzing]]
-
-----
-
-En el caso de que el script http-enum de nmap no de ningun resultado relevante vamos a usar FFUF
-Es una herramienta que esta diseñada en Go, también se podría usar gobuster, pero en lo personal me gusta mas ffuf
-	**
-
-*Aclaracion sobre diccionarios*
-En lo personal uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y siempre uso primero para la parte de directorios el `directory-list-2.3-small.txt` y si no encuentro nada paso a un diccionario mas grande `directory-list-2.3-big.txt` y en el caso de que estemos enumerando subdominios `subdomains-top1million-5000.txt` y si no encontramos nada pasamos al mas grande `subdomains-top1million-110000.txt`
+*Diccionarios*
+Uso los diccionarios de [SecLists](https://github.com/danielmiessler/SecLists) y en este apunte esta la ubicacion de cada diccionario que usamos [[Diccionarios para fuzzing]]
 
 ------
 ## Enumeracion de directorios

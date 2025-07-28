@@ -1,4 +1,7 @@
-En esta maquina vemos un poco de [[SQLI Ejemplo Basico]]
+#easy #linux #nmap #ping #SQLI 
+
+----------
+# Guided Mode
 
 1)¿Qué significa la sigla SQL?
 	Structured Query Language
@@ -29,8 +32,6 @@ En esta maquina vemos un poco de [[SQLI Ejemplo Basico]]
 
 10)Si la entrada del usuario no se maneja con cuidado, podría interpretarse como un comentario. Utilice un comentario para iniciar sesión como admin sin conocer la contraseña. ¿Cuál es la primera palabra de la página web devuelta?
 	Congratulations
-	Esto lo dice una vez vulnerada la maquina
-![[Appointment6.png]]
 
 -------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -46,22 +47,10 @@ nmap -sCV -p80 10.129.187.162 -oN target
 ![[Appointment2.png]]
 
 ![[Appointment3.png]]
-
-Por el ttl sabemos que es una maquina linux y el puerto 80 esta abierto corriendo un apache
-
----
-# [[Whatweb-wappalyzer]]
-
-## No nos dio ningun dato relevante la enumeracion
-```shell
-whatweb htpp://10.129.187.162
-nmap --script http-enum -p80 10.129.187.162 -oN webScan
-```
-
-![[Appointment4.png]]
-
-![[Appointment5.png]]
-
+*TLL:* Maquina linux
+*Puertos:*
+	`80` HTTP
+	
 -------
 # Intrusion a la maquina con [[SQLI Ejemplo Basico]]
 

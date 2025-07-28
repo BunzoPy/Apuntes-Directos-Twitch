@@ -37,15 +37,15 @@ nmap -p- --open -sS -n -pN --min-rate 5000 -vvv IP -oG allports
 
 
 *Parametros:*
-	-p- Escanea todo los puertos 65535
-	--open para que nos muestre solamente los puertos que estan abiertos, ya que no nos interesa ver cuales estan cerrados
-	-sS es stealth scan, es un escaneo mas rapido y silencioso, solo envia paquetes syn para verificar la conexion
+	``-p-`` Escanea todo los puertos 65535
+	``--open`` para que nos muestre solamente los puertos que estan abiertos, ya que no nos interesa ver cuales estan cerrados
+	``-sS`` es stealth scan, es un escaneo mas rapido y silencioso, solo envia paquetes syn para verificar la conexion
 		manda conexion SYN, recibe un SYN-ACK por lo tanto sabe que el puerto abierto, pero no contesta con un ACK, sino que no responde o manda un RST(es una flag que cierra la conexion o la rechaza) para cerrar la conexion
-	-n no hace resolucion DNS, no intenta convertir la ip en dominios
-	-Pn no hace ping antes de escanear, asume que todos los hosts estan activos. Cuando los paquetes ICMP (ping) están bloqueados por el cortafuegos de Windows, Nmap no puede determinar si el host está activo usando el método de ping tradicional. Para evitar esto y aun así intentar escanear el host se usa este parametro
-	--min-rate 5000 manda al menos 5000 paquetes por segundo para acelerar el escaneo
-	-vvv es para ir mostrando los puertos que estan abiertos a medida que se produce el escaneo
-	-oG es para exportar en un archivo en formato grepeable, que seria facil de buscar con el comando grep
+	``-n`` no hace resolucion DNS, no intenta convertir la ip en dominios
+	``-Pn`` no hace ping antes de escanear, asume que todos los hosts estan activos. Cuando los paquetes ICMP (ping) están bloqueados por el cortafuegos de Windows, Nmap no puede determinar si el host está activo usando el método de ping tradicional. Para evitar esto y aun así intentar escanear el host se usa este parametro
+	``--min-rate 5000`` manda al menos 5000 paquetes por segundo para acelerar el escaneo
+	``-vvv`` es para ir mostrando los puertos que estan abiertos a medida que se produce el escaneo
+	``-oG`` es para exportar en un archivo en formato grepeable, que seria facil de buscar con el comando grep
 	
 
 ### Escaneo por UDP
@@ -93,10 +93,10 @@ nmap -sCV -pPuertos IP -oN extractPorts
  ![[Valentine3.png]]
 
 *Parametros*
-	-sCV Es la junta de los parametros -sC -sV
-		-sC manda los 100 scripts mas populares de reconocimiento
-		-sV Averigua que servicio y version estan corriendo
-	oN para exportar en un archivo con formato NMAP todo el output
+	``-sCV`` Es la junta de los parametros -sC -sV
+		``-sC`` manda los 100 scripts mas populares de reconocimiento
+		``-sV`` Averigua que servicio y version estan corriendo
+	``-oN`` para exportar en un archivo con formato NMAP todo el output
 
 -----------
 

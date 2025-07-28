@@ -1,3 +1,7 @@
+#SQLI
+
+---------
+
 SQL Injection es una vulnerabilidad que permite a un atacante insertar código SQL malicioso en una consulta a la base de datos.  
 Esto puede permitir robar, modificar o eliminar datos, e incluso tomar control del sistema.
 

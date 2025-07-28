@@ -1,4 +1,4 @@
-#psfaux #ps-eo
+#ps-faux #ps-eo
 
 ----
 

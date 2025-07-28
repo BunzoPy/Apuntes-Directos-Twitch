@@ -3,7 +3,6 @@
 ----
 # Guided Mode
 
-
 1)¿Qué significa la sigla de 3 letras RDP? 
 	 Remote Desktop Protocol
 
@@ -48,6 +47,7 @@ nmap -sCV -p135,139,445,3389,5985,47001,49664,49665,49666,49667,49668,49669,4967
 
 ---------
 # Intrusion a la maquina con [[xfreerdp]]
+
 ```shell
 xfreerdp /v:10.129.1.13:3389 /u:administrator
 ```

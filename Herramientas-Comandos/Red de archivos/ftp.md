@@ -30,6 +30,8 @@ Ejemplo: ftp 10.129.250.6
 `get` Se usa para descargar archivos                |  get NombreDelArchivo | Ejemplo get backup.zip
 `ls` Lista el contenido del directorio
 `cd` Sirve para movernos por los directorios
+`prompt` Desactiva la confirmacion interactiva para los comandos *mget* y *mput*
+`mget` Sirve para descargar multiples archivos a la vez, y si usamos `mget *`  descarga todos los archivos del directorio actual de trabajo
 
 -----
 
