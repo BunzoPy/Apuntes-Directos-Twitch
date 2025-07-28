@@ -1,4 +1,4 @@
-Aca vamos a ver [[ftp]] y intrusion a la maquina por panel de logeo
+
 
 1)¿Qué switch de escaneo de Nmap emplea el uso de scripts por defecto durante un escaneo?
 	-sC

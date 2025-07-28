@@ -1,9 +1,14 @@
+#mysql 
+
+---------
+
 SQL (Structured Query Language) es un lenguaje diseñado para gestionar y manipular bases de datos relacionales.  
 Permite consultar, insertar, actualizar y eliminar datos usando comandos estructurados.
 Normalmente corre por el puerto 3306
 *Terminar siempre las consultas con ;*
 
-# Posible vulnerabilidad y como conectarse
+---------
+# Como conectarse
 #### Conectarse con el usuario root sin otortar contraseña
 
 ```shell
@@ -18,6 +23,7 @@ Ejemplo: mysql -h 10.129.68.124 -P 3306 -u root
 
 ![[mysql1.png]]
 
+--------
 # Como dumpear datos
 
 ```

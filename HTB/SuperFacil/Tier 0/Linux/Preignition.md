@@ -1,4 +1,4 @@
-#easy #linux #ffuf #gobuster
+#easy #linux #ping #nmap #gobuster
 
 ---
 # Guided Mode
@@ -48,14 +48,22 @@ nmap -sCV -p80 10.129.166.210 -oN target
 -------
 # Enumeracion con [[Gobuster]]
 
-```
-gobuster dir -u http://10.129.166.210 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -x php -t 20  
-```
-![[Preignition4.png]]
+Entramos a la pagina principal y no vemos nada relevante
 
-Nos da un directorio http://10.129.166.210/admin.php
+![[Preignation5.png]]
+
+```
+gobuster dir -u http://10.129.188.142 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 64 -x .php,.txt,.bak.,html
+```
+
+![[Preignation6.png]]
+
+Nos da un archivo admin.php en la url:  http://10.129.166.210/admin.php
 
 Es un panel de login, que probando contraseñas y usuarios normales. Podemos entrar con las credenciales admin:admin
 
-![[Preignition6.png]]
+![[Preignation4.png]]
+
+![[Preignition7.png]]
+
 Y ya conseguimos la flag
