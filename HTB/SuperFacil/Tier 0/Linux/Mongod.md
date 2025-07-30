@@ -22,7 +22,7 @@
 	show collections
 
 7)¿Cuál es el comando utilizado para volcar el contenido de todos los documentos de la colección denominada flag en un formato fácil de leer?
-	db.flag.find().pretty()
+	db.flag.find()
 
 ---------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -38,25 +38,19 @@
 -----
 # Intrusion por [[mongodb]]
 
-Descargamos el binario para ejecutar [[Mongod]] por que no esta en la maquina
+Descargamos el binario con [[curl]] para ejecutar [[mongodb]] por que no esta en la maquina. Despues con [[tar]] lo vamos a descomprimir, con [[cd]] entramos en la carpeta. Y con el comando final ejecutamos el binario entrando a la base de datos
 ```shell
 curl -O https://downloads.mongodb.com/compass/mongosh-2.3.2-linux-x64.tgz
-tar xvf mongosh-2.3.2-linux-x64.tgz
+tar xf mongosh-2.3.2-linux-x64.tgz
 cd mongosh-2.3.2-linux-x64/bin
 ./mongosh mongodb://10.129.228.30:27017
 ```
 
-Usando el binario de [[mongodb]] Ganamos acceso a la maquina
 
 ![[Mongod3.png]]
 
-Una vez dentro, vamos a usar estos comandos para manejarnos por la base de datos, y a posteriori visualizamos la flag
-```mongodb
-show dbs
-use sensitive_information
-show colletions
-db.flag.find().pretty()
-```
+Ya estamos adentro asi que vamos a listar las bases de datos con `show dbs` Luego entramos a la base de datos *sensitive_information* con el comando `use sensitive_information`. Ahora con `show colections` vamos a listar las tablas. Y finalmente dumpeamos los datos de la tabla *flag* con `db.flag.find()`
+
 ![[Mongod4.png]]
 
 ----------

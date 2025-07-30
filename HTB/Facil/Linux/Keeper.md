@@ -98,9 +98,9 @@ Ya estamos dentro de la maquina
 # [[Tratamiento de la TTY]]
 
 ------
-# [[unzip]] y nos pasamos los archivos a nuestra maquina con [[Netcat]]
+# [[Herramientas-Comandos/unzip]] y nos pasamos los archivos a nuestra maquina con [[Netcat]]
 
-En el escritorio del usuario *Inogaard* Encontramos un archivo *RT30000.zip* asi que lo vamos a descomprimir con [[unzip]] usando el comando `unzip RT30000.zip`
+En el escritorio del usuario *Inogaard* Encontramos un archivo *RT30000.zip* asi que lo vamos a descomprimir con [[Herramientas-Comandos/unzip]] usando el comando `unzip RT30000.zip`
 
 ![[Imagenes/Keeper13.png]]
 

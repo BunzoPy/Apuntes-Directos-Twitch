@@ -63,7 +63,7 @@ Entramos al servicio de ftp y descargamos el unico archivo con `get` que se llam
 -------
 # Sacamos el hash del archivo zip con [[zip2john]] y crackeamos contraseña con [[john]]
 
-Intentamos descomprimir el archivo [[unzip]] `unzip backup.zip`
+Intentamos descomprimir el archivo [[Herramientas-Comandos/unzip]] `unzip backup.zip`
 ![[Vaccine7.png]]
 Tiene contraseña asi que no lo podemos descomprimir. Usamos [[zip2john]] para sacarle el hash al archivo y luego con [[john]] crackeamos la contraseña
 
@@ -76,7 +76,7 @@ john -w=/usr/share/wordlists/rockyou.txt hash
  Nos da que la contraseña del backup.zip es ``741852963``
  
 Ahora descomprimimos y buscamos en los archivos que nos da si tiene algun tipo de contraseña para logearnos al panel de la web
-Con [[unzip]] ``unzip backup.zip`` descomprimimos y con [[cat]][[grep]] `cat index.php | grep -i password` buscamos en los archivos si tenia contraseñas
+Con [[Herramientas-Comandos/unzip]] ``unzip backup.zip`` descomprimimos y con [[cat]][[grep]] `cat index.php | grep -i password` buscamos en los archivos si tenia contraseñas
 ![[Vaccine9.png]]
 Nos dice que el usuario es admin y la contraseña esta en md5 2cb42f8734ea607eefed3b70af13bbd3
 

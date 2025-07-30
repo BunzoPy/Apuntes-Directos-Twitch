@@ -1,0 +1,1 @@
+Nano es un editor de texto simple que se usa en la terminal. Es fácil de usar, ideal para editar archivos rápidamente sin complicaciones. Tiene atajos visibles y funciona en casi todos los sistemas Unix/Linux.

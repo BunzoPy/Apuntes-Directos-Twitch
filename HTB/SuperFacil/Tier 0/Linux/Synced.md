@@ -22,7 +22,6 @@
 	list-only
 
 ---
-
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
 
 ```shell

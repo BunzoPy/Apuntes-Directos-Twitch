@@ -1,3 +1,9 @@
+#sudo #sudo-l
+
+--------
+# Usamos los comandos [[sudo]]
+
+------
 # Enumeracion
 Se ejecuta el comando
 ```shell

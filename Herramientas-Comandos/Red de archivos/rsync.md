@@ -18,6 +18,9 @@ rsync rsync://10.129.187.112:873
 rsync rsync://10.129.187.112:873/public
 rsync rsync://10.129.187.112:873/public/flag.txt .
 ```
+
+El segundo *rsync* que ponemos es de la url a la que queremos ingresar
+
 Primero nos conectamos a la maquina, luego entramos a la carpeta que nos parezca relevante, y al final ponemos el nombre del archivo que queremos descargar seguido de un espacio y . para que se descarge en el directorio actual de trabajo
 
 

