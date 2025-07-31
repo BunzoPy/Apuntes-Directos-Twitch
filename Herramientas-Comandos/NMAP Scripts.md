@@ -1,8 +1,12 @@
+#nmapscripts 
+
+----
+
 Este apartado es para nombrar scripts de nmap, que nos pueden ayudar a enumerar vulnerabilidades
 
 ```
-nmap --script NombreDelScript Ip -pPuertos
-Ejemplo:nmap --script hearthbleed 10.10.11.130 -p80,22
+nmap --script NombreDelScript -pPuertos Ip -oN NombreDelArchivoParaGuardarOutput
+Ejemplo:nmap --script hearthbleed -p80,22 10.10.11.130 -oN smbScan
 ```
 
 Nombres de scripts:

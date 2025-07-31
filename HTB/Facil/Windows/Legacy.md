@@ -13,7 +13,7 @@
 Las dos preguntas anteriores son las de las flags
 7)Además de MS08-067, el servicio SMB de Legacy también es vulnerable a otra vulnerabilidad de ejecución remota de código con un ID de CVE de 2017. Cuál es ese ID?
 	CVE-2017-0143
-	Eternalblue [[Blue (No terminada)]]
+	Eternalblue [[Blue]]
 
 
 --------

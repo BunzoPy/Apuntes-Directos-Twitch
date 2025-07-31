@@ -1,3 +1,7 @@
+#evil-winrm 
+
+-----
+
 Evil-Winrm es una herramienta muy útil para conectarse a máquinas Windows a través del servicio **WinRM (Windows Remote Management)**
 **WinRM (Windows Remote Management)** es un **servicio de Windows que permite la administración remota de máquinas** usando el protocolo **WS-Management**, basado en SOAP (XML sobre HTTP).
 
@@ -12,8 +16,6 @@ Ejemplo: evil-winrm -i 10.129.95.234 -u administrator -p badminton
 `-u` Va el usuario
 `-p` Se pone la contraseña
 
-
-![[Responder 8.png]]
 
 
 

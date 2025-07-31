@@ -1,3 +1,7 @@
+#msfvenom 
+
+-----
+
 Es una herramienta del framework Metasploit que se usa para generar **payloads personalizados**, como **reverse shells** y **bind shells**. Permite crear **shellcode** en distintos formatos (Python, C, exe, etc.) para inyectarlo en exploits o archivos ejecutables. Es muy útil en pruebas de penetración para simular ataques reales.
 
 

