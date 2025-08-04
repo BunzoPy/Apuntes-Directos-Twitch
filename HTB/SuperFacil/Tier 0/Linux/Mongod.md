@@ -1,3 +1,29 @@
+---
+title: Writeup mongod - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - mongod
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina mongod en Hack The Box.
+keywords:
+  - writeup mongod
+  - hack the box mongod
+  - resolución máquina mongod
+  - mongod hack the box
+  - htb mongod
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Linux/Mongod)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=s_uui7kxJ3c)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=6zROgx0sKrY)
+
+---
+
 #easy #linux #ping #nmap #mongodb
 
 ----

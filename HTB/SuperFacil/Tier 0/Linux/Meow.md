@@ -1,3 +1,29 @@
+---
+title: Writeup meow - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - meow
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina meow en Hack The Box.
+keywords:
+  - writeup meow
+  - hack the box meow
+  - resolución máquina meow
+  - meow hack the box
+  - htb meow
+---
+----------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Linux/Meow)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=bfeoyfQ-keo)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=U4-R6hDEtMw&t=69s)
+
+---
+
 #linux #Veryeasy #startingpoint #telnet #nmap #ping #cat #ls
 
 -----------

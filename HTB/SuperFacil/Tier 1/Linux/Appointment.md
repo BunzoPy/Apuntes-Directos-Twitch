@@ -1,3 +1,29 @@
+---
+title: Writeup appointment - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - appointment
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina appointment en Hack The Box.
+keywords:
+  - writeup appointment
+  - hack the box appointment
+  - resolución máquina appointment
+  - appointment hack the box
+  - htb appointment
+---
+-----
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Appointment)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=DVXwE5LHL00)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=67letqFyklI)
+
+---
+
 #easy #linux #nmap #ping #SQLI 
 
 ----------

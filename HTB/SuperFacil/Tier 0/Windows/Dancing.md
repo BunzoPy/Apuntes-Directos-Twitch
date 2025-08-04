@@ -1,7 +1,30 @@
 ---
+title: Writeup dancing - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - dancing
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina dancing en Hack The Box.
+keywords:
+  - writeup dancing
+  - hack the box dancing
+  - resolución máquina dancing
+  - dancing hack the box
+  - dancingfawn
+---
+------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Windows/Dancing)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=94Vntwe1Dtw)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=4zQE1oSokW0)
 
 ---
-#veryeasy #windows #startingpoint #smb #nmap #ping #ls #cat
+
+ #veryeasy #windows #startingpoint #smb #nmap #ping #ls #cat
 
 ----
 # Guided Mode

@@ -1,3 +1,29 @@
+---
+title: Writeup responder - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - responder
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina responder en Hack The Box.
+keywords:
+  - writeup responder
+  - hack the box responder
+  - resolución máquina responder
+  - responder hack the box
+  - htb responder
+---
+--------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Windows/Responder)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=d2KrxshMxZM)|[Parte2](https://www.youtube.com/watch?v=4PFHU1TZ0as)|[Parte3](https://www.youtube.com/watch?v=SMN3gsjAZSA)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=QWRypktoeFc)
+
+---
+
 #easy #windows #nmap #ping #john #evil-winrm #type
 
 ------

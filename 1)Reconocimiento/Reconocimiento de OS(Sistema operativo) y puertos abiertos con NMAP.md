@@ -35,10 +35,10 @@ nmap -p- --open -sS -n -pN --min-rate 5000 -vvv IP -oG allports
 ```
    ![[Valentine2.png]]
 
-
 *Parametros:*
 	``-p-`` Escanea todo los puertos 65535
 	``--open`` para que nos muestre solamente los puertos que estan abiertos, ya que no nos interesa ver cuales estan cerrados
+		Este parametro lo podemos sacar, y capaz nos sirven los puertos que estan en *filtered* esto significa que **nmap no pudo determinar si el puerto está abierto o cerrado** porque **algo (como un firewall o un sistema de filtrado) bloquea las respuestas**.
 	``-sS`` es stealth scan, es un escaneo mas rapido y silencioso, solo envia paquetes syn para verificar la conexion
 		manda conexion SYN, recibe un SYN-ACK por lo tanto sabe que el puerto abierto, pero no contesta con un ACK, sino que no responde o manda un RST(es una flag que cierra la conexion o la rechaza) para cerrar la conexion
 	``-n`` no hace resolucion DNS, no intenta convertir la ip en dominios

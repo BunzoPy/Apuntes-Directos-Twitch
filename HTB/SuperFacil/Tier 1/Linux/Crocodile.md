@@ -1,3 +1,29 @@
+---
+title: Writeup crocodile - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - crocodile
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina crocodile en Hack The Box.
+keywords:
+  - writeup crocodile
+  - hack the box crocodile
+  - resolución máquina crocodile
+  - crocodile hack the box
+  - htb crocodile
+---
+---
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Crocodile)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=tiEFT4doIOQ)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=yeiT-wREvZE)
+
+---
+
 #easy #linux #nmap #ping #gobuster #ftp
 
 ------

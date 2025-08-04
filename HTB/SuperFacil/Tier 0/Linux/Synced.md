@@ -1,3 +1,29 @@
+---
+title: Writeup synced - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - synced
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina synced en Hack The Box.
+keywords:
+  - writeup synced
+  - hack the box synced
+  - resolución máquina synced
+  - synced hack the box
+  - htb synced
+---
+------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Linux/Synced)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=Do4C79jW9-Y)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=M9Ww4ureT1k)
+
+---
+
 #easy #linux #nmap #ping #rsync
 
 -----

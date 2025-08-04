@@ -1,3 +1,29 @@
+---
+title: Writeup preignition - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - preignition
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina preignition en Hack The Box.
+keywords:
+  - writeup preignition
+  - hack the box preignition
+  - resolución máquina preignition
+  - preignition hack the box
+  - htb preignition
+---
+-----
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Linux/Preignition)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=XB-L17T-gMs)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=curjDWIYt3o)
+
+---
+
 #easy #linux #ping #nmap #gobuster
 
 ---

@@ -1,3 +1,29 @@
+---
+title: Writeup redeemer - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - redeemer
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina redeemer  en Hack The Box.
+keywords:
+  - writeup redeemer
+  - hack the box redeemer
+  - resolución máquina redeemer
+  - redeemer hack the box
+  - htb redeemer
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Linux/Redeemer)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=dlZ_WLULACI)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=dbm9Pz9e0eM)
+
+---
+
 #veryeasy #startingpoint #linux #redis #nmap #ping 
 
 --------

@@ -1,4 +1,30 @@
-#veryeasy #linux #startingpoint #nmap #ping #xfreerdp
+---
+title: Writeup explosion - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - explosion
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina explosion en Hack The Box.
+keywords:
+  - writeup explosion
+  - hack the box explosion
+  - resolución máquina explosion
+  - explosion hack the box
+  - htb explosion
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+0/Windows/Explosion)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=n9vKrxPCvTE)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=7NhsVvICHf0)
+
+---
+
+#veryeasy #windows  #startingpoint #nmap #ping #xfreerdp
 
 ----
 # Guided Mode

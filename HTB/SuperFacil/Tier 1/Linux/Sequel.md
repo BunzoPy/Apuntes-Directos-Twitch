@@ -1,3 +1,29 @@
+---
+title: Writeup sequel - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - sequel
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina sequel en Hack The Box.
+keywords:
+  - writeup sequel
+  - hack the box sequel
+  - resolución máquina sequel
+  - sequel hack the box
+  - htb sequel
+---
+----------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Sequel)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=MMbqrFr9iig)
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=s0M6r2yEZ_o)
+
+---
+
 #easy #linux #nmap #ping #mysql
 
 -----
