@@ -1,3 +1,7 @@
+#xp_cmdshell
+
+----------
+
 [[MSSQL]] permite ejecutar comandos del sistema mediante funciones como `xp_cmdshell`.  
 Esto permite interactuar con el sistema operativo directamente desde la base de datos.
 

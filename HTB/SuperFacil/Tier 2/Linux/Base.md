@@ -1,3 +1,34 @@
+---
+title: Writeup base - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - base
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina base en Hack The Box.
+keywords:
+  - writeup base
+  - hack the box base
+  - resolución máquina base
+  - base hack the box
+  - htb base
+---
+--------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Base)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=Trejh7Fih34)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #linux #nmap #ping #arbitraryfileupload #whatweb #arrayinjection #cat #strings #burpsuite #tratamientotty #sudo-l #grep 
+
+-----
+# Guided Mode
+
 1)¿Qué dos puertos TCP están abiertos en el host remoto?
 	22,80
 
@@ -6,7 +37,6 @@
 
 3)¿Cuántos ficheros hay en el directorio «/login»?
 	3
-	![[Base5.png]]
 
 4)¿Cuál es la extensión de un archivo swap?
 	.swp
@@ -29,7 +59,6 @@
 10)¿Qué acción puede utilizar el comando find para ejecutar comandos?
 	exec
 
-
 -----
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
 
@@ -45,8 +74,8 @@ nmap -sCV -p22,80 10.129.95.184 -oN target
 ![[Base2.png]]
 *TTL:* Maquina linux
 *Puertos:*
-`22`SSH
-`80`HTTP
+	`22`SSH
+	`80`HTTP
 
 --------
 # [[Whatweb-wappalyzer]]
@@ -70,9 +99,9 @@ Ahora si cateamos el archivo nos va a aparecer que es un binario. Lo que vamos a
 ![[Base8.png]]
 y vemos que tiene muchas cadenas que no se pueden leer
 ![[Base9.png]]
-Asi que vamos a usar el comando [[strings]] para sacar las cadenas legibles y el output lo voy a poner en un archivo que se llama loginlimpio.txt `strings login.php.swp > loginlimpio.txt`
+Asi que vamos a usar [[strings]] con el comando `strings login.php.swp > loginlimpio.txt` para sacar las cadenas legibles y el output lo voy a poner en un archivo que se llama loginlimpio.txt 
 ![[Base10.png]]
-y ahora lo abrimos con `cat loginlimpio.txt -l java` 
+y ahora lo abrimos con [[cat]] usando el comando `cat loginlimpio.txt -l java` 
 	Aclaracion: Si bien no es java el lenguaje, usa los colores bastante bien para separarlo y entender mejor el codigo
 	
 ![[Base11.png]]
@@ -118,7 +147,7 @@ Y ya estamos adentro de la maquina
 # [[Tratamiento de la TTY]]
 
 -------
-# Escalada al usuario john
+# Escalada al usuario john buscando [[Posibles archivos con contraseñas]]
 
 Buscamos con [[grep]]`grep -riE "password|.*password|password.*" ` desde el directorio /var/www/html/login
 Y encontramos la contraseña *thisisagoodpassword*

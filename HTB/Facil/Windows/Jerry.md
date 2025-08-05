@@ -1,3 +1,33 @@
+---
+title: Writeup jerry - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - jerry
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina  jerry en Hack The Box.
+keywords:
+  - writeup  jerry
+  - hack the box  jerry
+  - resolución máquina  jerry
+  - jerry hack the box
+  - htb  jerry
+---
+--------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Jerry)
+- 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=NfEMX7-BFTo))
+
+-------
+
+#easy #windows #ping #nmap #tomcat #arbitraryfileupload #whatweb #msvenom #reverseshell #tratamientotty #rwrapncnlvp443
+
+---------
+# Guided Mode
+
 1)¿Qué puerto TCP está abierto en el host remoto?
 	8080
 

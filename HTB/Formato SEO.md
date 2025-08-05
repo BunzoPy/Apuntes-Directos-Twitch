@@ -1,6 +1,4 @@
 
-
-
 ---
 title: "Writeup fawn - Hack The Box - Resolución y Análisis"
 published: true
@@ -21,8 +19,9 @@ keywords:
 
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: [Link](https://bunzopy.github.io/writeups-apuntes/fawn)
-- 📺 **Resolución en vivo (completa)**: [https://youtube.com/tu-video-completo](https://youtube.com/tu-video-completo)
-- 🧠 **Explicación resumida**: [https://youtube.com/tu-video-resumido](https://youtube.com/tu-video-resumido)
+- 📄 **Writeup online**: 
+- 📺 **Resolución en vivo (completa)**: 
+- 🧠 **Explicación resumida**: 
 
 ---
+

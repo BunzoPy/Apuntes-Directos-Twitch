@@ -1,5 +1,30 @@
-#easy #windows #nmap #ping #python27 #nmapscripts #cd #gitclone #nc-nlvp443 #revershell #msfvenom #nvim #type
+---
+title: Writeup blue - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - blue
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina blue en Hack The Box.
+keywords:
+  - writeup blue
+  - hack the box blue
+  - resolución máquina blue
+  - blue hack the box
+  - htb blue
+---
+--------
+### 🔗 Accesos rápidos
 
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Blue)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=_rycwPBeG7Q)|[Parte2](https://www.youtube.com/watch?v=6rzA9KYjFmI)|[Parte3](https://www.youtube.com/watch?v=8g8bSn6Bi7E)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #windows #nmap #ping #python27 #nmapscripts #cd #gitclone #nc-nlvp443 #reverseshell #msfvenom #nvim #type
 
 ---------
 # Guided Mode

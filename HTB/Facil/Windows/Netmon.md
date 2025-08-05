@@ -1,3 +1,34 @@
+---
+title: Writeup netmon - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - netmon
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina netmon en Hack The Box.
+keywords:
+  - writeup netmon
+  - hack the box netmon
+  - resolución máquina netmon
+  - netmon hack the box
+  - htb netmon
+---
+------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Netmon)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=IcYa_yilycs)
+- 🧠 **Explicación resumida**: 
+
+------
+
+#easy #windows #ping #nmap #ftp #CVE-2018-9276 #evil-winrm 
+
+----
+# Guided Mode
+
 1)¿Cuál es el nombre de la aplicación que se ejecuta en el puerto 80? Dadas las tres palabras del logotipo.
 	PRTG Network Monitor
 
@@ -62,23 +93,6 @@ whatweb http://10.10.10.152
 
 ![[Netmon6.png]]
 
-No nos da ningun dato relevante, tambien intente enumerar directorios con [[FFUF]] y no me dio ningun resultado
-
----------
-# [[Hydra]]
-
-Vamos a intentar sacar por fuerza bruta las credenciales
-![[Netmon14.png]]
-
-```
-hydra -L /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -P /usr/share/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt 10.10.10.152 http-post-form '/public/checklogin.htm:username=^USER^&password=^PASS^:F=Your login has failed. Please try again !' -t 64
-```
-
-![[Netmon10.png]]
-
-![[Netmon9.png]]
-Nos tira muchos falsos positivos, por que tarda en la respuesta, así que no podemos sacar credenciales con fuerza bruta
-
 -------
 # Intrusion por [[ftp]] user anonymnous
 
@@ -94,7 +108,7 @@ Ahora vamos al directorio por defecto donde se guardan los backups de PRTG Netwo
 */ProgramData/paessler/PRTG Network Monitor*
 
 ![[Netmon12.png]]
-Vemos al archivo de bakcup y lo descargamos `get PRTG Configuration.old.ba`
+Vemos al archivo de backup y lo descargamos `get PRTG Configuration.old.ba`
 
 Lo abrimos en nuestra maquina, tiene un contenido muy extenso, pero la informacion relevante es esta en las lineas 141 y 142. Nos otorga las credenciales *prtgadmin:PrTg@dmin2018*
 
@@ -119,6 +133,7 @@ La cookie de sesion la ponemos con el parametro *-c* y la sacamos de la pagina d
 ![[Netmon15.png]]
 Este exploit lo que hace es crear un nuevo usuario en el windows, con permisos de administrador, y las credenciales van a ser pentest:P3nT3st!
 
+-----------
 ## Conexion a la maquina con [[evil-winrm]]
 Nos conectamos con esta herramienta por que habiamos visto en el escaneo de nmap que estaba activo el servicio por el puerto 47001
 Y ya podemos catear la flag

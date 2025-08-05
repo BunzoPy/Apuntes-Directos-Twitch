@@ -1,6 +1,33 @@
-Aca vamos a ver [[Server-Side Template Injection (SSTI)]]
+---
+title: Writeup bike - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - bike
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina bike en Hack The Box.
+keywords:
+  - writeup bike
+  - hack the box bike
+  - resolución máquina bike
+  - bike  hack the box
+  - htb bike
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Bike)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=q5oWw54r5pY)|[Parte2](https://www.youtube.com/watch?v=vJJ28Wl9qSw)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #linux #nmap #ping #ssti #reverseshell #burpsuite #nc-nlvp443 
 
 ------
+# Guided Mode
 
 1)¿Qué puertos TCP identifica nmap como abiertos? Responda con una lista de puertos separados por comas sin espacios, de menor a mayor.
 	22,80
@@ -11,8 +38,8 @@ Aca vamos a ver [[Server-Side Template Injection (SSTI)]]
 3)¿Cuál es el nombre del Web Framework según Wappalyzer?
 	express
 
-4)¿Cómo se llama la vulnerabilidad que comprobamos al enviar {{7\*7}}?                  | esta capado
-	server side template injection[[Server-Side Template Injection (SSTI)]]
+4)¿Cómo se llama la vulnerabilidad que comprobamos al enviar {{7\*7}}?
+	server side template injection
 
 5)¿Cuál es el motor de plantillas que se utiliza en Node.JS?
 	handlebars
@@ -27,16 +54,12 @@ Aca vamos a ver [[Server-Side Template Injection (SSTI)]]
 
 8)Cuando usamos un payload de HackTricks para intentar ejecutar comandos del sistema, obtenemos un error de respuesta. Qué es «no definido» en el error de respuesta?
 	require
-	Esto se responde con el payload que intentamos inyectar en el [[Server-Side Template Injection (SSTI)]]
 
 9)¿Qué variable es tradicionalmente el nombre del ámbito de nivel superior en el contexto del navegador, pero no en Node.JS?
 	global
-	En teoria se veia segun la pista en este link de la documentacion, pero la verdad no encontre nada y le pregunte a chatgpt [Documentacion node.js](https://nodejs.org/api/globals.html)
-	Y esto lo vamos a aplicar al cambiar el payload cuando hacemos el [[Server-Side Template Injection (SSTI)]] para que ejecute el RCE
 
 10)Explotando esta vulnerabilidad, conseguimos la ejecución de comandos como el usuario con el que se está ejecutando el servidor web. ¿Cuál es el nombre de ese usuario?
 	root
-	
 
 -----
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -51,8 +74,10 @@ nmap -sCV -p22,80 10.129.178.83 -oN target
 ![[Bike1.png]]
 
 ![[Bike2.png]]
-
-Por el ttl cercano a 64 sabemos que es una maquina linux y que el puerto 80 esta corriendo con un node.js y el 22 con un ssh
+*TTL:* Maquina Linux
+*Puertos*
+	`22` [[ssh]]
+	`80` HTTP
 
 ----
 
@@ -65,17 +90,15 @@ whatweb http://10.129.178.83/
 ![[Bike3.png]]
 
 ![[Bike4.png]]
-
-El script de nmap no anda, y el whatweb no nos da informacion relevante
+Nos informa que esta corriendo un node.js
 
 -----
 
 # Intrusion a la maquina con [[Server-Side Template Injection (SSTI)]] 
 
-## Enumeracion
-
+Probamos poner {{7\*7}} y nos da un error que nos redirige a una consola en node.js
 ![[Bike5.png]]
-Probamos poner {{7\*7}} y nos da un error que nos redirige a una consola en node.js                              | esta capado
+
 
 ![[Bike10.png]]
 
@@ -109,13 +132,11 @@ Esto hay que url encodearlo, hacemos click derecho seleccionando todo el texto y
 
 ![[Bike8.png]]
 
-Este es el resultado final del payload url encodeado, y nos da el error de require que nos ayuda a responder la pregunta Numero 8 
+Este es el resultado final del payload url encodeado
 ![[Bike7.png]]
 
 
 ## Ajustamos el payload con variables globales para que funcione
-
-Aca nos ayudamos de la pregunta Numero 9
 
 Vamos a ajustar con variables globales el payload, para que nos de una respuesta y probar si sirve o no el mismo
 ```
@@ -194,9 +215,9 @@ nc -nlvp 443
 
 ![[Bike9.png]]
 
+----------
 # Notas
 
--------
 #### Diferencias entre sincrono y asincrono:
 ##### Sincrono:
 El programa espera a que termine una tarea antes de seguir con la proxima
@@ -209,8 +230,5 @@ Ejecuta todas las tareas al mismo tiempo y no se esperan entre si
 Es una **función que se ejecuta después** de que otra terminó una tarea, especialmente útil para manejar resultados de operaciones **lentas** o **asíncronas**.
 
 ---------
-
-
-
 # Creditos
 Writeup oficial de HackTheBox

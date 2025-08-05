@@ -1,4 +1,30 @@
-#linux #easy #nmap #ping #whatweb #php810-dev dev #burpsuite #revershell #sudo-l
+---
+title: Writeup knife - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - knife
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina knife en Hack The Box.
+keywords:
+  - writeup knife
+  - hack the box knife
+  - resolución máquina knife
+  - knife hack the box
+  - htb knife
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Knife)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=0cqa33FLho0)
+- 🧠 **Explicación resumida**: 
+
+---------
+
+#linux #easy #nmap #ping #whatweb #php810-dev  #burpsuite #reverseshell #sudo-l #tratamientotty #gtfobinds
 
 -------
 # Guided Mode

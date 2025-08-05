@@ -1,14 +1,39 @@
-Aca vemos [[groovy]]
+---
+title: Writeup pennyworth - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - pennyworth
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina pennyworth en Hack The Box.
+keywords:
+  - writeup pennyworth
+  - hack the box pennyworth
+  - resolución máquina pennyworth
+  - pennyworth hack the box
+  - htb pennyworth
+---
+----------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Pennyworth)
+- 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=vC5kp8ODqls))
+- 🧠 **Explicación resumida**: 
+
+--------
+
+#easy #linux #nmap #ping #groovy #reverseshell
 
 ----
+# Guided Mode
 
 1)¿Qué significan las siglas CVE?
 	Common Vulnerabilities and Exposures
-	Es un identificador único asignado a una vulnerabilidad de seguridad específica en un software o hardware
 
 2)¿Qué significan las tres letras de CIA, en referencia a la tríada de la CIA en ciberseguridad?
 	Confidentiality, Integrity, Availability
-	La tríada CIA en ciberseguridad representa **Confidencialidad, Integridad y Disponibilidad**. Son los tres pilares fundamentales para proteger la información: evitar accesos no autorizados, mantener los datos correctos y asegurarse de que estén siempre accesibles.
 
 3)¿Cuál es la versión del servicio que se ejecuta en el puerto 8080?
 	Jetty 9.4.39.v20210325
@@ -18,21 +43,15 @@ Aca vemos [[groovy]]
 
 5)¿Qué tipo de script se acepta como entrada en la Consola de Script de Jenkins?
 	groovy
-	Acepta groovy scripts
 
 6)¿A qué equivaldría la variable «String cmd» del fragmento de Groovy Script si la máquina virtual de destino estuviera ejecutando Windows?
 	cmd.exe
-	Ejemplo: "cmd.exe /c whoami"
-- `cmd.exe` → Llama al intérprete de comandos de Windows.
-- `/c` → Le dice a `cmd` que ejecute el comando que sigue y luego se cierre.
-- `whoami` → El comando que queremos correr (devuelve el usuario actual).
 
 7)¿Cuál es un comando diferente a «ip a» que podríamos usar para mostrar la información de nuestras interfaces de red en Linux?
 	ifconfig
 
 8)¿Qué switch debemos utilizar con netcat para que utilice el modo de transporte UDP?
 	-u
-	Aparece en el panel de ayuda de netcat `nc -h`
 
 9)¿Cuál es el término utilizado para describir cómo hacer que un host de destino inicie una conexión de vuelta al host atacante?
 	reverse shell
@@ -49,13 +68,11 @@ nmap -sCV -p8080 10.129.255.235 -oN target
 ![[Pennyworth1.png]]
 
 ![[Pennyworth2.png]]
-
-Por el ttl sabemos que es una maquina linux
+*TTL:* Maquina Linux
 *Puertos:*
-`8080` Corre un servicio http con el servicio jetty. El archivo robots, y server-header no nos dan ningun informacion relevante
+	`8080` HTTP
 
 -------
-
 # [[Whatweb-wappalyzer]]
 
 ```shell
@@ -66,7 +83,6 @@ whatweb http://10.129.255.235:8080
 La unica informacion relevante es lo de jetty 9.4.39 que vimos tambien en nmap
 
 ----
-
 # Intrusion al panel de logeo
 
 Entramos a la pagina y vemos este panel de logeo
@@ -76,7 +92,6 @@ Despues de intentar los usuarios y contraseñas mas comunes, logramos dar con
 Usuario: root
 Contraseña: password
 ```
-Intente hacerlo con hydra y la verdad no pude
 
 Ya estamos adentro
 ![[Pennyworth5.png]]
@@ -96,17 +111,14 @@ Mientras estamos en escucha con [[nc -nlvp 443]], y no se le dan importancia a l
 
 ![[Pennyworth6.png]]
 
+--------
+# Notas
 
-
+Confidentiality, Integrity, Availability
+	La tríada CIA en ciberseguridad representa **Confidencialidad, Integridad y Disponibilidad**. Son los tres pilares fundamentales para proteger la información: evitar accesos no autorizados, mantener los datos correctos y asegurarse de que estén siempre accesibles.
 
 
 --------
-# Notas
-Intente correr hydra pero la verdad no me dio resultado, asi que termine mirando el writeup para la parte del login panel
-
-```
-hydra -L /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -P /usr/share/SecLists/Passwords/Common-Credentials/10k-most-common.txt -s 8080 10.129.255.235 http-post-form "/j_spring_security_check:j_username=^USER^&j_password=^PASS^&from=%2F&Submit=Sign+in:Invalid username or password" -t 40
-```
 # Creditos
 Writeup Oficial HackTheBox
 

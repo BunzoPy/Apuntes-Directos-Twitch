@@ -18,8 +18,8 @@ keywords:
 -----------
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**:
-- 📺 **Resolución en vivo (completa)**:
+- 📄 **Writeup online**: [Link] (https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Sau)
+- 📺 **Resolución en vivo (completa)**:[Parte1](https://www.youtube.com/watch?v=5obRDrKVgDU)|[Parte2](https://www.youtube.com/watch?v=GYXUSWpVv6Q)|[Parte3](https://www.youtube.com/watch?v=Eood-ZOml3I)|[Parte4](https://www.youtube.com/watch?v=3JcR_UsS6O8)
 - 🧠 **Explicación resumida**:
 
 ---

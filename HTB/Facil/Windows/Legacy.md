@@ -1,3 +1,34 @@
+---
+title: Writeup legacy - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - legacy
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina legacy en Hack The Box.
+keywords:
+  - writeup legacy
+  - hack the box legacy
+  - resolución máquina legacy
+  - legacy hack the box
+  - htb legacy
+---
+----------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Legacy)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=hVlDTy1nuzQ)
+- 🧠 **Explicación resumida**: 
+
+-------
+
+#easy #windows #nmap #ping #CVE-2008-4250 #nmapscripts #python #type #msfvenom 
+
+---
+# Guided Mode
+
 1)¿Cuántos puertos TCP están abiertos en Legacy?
 	3
 
@@ -12,9 +43,7 @@
 
 Las dos preguntas anteriores son las de las flags
 7)Además de MS08-067, el servicio SMB de Legacy también es vulnerable a otra vulnerabilidad de ejecución remota de código con un ID de CVE de 2017. Cuál es ese ID?
-	CVE-2017-0143
-	Eternalblue [[Blue]]
-
+	[[CVE-2017-0143]]
 
 --------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -30,7 +59,7 @@ nmap -sCV -p135,139,445 10.10.10.4 -oN target
 ![[Legacy2.png]]![[Legacy3.png]]
 *TTL:* Maquina windows
 *Puertos:*
-`445`[[smb]]
+	`445`[[smb]]
 
 *Otra informacion relevante*
 Es un windows XP, y tiene un usuario que se llama legacy. Y un workgroup que se llama HTB
@@ -322,6 +351,10 @@ Esto ya nos tendria que haber mandado la [[Reverse shell]] y podemos catear las 
 ![[Legacy8.png]]
 ![[Legacy9.png]]
 
+
+
+
+
 ----------
 ## Errores que pueden aparecer
 Cuando estaba probando que payload tirar, solamente podia ejecutarlo 1 sola vez y despues me aparecian cualquiera de estos dos errores, la unica solucion que encontre, era reiniciando la maquina de hackthebox.
@@ -346,6 +379,7 @@ Identificador estándar de vulnerabilidad (Common Vulnerabilities and Exposures)
 Tambien se conoce como *MS08-067*
 Identificador de Microsoft para el boletín de seguridad que publicó el **parche** de esta vulnerabilidad. "MS" por "Microsoft", "08" por el año, "067" es el número del boletín ese año.
 
+--------
 # Creditos
 [Proyecto de github rayhan0x01 para explotacion del MS08-067](https://github.com/rayhan0x01/reverse-shell-able-exploit-pocs/blob/master/ms08-067.md)
 Writeup Oficial HackTheBox

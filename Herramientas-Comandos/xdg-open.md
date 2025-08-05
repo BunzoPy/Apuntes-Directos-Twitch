@@ -1,0 +1,1 @@
+Sirve para abrir archivos como PDFs, imágenes, videos o URLs usando la aplicación predeterminada del sistema.

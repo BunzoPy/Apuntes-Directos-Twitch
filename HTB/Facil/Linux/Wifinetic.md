@@ -1,3 +1,29 @@
+---
+title: Writeup wifinetic - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - wifinetic
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina wifinetic en Hack The Box.
+keywords:
+  - writeup wifinetic
+  - hack the box wifinetic
+  - resolución máquina wifinetic
+  - wifinetic hack the box
+  - htb wifinetic
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Wifinetic)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=OTnjzF0wbY8)|[Parte2](https://www.youtube.com/watch?v=1NBhq9M281g)
+- 🧠 **Explicación resumida**: 
+
+-----
+
 #easy #linux #nmap #ping #ftp #ssh #grep #cat #tratamientotty #reaver #ifconfig #hostapd #ps-faux
 
 --------

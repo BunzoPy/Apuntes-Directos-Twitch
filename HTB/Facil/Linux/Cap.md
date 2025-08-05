@@ -1,19 +1,45 @@
+---
+title: Writeup cap - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - cap
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina cap en Hack The Box.
+keywords:
+  - writeup cap
+  - hack the box cap
+  - resolución máquina cap
+  - cap hack the box
+  - htb cap
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Cap)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=P1YcpcOuPRE)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #linux #nmap #ping #wireshark #ffuf #gobuster #whatweb #ssh #getcap #python #sudo #gtfobinds #tratamientotty 
+
+--------
+# Guided Mode
+
 1)¿Cuántos puertos TCP hay abiertos?
 	3
 
 2)Después de ejecutar una «Instantánea de seguridad», el navegador es redirigido a una ruta con el formato /[algo]/[id], donde [id] representa el número de id del escaneo. ¿Qué es [algo]?
 	data
-	La respuesta viene de el link http://10.10.10.245/data/1, en la parte que dice security snapshot
-	![[Cap5.png]]
-
 
 3)¿Puedes acceder a las exploraciones de otros usuarios?
 	Si
-	Creo que es por que se ven diferentes ip de salida y destino, pero la verdad no estoy seguro
 
 4)¿Cuál es el ID del fichero PCAP que contiene los datos sensibles?
 	0
-![[Cap6.png]]
 
 5)¿En qué protocolo de capa de aplicación del archivo pcap se pueden encontrar los datos sensibles?
 	ftp
@@ -89,6 +115,6 @@ Usamos el comando `getcap -r / 2>/dev/null` y vemos que tiene una capability en 
 
 Vamos a vamos a [gtfobinds](https://gtfobins.github.io/gtfobins/python/#capabilities), nos da este oneliner
 ![[Cap13.png]]
-Lo adaptamos a nuestra maquina, lo ejecutamos y podemos visualizar las flags ``python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'``
+Lo adaptamos a nuestra maquina ``python3 -c 'import os; os.setuid(0); os.system("/bin/sh")'`` lo ejecutamos y ya podemos visualizar las flags
 
 ![[Cap15.png]]

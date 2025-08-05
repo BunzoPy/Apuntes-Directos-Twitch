@@ -1,10 +1,13 @@
+#aws
+
+----
+
 AWS (Amazon Web Services) es la plataforma de servicios en la nube de Amazon, donde se pueden guardar archivos, correr servidores, bases de datos, etc.  
 En ciberseguridad suele usarse para acceder a **S3 buckets**, que a veces están mal configurados y permiten ver o descargar archivos sin credenciales.
 Normalmente esta cuando aparece un dominio s3.
 
 -------
 # Comandos para usar el aws
-
 
 ### Listar hosts
 ```shell

@@ -1,4 +1,30 @@
-#easy #linux #nmap #ping #revershell #tratamientotty #gobuster #sudo-l
+---
+title: Writeup bashed - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - bashed
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina bashed en Hack The Box.
+keywords:
+  - writeup bashed
+  - hack the box bashed
+  - resolución máquina bashed
+  - bashed hack the box
+  - htb bashed
+---
+------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Bashed)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=sOtY0jF3HlA)|[Parte2](https://www.youtube.com/watch?v=fs7WfBYd5o8)
+- 🧠 **Explicación resumida**: 
+
+--------
+
+#easy #linux #nmap #ping #reverseshell #tratamientotty #gobuster #sudo-l
 
 -------
 # Guided Mode
