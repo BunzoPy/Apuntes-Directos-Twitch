@@ -1,10 +1,10 @@
+#cookiehijacking
+
+-------
+
 El **cookie hijacking** es una técnica en la que un atacante roba las cookies de sesión de un usuario.  
 Con esa cookie, puede **suplantar su identidad** y acceder a su cuenta sin necesidad de contraseña.  
 Esto suele ocurrir en conexiones inseguras o por vulnerabilidades en la aplicación web.
-
-
-
-
 
 
 ------

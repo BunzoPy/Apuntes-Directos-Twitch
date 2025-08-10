@@ -1,4 +1,30 @@
-#easy #linux #nmap #ping
+---
+title: Writeup oopsie - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - oopsie
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina oopsie en Hack The Box.
+keywords:
+  - writeup oopsie
+  - hack the box oopsie
+  - resolución máquina oopsie
+  - oopsie hack the box
+  - htb oopsie
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Oopsie)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=v_C-8KYn1Mg)|[Parte2](https://www.youtube.com/watch?v=4YjfnwjVEIw)|[Parte3](https://www.youtube.com/watch?v=8iGtyAi9Ouw)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#veryeasy #linux #nmap #ping #arbitraryfileupload #tratamientotty #nc-nlvp443 #cookiehijacking #reverseshell #id #find #grep #caido
 
 ------
 # Guided Mode
@@ -33,7 +59,6 @@
 10)¿Cuál es el nombre del ejecutable al que se llama de forma insegura?
 	cat
 
-
 -----
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
 
@@ -49,8 +74,8 @@ nmap -sCV -p22,80 10.129.207.226 -oN target
 ![[Oopsie2.png]]
 Por el ttl cercano a 64 es una maquina linux
 *Puertos*
-`22` SSH
-`80`HTTP apache
+	`22` SSH
+	`80`HTTP apache
 
 
 ----
@@ -132,7 +157,7 @@ Ya estamos dentro de la maquina, ahora hacemos un [[Tratamiento de la TTY]]
 
 
 -----------
-# Escalada de al usuario robert
+# Escalada de al usuario robert buscando [[Posibles archivos con contraseñas]]
 
 Dentro de la carpeta /var/www/html/cdn-cgi ssamos el comando grep -riE "connect|.*connect|connect.*"   para buscar posibles contraseñas 
 
@@ -143,7 +168,7 @@ Da como resultado ``M3g4C0rpUs3r!``
 ![[Oopsie19.png]]
 
 ------
-# Escala a root mediante binario del grupo bugtracker
+# Escala a root mediante binario del grupo bugtracker usando [[Busqueda con find -group]]
 
 Vemos con [[id]] que estamos en el grupo bugtracker
 Usamos el  comando [[find]] ``find / -group bugtraker 2>/dev/null`` para buscar archivos que pueda ejecutar por estar en este grupo
@@ -176,7 +201,7 @@ chmod +x cat                    /Da permisos de ejecucion al comando cat
 -------
 # Notas
 
-Para el sitemap si usamos caido, no nos va a detectar el directorio login, pero con burpsuite
+Para el sitemap si usamos caido, no nos va a detectar el directorio login, pero con burpsuite si lo va a encontrar
 
 ------
 # Creditos

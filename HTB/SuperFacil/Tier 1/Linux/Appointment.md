@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #SQLI 
+#veryeasy #linux #nmap #ping #SQLI 
 
 ----------
 # Guided Mode

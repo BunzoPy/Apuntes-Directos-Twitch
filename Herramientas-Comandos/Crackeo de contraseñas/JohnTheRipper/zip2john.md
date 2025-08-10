@@ -1,3 +1,7 @@
+#zip2john
+
+------
+
 Es una herramienta que extrae el hash de una contraseña desde un archivo `.zip` protegido.  Para a posteriori crackearlo con [[john]]
 
 ```

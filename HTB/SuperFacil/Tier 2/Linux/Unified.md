@@ -1,27 +1,48 @@
 ---
+title: Writeup unified - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - unified
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina unified en Hack The Box.
+keywords:
+  - writeup unified
+  - hack the box unified
+  - resolución máquina unified
+  - unified hack the box
+  - htb unified
+---
+-------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Unified)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=KFEsWyExifo)|[Parte2](https://www.youtube.com/watch?v=6t717LDxTC8)|[Parte3](https://www.youtube.com/watch?v=EMSUnKxBaDQ)
+- 🧠 **Explicación resumida**: 
+
+---------
+
+#veryeasy #linux #nmap #ping #CVE-2021-44228 #tratamientotty #nc-nlvp443 #mkpasswd #ssh #mongodb 
 
 ---
+# Guided Mode
+
 1)¿Cuáles son los cuatro primeros puertos abiertos?
 	22,6789,8080,8443
 
 2)¿Cuál es el título del software que se está ejecutando en el puerto 8443?
 	UniFi Network
-	Salio del escaneo de nmap
 
 3)¿Cuál es la versión del software que se está ejecutando?
 	6.4.54
-	![[Unified3.png]]
 
 4)¿Cuál es el CVE de la vulnerabilidad identificada?
 	CVE-2021-44228
-	[Github donde esta el CVE](https://github.com/puzzlepeaches/Log4jUnifi)
 
 5)¿Qué protocolo utiliza JNDI en la inyección?
 	LDAP
-	LDAP (Lightweight Directory Access Protocol) es un protocolo que permite acceder y administrar información organizada en forma jerárquica, como usuarios, grupos y dispositivos de red.  
-	Se usa principalmente para autenticación y gestión de identidades en redes empresariales.  
-	No usa SQL y está diseñado para consultas rápidas sobre datos estructurados tipo directorio.
-
 
 6)¿Qué herramienta utilizamos para interceptar el tráfico que indica que el ataque ha tenido éxito?
 	[[tcpdump]]
@@ -34,8 +55,6 @@
 
 9)¿Cuál es el nombre predeterminado de la base de datos para las aplicaciones UniFi?
 	ace
-	![[Unified9.png]]
-	Es la ace por que es la unica que tiene peso
 
 10)¿Cuál es la función que utilizamos para enumerar usuarios dentro de la base de datos en [[mongodb]]?
 	db.admin.find()
@@ -61,13 +80,12 @@ nmap -sCV -p22,6789,8080,8443,8843,8880 10.129.228.2 -oN target
 ![[Unified1.png]]
 ![[Unified2.png]]
 *TTL:* Maquina linux
-*Puertos:*
-`22`SSH
-`8080` Es un http
-`6789, 8443, 8843, 8880` Estos todavia no sabemos para que son
+*Puertos relevantes:*
+	`22`SSH
+	`8080` Es un http
 
 --------
-# CVE [[CVE-2021-44228]]
+# [[CVE-2021-44228]]
 
 Cuando entramos al puerto 8080 que dice que es un http, nos redirigue a esta pagina
 ![[Unified4.png]]
@@ -140,6 +158,10 @@ Mongodb se llama la base de datos pero mongod es el demonio corriendo el proceso
 
 SHA-512Es **SHA-512** porque el hash empieza con `$6$`, que es el identificador estándar usado por la función `crypt()` en Linux para indicar el uso de SHA-512.
 [Pagina para ver tipos de hashes](https://hashes.com/en/tools/hash_identifier)
+
+LDAP (Lightweight Directory Access Protocol) es un protocolo que permite acceder y administrar información organizada en forma jerárquica, como usuarios, grupos y dispositivos de red.  
+	Se usa principalmente para autenticación y gestión de identidades en redes empresariales.  
+	No usa SQL y está diseñado para consultas rápidas sobre datos estructurados tipo directorio.
 
 
 --------

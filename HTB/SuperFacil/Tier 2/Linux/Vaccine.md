@@ -1,3 +1,34 @@
+---
+title: Writeup vaccine - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - vaccine
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina vaccine en Hack The Box.
+keywords:
+  - writeup vaccine
+  - hack the box vaccine
+  - resolución máquina vaccine
+  - vaccine hack the box
+  - htb vaccine
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Vaccine)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=lFJHQi1Ih30)|[Parte2](https://www.youtube.com/watch?v=AgI24N6KmjQ)
+- 🧠 **Explicación resumida**: 
+
+--------
+
+#veryeasy #Linux #ping #nmap #john #zip2john #whatweb #ftp #sqli #reverseshell #ssh #tratamientotty #sudo-l #tratamientotty #sudo
+
+---
+# Guided Mode
+
 1)Además de SSH y HTTP, ¿qué otro servicio está alojado en esta caja?
 	ftp
 
@@ -36,11 +67,11 @@ nmap -sCV -p21,22,80 10.129.163.23 -oN target
 ![[Vaccine2.png]]
 
 ![[Vaccine3.png]]
-*TTL:* Linux
+*TTL:* Maquina Linux
 *Puertos:*
-`21`FTP | Vulnerabilidad con usuario anonymous
-`22`SSH
-`80`Apache/HTTP
+	`21`FTP | Vulnerabilidad con usuario anonymous
+	`22`SSH
+	`80`Apache/HTTP
 
 --------
 # [[Whatweb-wappalyzer]]

@@ -24,7 +24,7 @@ keywords:
 
 --------
 
-#easy #linux #nmap #ping #groovy #reverseshell
+#veryeasy #linux #nmap #ping #groovy #reverseshell
 
 ----
 # Guided Mode

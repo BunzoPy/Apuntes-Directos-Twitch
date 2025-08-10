@@ -24,7 +24,7 @@ keywords:
 
 -----
 
-#easy #linux #ping #nmap #nvim #sudo #/etc/hosts #aws #reverseshell #whatweb  #gobuster #cat
+#veryeasy #linux #ping #nmap #nvim #sudo #/etc/hosts #aws #reverseshell #whatweb  #gobuster #cat
 
 ---
 # Guided Mode

@@ -24,7 +24,7 @@ keywords:
 
 --------
 
-#easy #linux #nmap #ping #reverseshell #tratamientotty #gobuster #sudo-l
+#easy #linux #nmap #ping #reverseshell #tratamientotty #gobuster #sudo-l #abusobinarioscriptmanager
 
 -------
 # Guided Mode
@@ -107,7 +107,7 @@ Ya estamos dentro de la maquina
 # [[Tratamiento de la TTY]]
 
 -----
-# Escalada de privilegios a usuario scriptmanager con [[Abuso de Sudo]]
+# Escalada de privilegios a usuario scriptmanager con [[Abuso de Sudo]] del [[Binario scriptmanager]]
 
 Con [[sudo]] usamos el comando `sudo -l`
 ```shell

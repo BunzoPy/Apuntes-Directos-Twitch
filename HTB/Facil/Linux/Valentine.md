@@ -131,7 +131,6 @@ stty rows 37 columns 174
 
 # 🧠 Notas
 
-- **CTRL+ALT** en Kitty permite copiar líneas directamente.
 
 ---
 

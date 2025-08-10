@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #rsync
+#veryeasy #linux #nmap #ping #rsync
 
 -----
 # Guided Mode

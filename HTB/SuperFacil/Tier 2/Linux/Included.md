@@ -1,9 +1,40 @@
+---
+title: Writeup included - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - included
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina included en Hack The Box.
+keywords:
+  - writeup included
+  - hack the box included
+  - resolución máquina included
+  - included hack the box
+  - htb included
+---
+---------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Included)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=QSMmb3mHKuc)|[Parte2](https://www.youtube.com/watch?v=QHaFBlSVNgs)|[Parte3](https://www.youtube.com/watch?v=7Bh1whd4nec)
+- 🧠 **Explicación resumida**: 
+
+------
+
+#veryeasy #linux #nmap #ping #tratamientotty #reverseshell #lfi #pathtraversal #lxd #tftp #ls-la #python3httpserver 
+
+---
+
+# Guided Mode
+
 1)¿Qué servicio se está ejecutando en la máquina de destino a través de UDP?
 	tftp
 
 2)¿A qué clase de vulnerabilidad se enfrenta la página web alojada en el puerto 80?
 	local file inclusion
-	Podemos leer archivos por el path traversal que encontramos
 
 3)¿Cuál es la carpeta del sistema por defecto que utiliza TFTP para almacenar archivos?
 	/var/lib/tftpboot/
@@ -16,9 +47,6 @@
 
 6)Cuando utilizamos una imagen para explotar un sistema mediante contenedores, buscamos una distribución muy pequeña. Nuestra favorita para esta tarea tiene nombre de montaña. ¿Cómo se llama esa distribución?
 	Alpine
-	**Alpine Linux** es una distribución de Linux muy ligera y segura, diseñada para ser pequeña (unos pocos MB) y eficiente.  
-	Es muy usada en contenedores Docker por su velocidad, bajo consumo de recursos y simplicidad.  
-	Viene con BusyBox y musl libc, lo que la hace ideal para entornos minimalistas o de hacking.
 
 7)¿Qué bandera ponemos al contenedor para que tenga privilegios de root en el sistema anfitrión?
 	security.privileged=true
@@ -58,9 +86,9 @@ nmap -sU -Pn -n -vvv --top-ports 200 10.129.207.145 -oN udp-scan
 ------
 # [[Whatweb-wappalyzer]]
 
-![[Included3.png]]
+
 ![[Included4.png]]
-El directorio images no nos da ninguna informacion relevante y el whatweb tampoco
+No nos da ninguna infromacion relevante
 
 --------
 # [[LFI(Local File Inclusion)]]
@@ -88,7 +116,6 @@ Como podemos ver se interpreto perfectamente
 
 ----------
 # [[Reverse shell]]
-
 
 Creamos el archivo shell.php
 ```php
@@ -150,6 +177,12 @@ Una vez hecho esto ya podemos ya podemos catear las flags por que somos root
 
 ![[Included13.png]]
 
+----------
+# Notas
+
+**Alpine Linux** es una distribución de Linux muy ligera y segura, diseñada para ser pequeña (unos pocos MB) y eficiente.  
+	Es muy usada en contenedores Docker por su velocidad, bajo consumo de recursos y simplicidad.  
+	Viene con BusyBox y musl libc, lo que la hace ideal para entornos minimalistas o de hacking.
 
 -------------
 # Creditos

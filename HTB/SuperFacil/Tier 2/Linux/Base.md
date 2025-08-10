@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #arbitraryfileupload #whatweb #arrayinjection #cat #strings #burpsuite #tratamientotty #sudo-l #grep 
+#veryeasy #linux #nmap #ping #arbitraryfileupload #whatweb #arrayinjection #cat #strings #burpsuite #tratamientotty #sudo-l #grep 
 
 -----
 # Guided Mode

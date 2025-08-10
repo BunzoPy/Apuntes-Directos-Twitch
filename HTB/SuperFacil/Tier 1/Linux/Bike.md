@@ -20,11 +20,11 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Bike)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=q5oWw54r5pY)|[Parte2](https://www.youtube.com/watch?v=vJJ28Wl9qSw)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=MqP9yqdmNuA)
 
 ---
 
-#easy #linux #nmap #ping #ssti #reverseshell #burpsuite #nc-nlvp443 
+#veryeasy #linux #nmap #ping #ssti #reverseshell #burpsuite #nc-nlvp443 
 
 ------
 # Guided Mode
@@ -43,8 +43,6 @@ keywords:
 
 5)¿Cuál es el motor de plantillas que se utiliza en Node.JS?
 	handlebars
-	![[Bike6.png]]
-
 
 6)¿Cómo se llama la pestaña de BurpSuite que se utiliza para codificar texto?
 	decoder

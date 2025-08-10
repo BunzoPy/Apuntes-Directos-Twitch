@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #ping #nmap #mongodb
+#veryeasy #linux #ping #nmap #mongodb
 
 ----
 # Guided Mode

@@ -1,3 +1,7 @@
+#lxd
+
+------
+
 Nota de [[lxd]]
 
 [Articulo hacktricks](https://book.hacktricks.wiki/en/linux-hardening/privilege-escalation/interesting-groups-linux-pe/lxd-privilege-escalation.html)

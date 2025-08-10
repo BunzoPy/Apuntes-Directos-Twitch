@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #windows #nmap #ping #john #evil-winrm #type
+#veryeasy #windows #nmap #ping #john #evil-winrm #type
 
 ------
 # Guided Mode

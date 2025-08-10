@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #mysql
+#veryeasy #linux #nmap #ping #mysql
 
 -----
 # Guided mode

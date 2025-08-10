@@ -1,3 +1,7 @@
+#lxd
+
+-------
+
 Es un sistema de **contenedores de sistema completo** (system containers), similar a Docker, pero con un enfoque distinto. Sirve para gestionar **contenedores Linux que se comportan como máquinas virtuales ligeras**, usando **LXC (Linux Containers)** como backend.
 
 ### ✅ ¿Qué lo hace especial?

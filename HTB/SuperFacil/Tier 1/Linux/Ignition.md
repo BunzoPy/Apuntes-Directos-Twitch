@@ -24,7 +24,7 @@ keywords:
 
 ----
 
-#easy #linux #nmap #ping #magento #sudo #/etc/hosts 
+#veryeasy #linux #nmap #ping #magento #sudo #/etc/hosts 
 
 ---
 # Guided Mode

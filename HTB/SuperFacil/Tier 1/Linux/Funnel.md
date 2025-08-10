@@ -24,7 +24,7 @@ keywords:
 
 ------
 
-#easy #linux #nmap #ping  #ftp #cat #ssh #portscannersh
+#veryeasy #linux #nmap #ping  #ftp #cat #ssh #portscannersh
 
 ------
 # Guided Mode

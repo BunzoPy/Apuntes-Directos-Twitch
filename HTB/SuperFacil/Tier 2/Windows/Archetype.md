@@ -24,7 +24,7 @@ keywords:
 
 --------
 
-#easy #windows #nmap #ping #smb #netcat #impacket-mssqlclient
+#veryeasy #windows #nmap #ping #smb #netcat #impacket-mssqlclient
 
 ---
 # Guided Mode

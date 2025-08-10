@@ -1,3 +1,7 @@
+#xxe
+
+------
+
 Una **vulnerabilidad XXE** ocurre cuando una aplicación lee archivos XML y permite que se carguen datos externos. Esto puede hacer que un atacante lea archivos del sistema o envíe datos a servidores externos. Es un fallo de seguridad que puede exponer información sensible.
 
 -------

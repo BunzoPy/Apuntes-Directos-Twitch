@@ -24,7 +24,7 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #gobuster #ftp
+#veryeasy #linux #nmap #ping #gobuster #ftp
 
 ------
 # Guided mode

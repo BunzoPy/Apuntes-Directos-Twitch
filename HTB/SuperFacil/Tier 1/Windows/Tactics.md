@@ -20,11 +20,11 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Windows/Tactics)
 - 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=6jHO8sHxz2E))
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=Nkam-8UWcpg)
 
 -------
 
-#easy #windows #nmap #ping #impacket #smb
+#veryeasy #windows #nmap #ping #impacket #smb
 
 -------
 # Guided Mode
