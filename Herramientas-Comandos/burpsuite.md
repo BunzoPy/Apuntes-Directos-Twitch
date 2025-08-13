@@ -28,3 +28,11 @@ Y ahora apretamos start burp que tambien esta abajo a la derecha
 
 ### Y listo ya esta abierto completamente
 ![[Burpsuite4.png]]
+
+
+-----
+# Atajos de teclado
+
+*CTRL + R* Para mandar a la pestaña de *repeater*
+*CTRL + ESPACIO* Enviar la peticion cuando esta en el *repeater*
+*CTRL + I* Manda la consulta a la pestaña de *intruder*

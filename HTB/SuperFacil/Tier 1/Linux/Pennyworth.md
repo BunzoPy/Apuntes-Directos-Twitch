@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Pennyworth)
 - 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=vC5kp8ODqls))
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=7umykwIvKAI)
 
 --------
 
@@ -80,25 +80,32 @@ whatweb http://10.129.255.235:8080
 ```
 
 ![[Pennyworth3.png]]
-La unica informacion relevante es lo de jetty 9.4.39 que vimos tambien en nmap
+La unica informacion relevante es lo de jetty 9.4.39  y Jenkings 2.289.1
 
 ----
-# Intrusion al panel de logeo
+# Intrusion al panel de logeo con [[Caido]]
 
 Entramos a la pagina y vemos este panel de logeo
 ![[Pennyworth4.png]]
-Despues de intentar los usuarios y contraseñas mas comunes, logramos dar con 
-```
-Usuario: root
-Contraseña: password
-```
+Interceptamos la peticion con [[Caido]] la mandamos al *Automate* y con los diccionarios de Seclits que usamos para estos casos, vamos a descubrir filtrando por el Lenght
+
+![[Pennyworth8.png]]
+Las credenciales validas son :   root:password
 
 Ya estamos adentro
 ![[Pennyworth5.png]]
 
 ---------
 # [[Reverse shell]]
-Ahora vamos a ir a la parte de consola y vamos a poner el payload que sacamos de este [articulo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#powershell)
+
+Apretamos donde dice *Manage Jenkins* en la columna de la derecha
+![[Pennyworth9.png]]
+
+Despues vamos abajo donde dice *Script Console* y entramos
+
+![[Pennyworth10.png]]
+
+Vamos a poner el payload que sacamos de este [articulo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#powershell)
 ![[Pennyworth7.png]]
 #### Payload
 ```groovy

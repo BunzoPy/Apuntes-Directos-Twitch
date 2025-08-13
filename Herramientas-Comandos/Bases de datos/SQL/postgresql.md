@@ -1,5 +1,5 @@
 PostgreSQL es un sistema de gestión de bases de datos relacional de código abierto, potente y extensible, que permite almacenar y consultar datos de forma segura y eficiente. Es muy usado para aplicaciones web y empresariales.
-
+Corre por el puerto 5432
 # Como conectarnos
 
 ```shell

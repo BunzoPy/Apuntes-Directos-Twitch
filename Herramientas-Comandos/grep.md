@@ -6,6 +6,7 @@ Ejemplo: grep -riE "connect|.*connect|connect.*"
 ```
 
 *Parametros*
--r: Búsqueda recursiva 
--i: Búsqueda sin distinción entre mayúsculas y minúsculas. 
--E: Uso de múltiples patrones. Buscamos líneas que empiezan con «Ejemplo», terminan con «Ejemplo» o tienen «Ejemplo» entre ellas.
+``-r`` Búsqueda recursiva 
+``-i`` Búsqueda sin distinción entre mayúsculas y minúsculas. 
+``-E`` Uso de múltiples patrones. Buscamos líneas que empiezan con «Ejemplo», terminan con «Ejemplo» o tienen «Ejemplo» entre ellas.
+``-n`` Ver en que linea esta la coincidencia

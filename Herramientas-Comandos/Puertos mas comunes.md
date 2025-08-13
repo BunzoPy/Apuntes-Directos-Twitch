@@ -4,4 +4,5 @@
 `443`HTTPS
 `445`[[smb]]
 `873`[[rsync]]
+`5432` [[postgresql]]
 

@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+1/Linux/Funnel)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=VzS3cpyRyuc)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=s2Ysj5WkMV0)
 
 ------
 
@@ -84,7 +84,7 @@ Entramos al directorio mail_backup y descargamos con el comando `get` los archiv
 ![[Funnel4.png]]
 
 ----------
-### Analizamos el contenido de los archivos
+### Analizamos el contenido de los archivos con [[xdg-open]]
 
 *Archivo welcome_28112022:*
 
@@ -132,10 +132,7 @@ done
 Y le damos permiso de ejecucion al archivo con `chmod +x portscanner.sh`
 
 ![[Funnel8.png]]
-Sabemos que esta abierto el 21:ftp, 22:ssh, y el 5432 que no sabemos que es
-
-Para saber que servicio corre en el puerto 5432 vamos a usar [[getent services]] con el comando `getent services 5432`. Y por detecto en este puerto corre el servicio postgresql
-![[Funnel9.png]]
+Sabemos que esta abierto el 21:[[ftp]], 22:[[ssh]], y el 5432 que es para [[postgresql]]
 
 --------
 # Conexion por [[postgresql]] y tunneling de [[ssh]]
@@ -143,14 +140,13 @@ Para saber que servicio corre en el puerto 5432 vamos a usar [[getent services]]
 Nos vamos a conectar nuevamente por [[ssh]] pero haciendo que el puerto de la maquina victima 5432 sea nuestro puerto 1234
 ``ssh -L 1234:localhost:5432 christine@10.129.243.9``
 
-
 Y ahora nos vamos a poder conectar a la [[postgresql]] con el comando ``psql -U christine -h localhost -p 1234``
 y cuando nos pide contraseña ponemos la misma de antes funnel123#!#
 
 Una vez dentro de la base de datos, listamos la flag
 ```posgresql
-`\l                   |para ver las bases de datos
-\c                    |secrets para usar la base de datos
+\l                   |para ver las bases de datos
+\c secrets                  |secrets para usar la base de datos
 \dt                   |para ver las tablas y columnas
 SELECT * FROM flag;   | para listar todo el contenido de la tabla flag
 ```

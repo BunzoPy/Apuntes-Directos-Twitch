@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Lame)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=RiQEZlUoKvk)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=2Fo46DUSyvo)
 
 ---
 
@@ -85,7 +85,7 @@ nmap -sCV -p21,22,139,445,3632 10.10.10.3 -oN target
 -------
 # Explotacion [[CVE-2007-2447]]
 
-Al ser una vresion vieja de smb 3.0.20 Debian como vimos en el escaneo de NMAP, podemos probar el [[CVE-2007-2447]]
+Al ser una version vieja de smb 3.0.20 Debian como vimos en el escaneo de NMAP, podemos probar el [[CVE-2007-2447]]
 
 [Exploit hecho por amriunix](https://github.com/amriunix/CVE-2007-2447)(Para python2.7)
 
