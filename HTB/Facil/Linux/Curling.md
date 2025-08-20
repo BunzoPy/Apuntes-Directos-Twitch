@@ -1,22 +1,60 @@
+---
+title: Writeup curling - Hack The Box - Resolución y Análisis
+published: true
+tags:
+  - hackthebox
+  - writeup
+  - curling
+  - ciberseguridad
+  - pentesting
+description: Writeup y resolución de la máquina curling en Hack The Box.
+keywords:
+  - writeup curling
+  - hack the box curling
+  - resolución máquina curling
+  - curling hack the box
+  - htb curling
+---
+--------
+### 🔗 Accesos rápidos
+
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Curling)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=bW7qDzB0kfs)|[Parte2](https://www.youtube.com/watch?v=E8MILfksvm0)|[Parte3](https://www.youtube.com/watch?v=TLPnbmdldo0)
+- 🧠 **Explicación resumida**: 
+
+---
+
+#easy #linux #nmap #ping #rce
+
+-------
+# Guided Mode
+
+
+
+---------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
-```
+```shell
 ping -c 1 10.10.10.150
 nmap -p- --open -vvv -sS --min-rate 5000 -n -Pn 10.10.10.150 -oG allports
 extract Ports allports
 nmap -sCV -p22,80 10.10.10.150 -oN target
-whatweb http://10.10.10.150
-nmap --script http-enum -p22,80 10.10.10.150 -oN webScan
 ```
 ![[Curling1.png]]![[Curling2.png]]
-*Resultado:*
-Es una maquina linux por el ttl
-Puertos 22 ssh y 80 apache abiertos
+*TTL:* Maquina Linux
+*Puertos*
+	`22` [[ssh]]
+	`80` HTTP
 
 --------------
 # [[Whatweb-wappalyzer]]
+```shell
+whatweb http://10.10.10.150
+```
 
 ![[Curling3.png]]
-El whatweb no nos da ninguna información relevante, y tenemos para probar muchos directorios.
+El whatweb no nos da ninguna información relevante
+
+
 Este nos da un panel de acceso
 	http://10.10.10.150/administrator/
 	
@@ -33,8 +71,8 @@ Usuario: Floris
 Contraseña: Curling2018!
 
 -------------
-# RCE(Remote Comand Ejecution) En joomla
-### Enumeracion
+# [[RCE(Remote Comand Ejecution) En joomla]] y  [[Reverse shell]]
+
 [Articulo que explica como sacar una revershell con joomla](https://www.hackingarticles.in/joomla-reverse-shell/)
 Vamos a ir a la parte de templates, 
 ![[Curling8.png]]
@@ -50,7 +88,6 @@ Ahora cuando entremos al link
 http://10.10.10.150/templates/beez3/error.php nos tendria que aparecer la respuesta del comando whoami
 ![[Curling11.png]]
 
-### Explotacion
 
 Como nos responde que usuarios somos, ya sabemos que hay un RCE, y vamos a intentar mandarnos una [[Reverse shell]]
 
@@ -66,19 +103,14 @@ Y listo ya ganamos acceso a la maquina
 # [[Apuntes Directo/Herramientas-Comandos/Tratamiento de la TTY|Tratamiento de la TTY]]
 
 ----------
-# Escalada de privilegios
+# Escalada al usuario floris con [[Tipos de archivo y archivos comprimidos]] y conexion por [[ssh]]
 
-### Escalamos al usuario de floris
-
-##### Enumeracion y explotacion junto(No se diferenciar): Mediante comprimidos ocultos
 Encontramos esto en el home de floris y vamos a usar la herramienta [[xxd]] ya que esta en hexadecimal, para descifrar el contenido
 ![[Curling15.png]]
 ```shell
 cat password_backup | xxd -r  > /tmp/pass
 ```
-No da nada legible, asi que al aplicar un `file pass` veo que el tipo de archivo es bzip2, asi que por lo tanto es un comprimido, asi que empiezo a descomprimir                 |                 [[file]]
-![[Pasted image 20250531234516.png]]
-[[Comprimidores de archivos]]
+No da nada legible, asi que al aplicar [[file]] con el comando `file pass` veo que el tipo de archivo es [[bzip2]], despues pasa a ser un [[gzip]], luego un [[bzip2]] nuevamente y por ultimo [[tar]]. Para finalmente con [[cat]] ver la contraseña
 ```shell
 bzip2 -d pass
 file pass.out   //Veo que es un gzip
@@ -127,14 +159,9 @@ Ahora cuando se ejecute la tarea cron, va a hacer que la bash tenga permisos SUI
 Una vez que vemos la s, ya sabemos que podemos ejecutar `bash -p` para ganar permisos en la bash
 ![[Curling20.png]]
 Ya estamos logeados como root, asi que podemos visualizar la flag
+
+-------
 # Notas
-
-`uname -m`                              |    [[uname]]
-Es para ver si el OS es de 32 o 64, si devuelve x86_64 es de 64
-
-`curl -k`                                 | [[curl]]
-	`-k` Ignora los errores de certificados SSL/TLS
-	`-K` Sirve para leer opciones desde un archivo de configuracion en lugar de pasarlos por una linea de comando en la shell
 
 ##### Diferencias entre sh, bash y zsh 
 *Las 3 utilizan los mismos comandos de base, pero puede haber funcionalidades que tenga la zsh, y que no esten en la sh*
@@ -142,11 +169,11 @@ Es para ver si el OS es de 32 o 64, si devuelve x86_64 es de 64
 `bash` Mas completa que la sh y actualizada
 `zsh` Es como la bash pero con esteroides y mas personalizable
 
-
 ###### Por que se define la BASH y SHELL en la tarea cron
 *SHELL:* Si no se especifica va a usar por defecto una sh, la cual puede ser que no interprete todos los comandos
 *PATH:* Si no se pone esto, cron puede no encontrar cosas como python, nc, curl, bash, etc
 
+-----------
 # Creditos
 [Writeup de lanzt](https://lanzt.github.io/htb/curling)
 Writeup oficial de HTB

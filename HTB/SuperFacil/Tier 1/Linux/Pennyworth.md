@@ -105,7 +105,7 @@ Despues vamos abajo donde dice *Script Console* y entramos
 
 ![[Pennyworth10.png]]
 
-Vamos a poner el payload que sacamos de este [articulo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#powershell)
+Vamos a poner el payload que sacamos de este [articulo](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/#groovy)
 ![[Pennyworth7.png]]
 #### Payload
 ```groovy
