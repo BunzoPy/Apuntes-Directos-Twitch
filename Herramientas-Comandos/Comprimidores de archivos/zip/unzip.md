@@ -2,7 +2,7 @@
 
 ----
 
-El comando `unzip` se usa para **descomprimir archivos `.zip`** en sistemas Unix/Linux.
+El comando `unzip` se usa para **descomprimir archivos `.zip`** en sistemas Unix/Linux. Tambien sirve para descomprimir archivos.jar
 
 ------
 # Comando
