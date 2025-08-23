@@ -20,11 +20,14 @@ Ejemplo: gobuster vhost -u http://ignition.htb -w /usr/share/SecLists/Discovery/
 ```
 
 *Parametros:*
-`-u` Sirve para poner la url que queremos eunmerar
+`-u` Sirve para poner la url que queremos enumerar
 `-w` Es para seleccionar el diccionario
 `--apend-domain` Concatena el valor de cada palabra del diccionario con el del dominio, si no se pone este parametro no va a detectar subdominios
 *Parametros opcionales*
 `-t` Especifica la cantidad de hilos que que queremos usar, por defecto usa 10
+
+*Dato Importante:*
+Solamente podemos enumerar subdominios si conocemos el dominio
 
 -------
 # Enumeracion de directorios
@@ -32,6 +35,11 @@ Ejemplo: gobuster vhost -u http://ignition.htb -w /usr/share/SecLists/Discovery/
 ```shell
 gobuster dir -u Web -w Diccionario --add-slash -t 64
 Ejemplo: gobuster dir -u http://ignition.htb -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --add-slash -t 64
+
+// Sin barra al final
+
+gobuster dir -u Web -w Diccionario -t 64
+Ejemplo: gobuster dir -u http://ignition.htb -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 64
 
 //Para buscar archivos con extensiones especificas
 
@@ -41,7 +49,7 @@ Ejemplo: gobuster dir -u http://ignition.htb -w /usr/share/SecLists/Discovery/We
 
 
 *Parametros:*
-`-u` Sirve para poner la url que queremos eunmerar
+`-u` Sirve para poner la url que queremos enumerar
 `-w` Es para seleccionar el diccionario
 `--add-slash` Al final de cada directorio tambien prueba agregar un `/` esto hace que busque tanto directorios como archivos
 `-t` Especifica la cantidad de hilos que que queremos usar, por defecto usa 10

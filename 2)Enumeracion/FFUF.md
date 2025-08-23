@@ -53,3 +53,5 @@ Ejemplo si usamos el dicionario mas grande: ffuf -u http://FUZZ.10.10.11.130 -w 
 	`-w` La ruta del diccionario a usar
 *Parametros opcionales*
 	`-t` Sirve para poner la cantidad de hilos, por default usa 40, en lo personal yo no modifico la cantidad de hilos
+*Dato Importante:*
+Solamente podemos enumerar subdominios si conocemos el dominio

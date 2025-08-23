@@ -1,3 +1,7 @@
+#chmod 
+
+------
+
 Sirve para **cambiar los permisos** de archivos o directorios en sistemas Linux/Unix.  
 Permite definir quién puede leer, escribir o ejecutar un archivo (usuario, grupo, otros).
 

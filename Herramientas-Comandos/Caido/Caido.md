@@ -14,6 +14,9 @@ Es útil para pentesters que buscan una alternativa liviana a BurpSuite con inte
 
 #### Podemos seleccionar el archivo que queremos en la parte de *Selected file*
 ![[Caido6.png]]
+Uso estos diccionarios de seclist
+Para usernames: /usr/share/SecLists/Usernames/top-usernames-shortlist.txt 
+Para contraseñas: /usr/share/SecLists/Passwords/Common-Credentials/10-million-password-list-top-100.txt
 
 #### En la pestaña de *Preprocessors* podemos seleccionar si queremos que URL encodee los caracteres
 
