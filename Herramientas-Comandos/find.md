@@ -40,4 +40,5 @@ Ejemplo para buscar la flag de escalada de privilegios: find / -name root.txt 2>
 
 `/`Significa que esta buscando desde la raiz del sistema
 `-name` Nombre del archivo
+	Si pongo "\*springs*" Va a buscar resultados que empiezen, terminen o tengan la palabra springs
 *2>/dev/null* No nos muestra los errores y los envia a la carpeta /dev/null

@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Blocky)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=qCkLwPhQKpk)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=_jXH0nFVnHk)
 
 ----------
 
@@ -93,7 +93,7 @@ whatweb http://blocky.htb/
 ![[Blocky7.png]]
 
 ![[Blocky6.png]]
-Creo que lo relevante es que es un worpress version 4.8
+No nos da ninguna informacion relevante para la resolucion de la maquina
 
 -----
 # [[Gobuster]]
@@ -120,7 +120,7 @@ Previamente cuando estabamos enumerando con [[Gobuster]] habiamos visto la exist
 Ahora con [[strings]] vamos a ver el archivo *BlockyCore.class* usando el comando `strings BlockyCore.class` y vemos que nos da una posible contraseña *8YsqfCTnvxAUeduzjNSXe22*
 ![[Blocky13.png]]
 
-Ahora nos vemos a conectar por [[ssh]] usando las credenciales notch:8YsqfCTnvxAUeduzjNSXe22 con el comando `ssh notch@10.10.10.37 -p 21`
+Ahora nos vemos a conectar por [[ssh]] usando las credenciales notch:8YsqfCTnvxAUeduzjNSXe22 con el comando `ssh notch@10.10.10.37 -p 22`
 
 Ya estamos adentro
 

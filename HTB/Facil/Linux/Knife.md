@@ -20,11 +20,11 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Knife)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=0cqa33FLho0)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=tWrxfiQcZO4)
 
 ---------
 
-#linux #easy #nmap #ping #whatweb #php810-dev  #burpsuite #reverseshell #sudo-l #tratamientotty #gtfobinds
+#linux #easy #nmap #ping #whatweb #php810-dev  #burpsuite #reverseshell #sudo-l #tratamientotty #gtfobinds #abusobinarioknife
 
 -------
 # Guided Mode
@@ -74,7 +74,7 @@ whatweb http://10.10.10.242/
 Nos informa que la pagina tiene php 8.1.0
 
 -----
-# Intrusion Vulnerabilidad php 8.1-dev
+# Intrusion vulnerabilidad [[PHP 8.1.0-dev]]
 
 Interceptamos la peticion con [[burpsuite]]
 
@@ -94,7 +94,7 @@ Y listo ya estamos adentro de la maquina
 # [[Tratamiento de la TTY]]
 
 -----
-# Escalada de privilegios con [[Abuso de Sudo]]
+# Escalada de privilegios con [[Abuso de Sudo]] al [[Binario knife]]
 
 Usamos el comando `sudo -l`
 
@@ -112,6 +112,7 @@ Y listo ya ganamos acceso como root y podemos visualizar las flags
 
 -------
 # Creditos
+
 [Exploit 49933 de searchsploit](https://www.exploit-db.com/exploits/49933) Que lo pudimos usar de referencia para entender la vulnerabilidad
 
 

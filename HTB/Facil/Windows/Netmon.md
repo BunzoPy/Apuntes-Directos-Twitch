@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Netmon)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=IcYa_yilycs)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=SKknoNohRa8)
 
 ------
 
@@ -56,9 +56,6 @@ keywords:
 	tasklist /v | findstr PRTG                        [[findstr]] [[tasklist]]
 	![[Netmon17.png]]
 
-
-
-
 --------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
 
@@ -79,10 +76,9 @@ nmap -sCV -p21,80,135,139,445,5985,47001,49664,49665,49666,49667,49668,49669 10.
 	`21` [[ftp]]
 	`80` HTTP
 	`445` [[smb]]
-	`47001 o 5985` Alguno de estos dos puertos puede llegar  tener un [[evil-winrm]]
+	`5985` [[evil-winrm]]
 *Datos importantes*
 En el servicio de [[ftp]] nos podemos conectar como el usuario anonymous. Y en [[smb]] con el usuario guest
-
 
 ----
 # [[Whatweb-wappalyzer]]
@@ -92,6 +88,7 @@ whatweb http://10.10.10.152
 ```
 
 ![[Netmon6.png]]
+No dice que esta corriendo un PRTG-Network-Monitor[18.1.37]
 
 -------
 # Intrusion por [[ftp]] user anonymnous
@@ -104,16 +101,18 @@ ftp 10.10.10.152 -p 21
 ![[Netmon8.png]]
 Y sacamos la primera flag en el directorio */users/public/desktop/user.txt*
 
-Ahora vamos al directorio por defecto donde se guardan los backups de PRTG Network Monitor
-*/ProgramData/paessler/PRTG Network Monitor*
+
+![[Netmon21.png]]
+
+Buscamos por internet, donde se guardan los backups de *PRTG Network Monitor* . La carpeta es `/ProgramData/paessler/PRTG Network Monitor*`
+Y ahora vamos al directorio por defecto donde se guardan los backups
 
 ![[Netmon12.png]]
-Vemos al archivo de backup y lo descargamos `get PRTG Configuration.old.ba`
+Vemos al archivo de backup y lo descargamos `get "PRTG Configuration.old.bak"`
 
 Lo abrimos en nuestra maquina, tiene un contenido muy extenso, pero la informacion relevante es esta en las lineas 141 y 142. Nos otorga las credenciales *prtgadmin:PrTg@dmin2018*
 
 ![[Netmon13.png]]
-
 
 ------
 
@@ -146,6 +145,7 @@ evil-winrm -i 10.10.10.152 -u pentest -p 'P3nT3st!'
 ----------
 # Notas
 Si una contraseña tiene un año antiguo, probar cambiar la contraseña al año actual, por ejemplo. Si la contraseña dice admin2018, y estamos en el 2019, probar admin2019
+
 
 ---------
 # Creditos

@@ -125,7 +125,7 @@ Ya ganamos acceso a la maquina
 # [[Tratamiento de la TTY]]
 
 ---
-# Escalada de privilegios con [[Abuso de Sudo]]
+# Escalada de privilegios con [[Abuso de Sudo]] del [[Binario Perl]]
 
 ```shell
 sudo -l

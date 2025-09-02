@@ -20,11 +20,11 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Cap)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=P1YcpcOuPRE)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=vWwMxEkFwQo)
 
 ---
 
-#easy #linux #nmap #ping #wireshark #ffuf #gobuster #whatweb #ssh #getcap #python #sudo #gtfobinds #tratamientotty 
+#easy #linux #nmap #ping #wireshark #ffuf #gobuster #whatweb #ssh #getcap #python #sudo #gtfobinds #tratamientotty #getcapbinariopython38
 
 --------
 # Guided Mode
@@ -76,6 +76,7 @@ nmap -sCV -p21,22,80 10.10.10.245 -oN target
 whatweb http://10.10.10.245/
 ```
 ![[Cap4.png]]
+No nos da informacion relevante
 
 --------
 # [[FFUF]] y [[Gobuster]]
@@ -107,7 +108,7 @@ Vemos si reutiliza credenciales en [[ssh]] que en habiamos visto que estaba acti
 # [[Tratamiento de la TTY]]
 
 --------
-# Escalada de privilegios [[getcap]]
+# Escalada de privilegios [[getcap]] con [[Binario python3.8]]
 
 Usamos el comando `getcap -r / 2>/dev/null` y vemos que tiene una capability en python
 

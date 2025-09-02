@@ -118,6 +118,8 @@ gobuster dir -u http://10.10.10.79 -w /usr/share/SecLists/Discovery/Web-Content/
 ![[Valentine4.png]]
 Nos da el directorio http://10.10.10.79/dev
 
+---
+# Obtenemos un id_rsa
 
 ![[Valentine7.png]]
 Entramos al *hype_key*
@@ -147,7 +149,7 @@ Como es una version vieja de apache, seguramente el openssl es una version vieja
 Es vulnerable a hearthbleed
 
 --------
-# [[searchsploit]]
+# [[searchsploit]] y [[CVE-2014-0160]]
 
 Buscamos algun exploit para [[CVE-2014-0160]] con el comando searchsploit ``searchsploit heartbleed``, luego encontramos este exploit que nos interesa y lo descargamos con `searchsploit -m multiple/remote/32764.py`
    ![[Valentine11.png]]
@@ -180,6 +182,9 @@ Con [[ps faux y ps -eo]] usamos el comando `ps faux` y vemos el binario de *tmux
    ![[Valentine15.png]]
 
 [Articulo que explica la vulnerabilidad](https://int0x33.medium.com/day-69-hijacking-tmux-sessions-2-priv-esc-f05893c4ded0)
+*Breve resumen:*
+	Tmux creó un **socket UNIX** usando `-S /.devs/dev_sess` para compartir la sesión con otro usuario; si el socket de root tiene permisos `rw` para tu grupo, cualquiera puede **tomar control de la sesión y ejecutar comandos como root**.
+
 
 Ahora vamos a usar el comando `tmux -S /.devs/dev_sess` para hacernos root, y listo ya podemos catear las flags
 
@@ -190,6 +195,7 @@ Ahora vamos a usar el comando `tmux -S /.devs/dev_sess` para hacernos root, y li
 
 SSl es el protocolo de cifrado de https
 
+ASCII es **una forma de representar bytes en binario usando caracteres legibles**.
 
 ---
 

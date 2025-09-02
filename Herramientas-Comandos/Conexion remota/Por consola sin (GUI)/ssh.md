@@ -12,6 +12,17 @@ Ejemplo:ssh christine@10.129.243.9 -p 22
 
 ![[Funnel7.png]]
 
+------
+# Permiso 600
+
+*Importante* Si vamos a usar un archivo de id_rsa para conectarnos por ssh, recordar darle permisos de ejecución o de lectura y escritura por que podemos llegar a tener problemas
+```
+chmod +x NombreDelArchivo
+O si no llegara a funcionar
+chmod 600 NombreDelArchivo
+```
+
+
 ---------
 
 # Tunneling
@@ -54,8 +65,8 @@ ssh -o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -i Archivo_
 Ejemplo: ssh -o PubkeyAcceptedKeyTypes=+ssh-rsa -o HostKeyAlgorithms=+ssh-rsa -i id_rsa hype@10.10.10.79
 ```
 *Parametros*
-`-o PubkeyAcceptedKeyTypes=+ssh-rsa` Le dice al cliente que acepte claves publicas tipo ssh-rsa, que ya estan obsoletas y no se usan
-`-o HostKeyAlgorithms=+ssh-rsa` Permite aceptar claves del tipo ssh-rsa
+`-o PubkeyAcceptedKeyTypes=+ssh-rsa` se refiere a tu **clave de usuario** (el id_rsa) para que acepte ssh-rsa
+`-o HostKeyAlgorithms=+ssh-rsa` se refiere a la **clave del servidor**(es la que se guarda en know_hosts cuando te conectas por primera vez) para que acepte ssh-rsa
 `-i` Especifica el archivo que contiene la clave RSA
 
 

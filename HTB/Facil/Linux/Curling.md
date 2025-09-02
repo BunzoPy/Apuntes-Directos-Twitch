@@ -24,12 +24,35 @@ keywords:
 
 ---
 
-#easy #linux #nmap #ping #rce
+#easy #linux #nmap #ping #rce #curl #joomla #whatweb #wappalyzer #echo #base64 #reverseshell #tratamientotty #ssh #xxd #cron #pspy
 
 -------
 # Guided Mode
 
+1)¿Cuántos puertos TCP abiertos están a la escucha en Curling?
+	2
 
+2)¿Qué sistema de gestión de contenidos (CMS) utiliza el sitio web?
+	joomla
+
+3)¿Cómo se llama el archivo en un comentario HTML de la página web?
+	secret.txt
+
+4)Todas las publicaciones están escritas por el usuario Super User. ¿Cuál es el nombre de ese usuario?
+	floris
+
+5)Con qué usuario se ejecuta el servidor web en Curling?
+	www-data
+
+6)¿Cuál es la contraseña del usuario floris
+	5d<wdCbdZu)|hChXll
+
+*La pregunta anterior era la flag de user.txt*
+8)¿Qué binario se ejecuta regularmente como root en un cron?
+	curl
+
+9)¿Cuál es la ruta completa del archivo de configuración que se utiliza con curl?
+	/home/floris/admin-area/input
 
 ---------
 # [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
@@ -51,13 +74,28 @@ nmap -sCV -p22,80 10.10.10.150 -oN target
 whatweb http://10.10.10.150
 ```
 
-![[Curling3.png]]
-El whatweb no nos da ninguna información relevante
+![[Curling24.png]]
 
+![[Curling23.png]]
+No obtenemos informacion relevante
+
+------
+# [[Gobuster]]
+
+```
+gobuster dir -u http://10.10.10.150 -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 64 --add-slash
+```
+
+![[Curling21.png]]
 
 Este nos da un panel de acceso
 	http://10.10.10.150/administrator/
-	
+
+![[Curling22.png]]
+
+------
+# Inspeccionamos codigo fuente de la pagina principal
+
 Viendo el codigo fuente de la pagina principal http://10.10.10.150 al final de todo nos pone secret.txt
 ![[Curling4.png]]
 Entramos a http://10.10.10.150/secret.txt
@@ -72,6 +110,11 @@ Contraseña: Curling2018!
 
 -------------
 # [[RCE(Remote Comand Ejecution) En joomla]] y  [[Reverse shell]]
+
+Con las credenciales que conseguimos anteriormente vamos a logearnos en la pagina que enumeramos con [[Gobuster]] http://10.10.10.150/administrator/ 
+
+Y ya estamos logeados
+![[Curling25.png]]
 
 [Articulo que explica como sacar una revershell con joomla](https://www.hackingarticles.in/joomla-reverse-shell/)
 Vamos a ir a la parte de templates, 
@@ -131,7 +174,8 @@ Ya tenemos una contraseña que aparenta ser de floris, asi que vamos a intentar 
 ![[Curling17.png]]
 Ya podemos sacar la primera flag, y solamente nos faltaria hacernos root para completar el laboratorio
 
-### Escalada a root: Mediante tarea cron
+--------
+# Escalada a root mediante [[Tareas Cron]]
 
 ##### Enumeracion
 Ejecutamos el [[PSPY]]
