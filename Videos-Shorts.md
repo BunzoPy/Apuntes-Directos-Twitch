@@ -48,7 +48,9 @@
 | [Escalada de privilegios con python capability cap_setuid](https://www.youtube.com/shorts/uQKc666zxh0)                            | [[Binario python3.8]]                                                   |
 | [Como escalar privilegios abusando de SUDO cuando estan todos los binarios expuestos](https://www.youtube.com/shorts/5tRhQwMtbao) | [[Abuso de Sudo]]                                                       |
 | [Aprende a usar ffuf para descubrir rutas con dígitos](https://www.youtube.com/shorts/ASTlbIWQWos)                                | [[FFUF]]                                                                |
-|                                                                                                                                   |                                                                         |
+| [Utiliza el comando type en Windows que es como el cat de Linux](https://www.youtube.com/shorts/sMG-kHh2RuY)                      | [[type]]                                                                |
+| [Como enumerar la vulnerabilidad EternalBlue con un script de NMAP](https://www.youtube.com/shorts/goeJt1p9Ekw)                   | [[NMAP Scripts]] y [[CVE-2017-0143]]                                    |
+| [Como crear un archivo ejecutable con msfvenom para enviarnos una revershell](https://www.youtube.com/shorts/IWoLss0zjek)         | [[msfvenom]]                                                            |
 
 -------
 # Videos a grabar

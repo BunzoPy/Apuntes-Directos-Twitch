@@ -51,4 +51,5 @@ Cambiar la primera instruccion de `script /dev/null -c bash` al siguiente comand
 *Aclaracion:*
 	Para chequear si es una tty poner en consola *tty* y si nos sale *not a tty*  es que no es una tty, pero si nos llega a salir algo como */dev/pts/5* o algo parecido, si es una tty
 	 ![[Antique18.png]]
-	
+
+grep -riE "*password|password|password*"

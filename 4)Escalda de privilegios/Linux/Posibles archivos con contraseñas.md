@@ -9,3 +9,5 @@ Da como resultado ``M3g4C0rpUs3r!``
 
 #### Aclaracion
 Podemos cambiar la palabra connect por la que querramos, y tenemos que buscar en carpetas especificas, ya que si buscamos desde la raiz vamos a tener muchos falsos positivos
+
+grep -riE ".*password|password|password.*"
