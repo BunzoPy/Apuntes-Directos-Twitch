@@ -12,8 +12,8 @@ Normalmente corre por el puerto 3306
 #### Conectarse con el usuario root sin otortar contraseña
 
 ```shell
-mysql -h Ip -P Puerto -u root
-Ejemplo: mysql -h 10.129.68.124 -P 3306 -u root
+mysql -h Ip -P Puerto -u root -p"Contraseña"
+Ejemplo: mysql -u lewis -p"P4ntherg0t1n5r3c0n##" -h localhost -P 3306
 ```
 *Parametros:*
 `-h` Ip
@@ -21,7 +21,7 @@ Ejemplo: mysql -h 10.129.68.124 -P 3306 -u root
 `-u` Usuario
 `-p` Contraseña
 
-![[mysql1.png]]
+![[Devvortex23.png]]
 
 --------
 # Como dumpear datos
