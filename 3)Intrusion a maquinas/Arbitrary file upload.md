@@ -20,3 +20,8 @@ Entonces desde el directorio uploads vamos a intentar inyectar comandos con la u
 http://10.129.207.226/uploads/test.php?cmd=whoami
 ![[Oopsie13.png]]
 Nos responde www-data asi que funciona correctamente
+
+-------
+# Archivos con doble extension
+
+Si tenemos una pagina que solo acepta archivos con extension *.md* pero lee codigo *.php* podemos hacer un archivo *exploit.php.md* y de esta forma vamos a poder cargar el archivo a la pagina y se va a ejecutar su contenido *php*

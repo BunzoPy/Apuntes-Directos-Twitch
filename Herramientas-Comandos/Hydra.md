@@ -19,3 +19,15 @@ Ejemplo: hydra -L /usr/share/SecLists/Usernames/top-usernames-shortlist.txt -P /
 `-t` Cantidad de hilos
 
 ![[Netmon10.png]]
+
+
+-----
+# Fuerza bruta a [[ssh]]
+
+```shell
+hydra -L users -P pass ssh://10.10.16.5
+```
+
+*Parametros*
+`-L` Lista de usuarios a probar
+`-P`Lista de contraseñas a probar

@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Analytics)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=zlSEHorgrOI)|[Parte2](https://www.youtube.com/watch?v=jwUMEJ1KtzY)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=zlLR-maS1SI)
 
 ---
 
@@ -54,7 +54,7 @@ keywords:
 	metabase
 
 9)¿Qué variable de entorno contiene la contraseña para el usuario de Metalytics?
-	
+	META_PASS
 
 *La pregunta anterior es la flag de user.txt*
 11)¿Qué versión de kernel está instalada en el sistema de host?

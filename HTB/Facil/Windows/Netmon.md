@@ -115,7 +115,6 @@ Lo abrimos en nuestra maquina, tiene un contenido muy extenso, pero la informaci
 ![[Netmon13.png]]
 
 ------
-
 # [[CVE-2018-9276]]
 
 Buscamos vulnerabilidades con [[searchsploit]] con el comando ``searchsploit prtg``

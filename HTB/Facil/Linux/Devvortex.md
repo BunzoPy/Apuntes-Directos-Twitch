@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Devvortex)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=086byNlzslI)|[Parte2](https://www.youtube.com/watch?v=H22NxJNg3jA)|[Parte3](https://www.youtube.com/watch?v=sETUPHypClw)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=Xo8z5oWp6PQ)
 
 ---
 

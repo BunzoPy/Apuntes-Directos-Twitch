@@ -99,10 +99,6 @@ nmap -sCV -pPuertos IP -oN extractPorts
 	``-oN`` para exportar en un archivo con formato NMAP todo el output
 
 -----------
-
-
-
-
 # Notas
 
 **TTL (Time To Live)** es un número que indica cuántos **saltos (hops)** puede hacer un paquete IP antes de ser descartado.

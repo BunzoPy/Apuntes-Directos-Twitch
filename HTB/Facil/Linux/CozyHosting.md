@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/CozyHosting)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=KsuFK69L1bo)|[Parte2](https://www.youtube.com/watch?v=QyskUaGgmHA)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=SwVorOcC3bg)
 
 ---
 
@@ -125,7 +125,9 @@ Informa que esta corriendo un nginx 1.18.0
 -------
 # [[Gobuster]]
 
+```
 gobuster dir -u http://cozyhosting.htb/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt -t 64
+```
 ![[CozyHosting9.png]]
 Encontramos el directorio */error* http://cozyhosting.htb/error
 
@@ -189,11 +191,11 @@ Ya ganamos acceso como el usuario *app*
 --------
 # Escalada de privilegios al usuario josh con [[Posibles archivos con contraseñas]], [[postgresql]] y [[john]]
 
-Vamos a pasar el archivo que tenemos el directorio de *app* a */tmp* pero para que este mas ordenado. Vamos a ir con [[cd]] a /tmp y vamos a crear una carpeta que se llame trabajo con [[mkdir]] usando `mkdir trabajo` y luego vamos ir de nuevo al directorio *app* con `cd..` y despues `cd app` para mover con [[cp]] `cp cloudhosting-0.0.0.1.jar /tmp/trabajo` Ahora vamos a ir con `cd /tmp/trabajo` y vamos a descomprimir el archivo con [[[unzip]] usando `unzip cloudhosting-0.0.1.jar`
+Vamos a pasar el archivo *cloudhosting-0.0.1.jar* que tenemos el directorio de *app* a */tmp* pero para que este mas ordenado. Vamos a ir con [[cd]] a /tmp y vamos a crear una carpeta que se llame trabajo con [[mkdir]] usando `mkdir trabajo` y luego vamos ir de nuevo al directorio *app* con `cd..` y despues `cd app` para mover con [[cp]] `cp cloudhosting-0.0.0.1.jar /tmp/trabajo` Ahora vamos a ir con `cd /tmp/trabajo` y vamos a descomprimir el archivo con [[unzip]] usando `unzip cloudhosting-0.0.1.jar`
 
 ![[CozyHosting21.png]]
 
-Vamos a buscar con [[grep]] posibles contraseñas en los archivos con el comando `grep -riE "*password|password|password*"`
+Vamos a buscar con [[grep]] posibles contraseñas en los archivos con el comando `grep -riE ".*password|password|password.*"`
 
 ![[CozyHosting23.png]]
 Encuentro esta posible contraseña en el archivo *BOOT-INF/classes/application.properties*
@@ -231,6 +233,7 @@ nos da la contraseña *manchesterunited*
 Vimos que esta el home del usuario josh, asi que probamos la contraseña que encontramos en ese usuario
 ![[CozyHosting31.png]]
 
+Ahora con [[ssh]] nos vamos a conectar usando el comando `ssh josh@10.10.11.230 -p 22`
 ![[CozyHosting30.png]]
 Ya escalamos al usuario josh
 

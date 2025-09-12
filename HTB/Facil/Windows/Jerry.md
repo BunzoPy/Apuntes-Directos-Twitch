@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Jerry)
 - 📺 **Resolución en vivo (completa)**: [Link]([Link](https://www.youtube.com/watch?v=NfEMX7-BFTo))
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=K7h88F15U58)
 
 -------
 
@@ -83,11 +83,11 @@ gobuster dir -u http://10.10.10.95:8080 -w /usr/share/SecLists/Discovery/Web-Con
 Nos indica que esta el directorio */manager/html*
 
 ---------
-# [[Arbitrary file upload]] en tomcat
+# Robo de credenciales y logeo en tomcat
 
 Entramos a la pagina principal y vemos que es un tomcat
 ![[Jerry5.png]]
-Ponemos un usuario y contraseña para probar
+Ponemos un usuario y contraseña para probar, y como no tenemos nada valido apretamos en *Cancel*
 ![[Jerry6.png]]
 Y en la pagina de error, nos muestra un usuario y contraseña que al probarlos, vemos que podemos ingresar al panel de tomcat
 ![[Jerry4.png]]
@@ -97,7 +97,7 @@ tomcat:s3cret
 Vemos que podemos subir archivos .war. Asi que vamos a mandarnos una [[Reverse shell]]
 
 -------
-# [[Reverse shell]]
+# [[Arbitrary file upload]] con exploit creado con [[msfvenom]] para mandarnos una [[Reverse shell]]
 
 Con [[msfvenom]] creamos el archivo .war
 

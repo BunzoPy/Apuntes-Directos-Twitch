@@ -18,8 +18,8 @@ keywords:
 ----------
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: 
-- 📺 **Resolución en vivo (completa)**: 
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Granny)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=s_1LaGfKMkU)|[Parte2](https://www.youtube.com/watch?v=ul8bA5CgpfI)
 - 🧠 **Explicación resumida**: 
 
 ---

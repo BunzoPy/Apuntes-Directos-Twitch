@@ -99,7 +99,7 @@ Vamos a ver el archivo con [[cat]] usando el comando ``cat 22319.txt`
 ![[Antique9.png]]
 
 
-###  Dumpeamos contraseña con [[snmp]]
+###  Dumpeamos contraseña con [[snmpget]]
 
 Modificando el payload que vimos en el exploit anterior, vamos a usar el comando `snmpget -v1 -c public 10.10.11.107 .1.3.6.1.4.1.11.2.3.9.1.1.13.0` que nos va a servir para dumpear contraseñas en HEX
 

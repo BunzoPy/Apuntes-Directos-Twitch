@@ -1,5 +1,4 @@
 
----------
 # Shorts
 
 | Link del short en youtube                                                                                                         | Apunte                                                                  |
@@ -51,9 +50,28 @@
 | [Utiliza el comando type en Windows que es como el cat de Linux](https://www.youtube.com/shorts/sMG-kHh2RuY)                      | [[type]]                                                                |
 | [Como enumerar la vulnerabilidad EternalBlue con un script de NMAP](https://www.youtube.com/shorts/goeJt1p9Ekw)                   | [[NMAP Scripts]] y [[CVE-2017-0143]]                                    |
 | [Como crear un archivo ejecutable con msfvenom para enviarnos una revershell](https://www.youtube.com/shorts/IWoLss0zjek)         | [[msfvenom]]                                                            |
+| [Explotar la vulnerabilidad EternalBlue](https://www.youtube.com/shorts/qU7f0fR-Fk4)                                              | [[CVE-2017-0143]]                                                       |
+| [Como convertir un whitelabel error en un cookie hijacking](https://www.youtube.com/shorts/oIhjZOOAh4k)                           | [[Whitelabel Error Page]] y [[Cookie Hijacking]]                        |
+| [Como escalar privilegios abusando con sudo del binario ssh](https://www.youtube.com/shorts/d_zgueDLxh0)                          | [[Binario SSH]]                                                         |
+| [Como hacer un command blind injection sin poner espacios]()                                                                      | [[Command Injection]]                                                   |
+|                                                                                                                                   | [[CVE-2018-9276]]                                                       |
+|                                                                                                                                   | [[evil-winrm]]                                                          |
+|                                                                                                                                   |                                                                         |
 
 -------
 # Videos a grabar
 
-Maquina [[Netmon]]
-	[[CVE-2018-9276]] y [[evil-winrm]] [[tasklist]]
+Maquina [[Jerry]]
+	[[Arbitrary file upload]] en tomcat 
+
+Maquina [[Devvortex]]
+	 [[Enumeracion version de joomla]] ,[[CVE-2023-23752]], [[Inyeccion de codigo php en template Joomla]] para enviarnos una [[Reverse shell]] , Escalada al usuario root con [[Abuso de Sudo]] [[Binario apport-cli]]  [[CVE-2023-1326]]
+
+Maquina [[Analytics]]
+	como hacer escaneo udp con nmap,[[CVE-2023-38646]],[[Informacion expuesta en variables de enterno]],[[CVE-2023-2640-CVE-2023-32629]], comando [[uname]] y [[lsb_release]]
+
+Maquina [[Archetype]]
+	[[impacket-mssqlclient]], [[impacket-psexec]], como pasarse netcat y entablar una revershell desde impacketmsclient, como activar el [[xp_cmdshell]], [[Logs de la powershell y de consola]]
+
+Maquina [[Base]]
+	[[Posibles archivos con contraseñas]], [[Binario find]]

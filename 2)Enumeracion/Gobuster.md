@@ -56,3 +56,5 @@ Ejemplo: gobuster dir -u http://ignition.htb -w /usr/share/SecLists/Discovery/We
 `-b` Excluye codigos de respuesta que no querramos por ejemplo 302
 `-x` Busca archivos con la extension que pongamos              Ejemplo: -x php,txt,bak,html 
 	*Importante:* Cuando usás `--add-slash` **junto con `-x` (extensiones)**, **gobuster ya no busca archivos como `admin.php`** porque las rutas terminan en `/`, lo cual rompe la lógica de archivo.
+`--timeout 20s` Probar cuando de error por la cantidad de hilos, ya que se estan ejecutando varias conexiones al mismo tiempo, y si no funciona, bajar la cantidad de hilos
+	![[UnderPass20.png]]

