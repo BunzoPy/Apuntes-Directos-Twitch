@@ -18,6 +18,14 @@ Ejemplo: evil-winrm -i 10.129.95.234 -u administrator -p badminton -P 5985
 `-p` Se pone la contraseña
 `-P` Se coloca el puerto
 
+--------
+# Descarga de archivos
 
+Desde la maquina victima si ponemos el comando de download se va a descargar el archivo en nuestra maquina
+
+```shell
+download NombreDelArchivo
+download test.txt
+```
 
 
