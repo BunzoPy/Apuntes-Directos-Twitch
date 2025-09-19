@@ -18,8 +18,8 @@ keywords:
 ----
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: 
-- 📺 **Resolución en vivo (completa)**: 
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/BoardLight)
+- 📺 **Resolución en vivo (completa)**: [Link](https://www.youtube.com/watch?v=obi50FCt3ro)
 - 🧠 **Explicación resumida**: 
 
 --------

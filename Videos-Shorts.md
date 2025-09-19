@@ -54,7 +54,7 @@
 | [Como convertir un whitelabel error en un cookie hijacking](https://www.youtube.com/shorts/oIhjZOOAh4k)                           | [[Whitelabel Error Page]] y [[Cookie Hijacking]]                        |
 | [Como escalar privilegios abusando con sudo del binario ssh](https://www.youtube.com/shorts/d_zgueDLxh0)                          | [[Binario SSH]]                                                         |
 | [Como hacer un command blind injection sin poner espacios]()                                                                      | [[Command Injection]]                                                   |
-|                                                                                                                                   | [[CVE-2018-9276]]                                                       |
+| [Como ganar acceso a una maquina cuando vemos un PRTG Network Monitor](https://www.youtube.com/shorts/LKP_tpj9MBA)                | [[CVE-2018-9276]]                                                       |
 |                                                                                                                                   | [[evil-winrm]]                                                          |
 |                                                                                                                                   |                                                                         |
 

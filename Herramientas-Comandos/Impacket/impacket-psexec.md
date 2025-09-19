@@ -1,6 +1,7 @@
 Es una herramienta de la suite **Impacket** que permite ejecutar comandos remotamente en sistemas Windows usando el protocolo SMB. Emula el comportamiento de la herramienta oficial **PsExec** de Sysinternals, creando un servicio temporal para lanzar comandos y obtener una shell remota. Es muy útil en pentesting para controlar máquinas Windows sin acceso físico.
 
 Se conecta por smb y ejecuta comandos desde el servicio de smb, el output del comando tambien lo da por smb, pero el impacket lo que hace es gestionarlo como si fuera una consola
+### Importante solamente conecta con privielgios altos, no con cualquier usuario
 ## Como conectarse
 ```shell
 impacket-psexec Usuario@Ip -port Puerto

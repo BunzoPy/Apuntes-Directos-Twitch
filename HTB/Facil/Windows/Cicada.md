@@ -18,13 +18,13 @@ keywords:
 ------
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: 
-- 📺 **Resolución en vivo (completa)**: 
+- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Linux/Cicada)
+- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=4IMtfr1jyQU)|[Parte2](https://www.youtube.com/watch?v=RQEKPT4daMA)|[Parte3](https://www.youtube.com/watch?v=ZM48lkClMco)
 - 🧠 **Explicación resumida**: 
 
 ---
 
-#easy #windows #nmap #ping #smb #impacket-lookupsid #impacket-secretsdump #netexec #cat #cd #mkdir #whoami #evil-winrm #SeBackupPrivilege 
+#easy #windows #nmap #ping #smb #impacket-lookupsid #impacket-secretsdump #netexec #cat #cd #mkdir #whoami #evil-winrm #SeBackupPrivilege #ad #activedirectory
 
 -----
 # Guided Mode

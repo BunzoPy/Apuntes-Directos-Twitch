@@ -29,6 +29,7 @@ Ejemplo: netexec smb 10.10.11.35 -u users.txt -p 'Cicada$M6Corpb*@Lp#nZp!8' --no
 ```
 netexec smb 10.10.11.35 -u michael.wrightson -p 'Cicada$M6Corpb*@Lp#nZp!8' --users
 ```
+	
 	`Servicio` Puede ser smb,rpc/dcom,etc
 	`Ip` Ip de la maquina
 	`-u` Es para poner el usuario, puede ser un nombre o un archivo
