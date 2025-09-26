@@ -14,3 +14,11 @@ Ejemplo: mount | grep augustus
 	**`rw`**: se puede leer y escribir (read/write).
 	**`relatime`**: optimiza las escrituras al disco actualizando los tiempos de acceso de forma más eficiente.
 	**`errors=remount-ro`**: si hay errores, el sistema monta la partición como de solo lectura (para evitar daños).
+
+------
+# Ejemplo montar carpeta host /dev/sda1 en la carpeta del contenedor /mnt/
+
+```
+mount /dev/sda1 /mnt/
+```
+Esto nos puede servir en docker, para pasar los usuarios de la maquina victima al contenedor

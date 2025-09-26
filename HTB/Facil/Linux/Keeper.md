@@ -128,7 +128,7 @@ Ya estamos dentro de la maquina
 
 En el escritorio del usuario *Inogaard* Encontramos un archivo *RT30000.zip* asi que lo vamos a descomprimir con [[Herramientas-Comandos/unzip]] usando el comando `unzip RT30000.zip`
 
-![[Imagenes/Keeper13.png]]
+![[Keeper13.png]]
 
 
 Ahora nos vamos a pasar los archivos a nuestra maquina, asi que nos ponemos en escucha con [[Netcat]] desde la maquina victima
@@ -196,7 +196,7 @@ show 0
 ![[Keeper21.png]]
 
 Podemos ver que dice ``uname: root`` y despues en las notas esta la clave ssh. Asi que asumimos que es del usuario *root*
-![[Imagenes/Keeper14.png]]
+![[Keeper14.png]]
 
 
 ```

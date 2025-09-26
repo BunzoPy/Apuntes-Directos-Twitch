@@ -55,7 +55,7 @@
 | [Como escalar privilegios abusando con sudo del binario ssh](https://www.youtube.com/shorts/d_zgueDLxh0)                          | [[Binario SSH]]                                                         |
 | [Como hacer un command blind injection sin poner espacios]()                                                                      | [[Command Injection]]                                                   |
 | [Como ganar acceso a una maquina cuando vemos un PRTG Network Monitor](https://www.youtube.com/shorts/LKP_tpj9MBA)                | [[CVE-2018-9276]]                                                       |
-|                                                                                                                                   | [[evil-winrm]]                                                          |
+| [Como conectarnos a una maquina Windows con evil-winrm](https://www.youtube.com/shorts/ibFobkG8Rk4)                               | [[evil-winrm]]                                                          |
 |                                                                                                                                   |                                                                         |
 
 -------

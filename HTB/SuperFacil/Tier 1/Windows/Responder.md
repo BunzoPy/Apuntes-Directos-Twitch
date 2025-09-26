@@ -69,12 +69,12 @@ extractPorts allports
 nmap -sCV -p80,5985 10.129.7.210 -oN target
 ```
 
-![[Imagenes/Responder1.png]]
+![[Responder1.png]]
 
 
-![[Imagenes/Responder2.png]]
+![[Responder2.png]]
 
-![[Imagenes/Responder3.png]]
+![[Responder3.png]]
 *TTL:* Maquina Windows
 *Puertos:*
 	`80` HTTP
@@ -94,7 +94,7 @@ No nos da ninguna información relevante para la maquina
 # Ingreso a la pagina web y modificamos el /etc/hosts
 
 Al intentar entrar nos envia a unika.htb asi que lo vamos a añadir al /etc/hosts
-![[Imagenes/Responder4.png]]
+![[Responder4.png]]
 
 Usamos [[nvim]] con el comando `nvim /etc/hosts` siendo sudos, si no no vamos a poder
 Anadimos al final del archivo
@@ -102,7 +102,7 @@ Anadimos al final del archivo
 10.129.7.210 unika.htb
 ```
 
-![[Imagenes/Responder6.png]]
+![[Responder6.png]]
 Y ya podemos entrar a la pagina web sin ningun tipo de problema
 
 ![[Responder8.png]]

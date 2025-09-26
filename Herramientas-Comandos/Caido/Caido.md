@@ -53,7 +53,7 @@ Lo podemos hacer por *status*, *length* o nos deja poner campos por lo que querr
 
 [Link del proyecto github](https://github.com/caido/caido/releases) yo en mi caso como tengo parrot me voy a descargar el que dice *Linux x86_64 (deb)*
 
-![[Imagenes/Caido4.png]]
+![[Caido4.png]]
 
 Y ahora desde la carpeta donde descargamos el archivo vamos a usar los siguientes comando en consola
 

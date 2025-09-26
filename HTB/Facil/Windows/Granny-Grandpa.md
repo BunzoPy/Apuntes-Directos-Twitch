@@ -18,8 +18,8 @@ keywords:
 ----------
 ### 🔗 Accesos rápidos
 
-- 📄 **Writeup online**: [Link](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Granny)
-- 📺 **Resolución en vivo (completa)**: [Parte1](https://www.youtube.com/watch?v=s_1LaGfKMkU)|[Parte2](https://www.youtube.com/watch?v=ul8bA5CgpfI)
+- 📄 **Writeup online**: [Link Granny](https://publish.obsidian.md/bunzopy/HTB/Facil/Windows/Granny-Grandpa) 
+- 📺 **Resolución en vivo (completa)**: [Granny Parte1](https://www.youtube.com/watch?v=s_1LaGfKMkU)|[Granny Parte2](https://www.youtube.com/watch?v=ul8bA5CgpfI)|[Link Grandpa](https://www.youtube.com/watch?v=L5jRxh0IAd0)
 - 🧠 **Explicación resumida**: 
 
 ---
@@ -27,7 +27,13 @@ keywords:
 #easy #windows #nmap #ping #churrascoexe #impacket-smbserver #CVE-2017-7269 #whatweb #wappalyzer #whoami #msfvenom #rwrapncnlvp443 
 
 -------
-# Guided Mode
+# Aclaracion importante
+
+Hace un tiempo habia solucionado la maquina granny y despues intente a grandpa y vi que eran iguales asi que voy a usar el mismo writeup para las dos
+
+-----
+
+# Guided Mode de la maquina Granny
 
 1)¿Cuántos puertos TCP están abiertos en Granny?
 	1
@@ -128,7 +134,14 @@ Ya elevamos nuestro privilegio al maximo y podemos ver las flags
 ![[Granny16.png]]
 ![[Granny17.png]]
 
-------
+----
+# Notas
+
+Descargar los raw de github haciendo click derecho en raw y copiando el link y ahi lo paso por [[wget]]
+
+
+
+-----
 # Creditos
 
 [Writeup jtsec](https://www.jtsec.es/blog-entry/61/road-to-oscp-hack-the-box-write-up-granny)
