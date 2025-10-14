@@ -28,4 +28,8 @@ download NombreDelArchivo
 download test.txt
 ```
 
+----
+# Comandos
 
+``upload``  NombreDelArchivo           para subir un archivo a la maquina victima
+``download`` NombreDelArchivo        para descargar un archivo hacia mi maquina de atacante

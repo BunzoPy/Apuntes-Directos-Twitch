@@ -25,3 +25,35 @@ keywords:
 
 ---
 
+#nmap #ping 
+
+-----
+# Guided Mode
+
+
+
+
+
+-----
+# [[Reconocimiento de OS(Sistema operativo) y puertos abiertos con NMAP]]
+
+Se puede utilizar la version automatizada que tenemos creada con [[startlab]] o si no de forma manual
+
+```shell
+ping -c 1 IP
+nmap -p- --open --min-rate 5000 -vvv -sS -n -Pn IP -oG allPortsTCP
+extractPorts allPortsTCP
+nmap -sCV -pPuertos IP -oN targetTCP
+nmap -sU -n -Pn --top-ports 200 IP -oG allPortsUDP
+extractPorts allPortsUDP
+nmap -sU -sCV -pPuertos IP -oN targetUDP
+```
+
+
+-------
+
+
+
+
+------
+# Notas

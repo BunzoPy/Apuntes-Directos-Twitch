@@ -15,7 +15,8 @@ Ejemplo impacket-secretsdump -sam sam -system system LOCAL
 ```
 *Parametros:*
 	`-sam` Es para especificar el formato del archivo
-	`system` Es para indicar el archivo system que tiene la encriptacion
+	`-system` Es para indicar el archivo system que tiene la encriptacion
+	`-ntds` Indicamos le archivo ntds
 	LOCAL` Es para indicar que es a nivel local
 
 ## Ejemplo 2

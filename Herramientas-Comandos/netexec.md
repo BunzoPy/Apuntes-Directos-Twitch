@@ -1,6 +1,7 @@
 #netexec
 
 ---
+Es la version vieja de 1.3.0. En la actual ya no pasa
 
 Se usa para reconocimiento de red, movimiento lateral y evaluaciones de seguridad, así como para ayudar con pruebas de autenticación automatizadas contra sistemas remotos en un entorno de Active Directory.
 Lo podemos usar para hacer por ejemplo fuerza bruta, si tenemos una contraseña y un listado de posibles usuarios. Pero no se le puede pasar el rockyou ni diccionarios grandes, por que da error
@@ -41,3 +42,12 @@ netexec ldap 10.10.11.35 -u michael.wrightson -p 'Cicada$M6Corpb*@Lp#nZp!8' --bl
 	`-u` Es para poner el usuario, puede ser un nombre o un archivo
 	`-p` Es para la contraseña, puede ser la contraseña en texto o un diccionario
 	`--bloodhound` Hace lo mismo que el [[bloodhound-python]]. Crea los archivos de enumeracion para el [[bloodhound]]
+		``netexec ldap 10.129.234.71 --dns-server "10.129.234.71" -u Caroline.Robinson -p 'pawnedexploit123.' --bloodhound --collection all``
+		lo tuve que hacer con bllodhoundpython por que bloodhound no me agarraba los archivos de netexec
+		![[Baby14.png]]
+	`--users` Enumera todos los usuarios
+		Esto sirve para cuando no tengo ningun usuario por ejemplo`netexec ldap baby.vl -u''-p'' --users`
+	`--query` Envia una consulta con el comando en especifico que estoy necesitando
+		Ejemplo para enumerar todos los objetos``netexec ldap baby.vl -u''-p'' --query "(objectClass=*)" ""``
+		Esta es otra query`"(sAMAccountName=*)" ""`
+		Otra `"(objectClass=*)" ""`
